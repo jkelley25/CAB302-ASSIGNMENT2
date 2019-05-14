@@ -15,10 +15,10 @@ public class Line {
 
     /**
      * Line constructor given the coordinates passed, in the format (x1,y1) (x2,y2)
-     * @param x1
-     * @param y1
-     * @param x2
-     * @param y2
+     * @param x1 x coordinate of the first point
+     * @param y1 y coordinate of the first point
+     * @param x2 x coordinate of the second point
+     * @param y2 y coordinate of the second point
      */
     public Line(double x1, double y1, double x2, double y2){
         this.x1 = x1;
@@ -27,10 +27,18 @@ public class Line {
         this.y2 = y2;
     }
 
-
+    /**
+     * Method for painting to panel using Graphics class
+     * @param g graphics object for drawing
+     */
     public void paint(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.BLACK);
         g2.draw(new Line2D.Double(x1, y1, x2, y2));
+    }
+
+    public double [] GetCoordinates(){
+        double [] coord = {x1, y1, x2, y2};
+        return coord;
     }
 }

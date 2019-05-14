@@ -1,7 +1,7 @@
 package vec;
 
 /**
- * Abstract for handling File input and output
+ * Abstract class for handling File input and output
  */
 public abstract class FileIO {
 
