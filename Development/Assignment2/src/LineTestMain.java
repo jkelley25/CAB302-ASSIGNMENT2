@@ -1,12 +1,11 @@
-import vec.VecIO;
-
+import vec.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class TestMain {
+public class LineTestMain {
 
     public static void main (String[] args) {
-        VecIO vec = new VecIO("lineplottest.VEC");
+        VecIO vec = new VecIO("linetest.VEC");
         vec.ReadFile();
         vec.GetCommands();
         JFrame frame = new JFrame("Test");
@@ -15,11 +14,7 @@ public class TestMain {
         frame.setSize(800,500);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(vec.GetPlots());
         frame.add(vec.GetLines());
-
-        vec.GetPlots().Draw();
         vec.GetLines().Draw();
-
     }
 }

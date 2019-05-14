@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e43c6159-fae3-4a92-b9fc-b2cb52e364a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Assignment2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Assignment2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LineTestMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Line.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/LineList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/LineList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vec/FileIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vec/FileIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shapes/LineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/LineTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vec/VecIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vec/VecIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.VEC" beforeDir="false" afterPath="$PROJECT_DIR$/linetest.VEC" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,12 +22,66 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shapes/Line.java">
+        <entry file="file://$PROJECT_DIR$/src/vec/VecIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+            <state relative-caret-position="-131">
+              <caret line="12" column="44" lean-forward="true" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#ReadFile#0;class#VecIO#0" />
+                <element signature="e#2455#2456#0" expanded="true" />
+                <element signature="e#2483#2484#0" expanded="true" />
+                <element signature="e#2516#2517#0" expanded="true" />
+                <element signature="e#2544#2545#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/shapes/PlotTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#547#548#0" expanded="true" />
+                <element signature="e#585#586#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plottest.VEC">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shapes/Plot.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="35" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/shapes/LineTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#533#534#0" expanded="true" />
+                <element signature="e#574#575#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,43 +90,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shapes/LineList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="23" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="23" />
+            <state relative-caret-position="120">
+              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#240#241#0" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-                <element signature="e#357#358#0" expanded="true" />
-                <element signature="e#382#383#0" expanded="true" />
-                <element signature="e#878#879#0" expanded="true" />
-                <element signature="e#917#918#0" expanded="true" />
+                <element signature="e#581#582#0" expanded="true" />
+                <element signature="e#634#635#0" expanded="true" />
+                <element signature="e#640#641#0" expanded="true" />
+                <element signature="e#665#666#0" expanded="true" />
+                <element signature="e#1085#1086#0" expanded="true" />
+                <element signature="e#1124#1125#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/vec/VecIO.java">
+        <entry file="file://$PROJECT_DIR$/src/PlotTestMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="61" column="38" lean-forward="true" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#297#298#0" expanded="true" />
-                <element signature="e#328#329#0" expanded="true" />
-                <element signature="method#ReadFile#0;class#VEC#0" />
-                <element signature="e#2089#2090#0" expanded="true" />
-                <element signature="e#2116#2117#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/shapes/LineTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+            <state relative-caret-position="300">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/linetest.VEC">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="19" selection-start-column="17" selection-end-column="19" />
+            <state relative-caret-position="135">
+              <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -94,8 +129,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+            <state relative-caret-position="270">
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/LineTestMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,10 +175,17 @@
         <option value="$PROJECT_DIR$/src/vec/main.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/vec/FileIO.java" />
-        <option value="$PROJECT_DIR$/src/shapes/Line.java" />
         <option value="$PROJECT_DIR$/src/shapes/LineList.java" />
-        <option value="$PROJECT_DIR$/src/vec/VecIO.java" />
+        <option value="$PROJECT_DIR$/plottest.VEC" />
+        <option value="$PROJECT_DIR$/src/shapes/Plot.java" />
+        <option value="$PROJECT_DIR$/src/shapes/PlotList.java" />
+        <option value="$PROJECT_DIR$/src/shapes/Line.java" />
+        <option value="$PROJECT_DIR$/src/PlotTestMain.java" />
+        <option value="$PROJECT_DIR$/lineplottest.VEC" />
+        <option value="$PROJECT_DIR$/src/LineTestMain.java" />
         <option value="$PROJECT_DIR$/src/TestMain.java" />
+        <option value="$PROJECT_DIR$/src/vec/VecIO.java" />
+        <option value="$PROJECT_DIR$/src/shapes/PlotTest.java" />
         <option value="$PROJECT_DIR$/src/shapes/LineTest.java" />
       </list>
     </option>
@@ -202,22 +256,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.LineTest.TestVECLineCommand">
-    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TestMain" />
-      <module name="Assignment2" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="vec.main" />
-      <module name="Assignment2" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LineTest.TestAddLine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PlotTest">
+    <configuration name="LineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment2" />
       <extension name="coverage">
         <pattern>
@@ -227,13 +267,43 @@
       </extension>
       <option name="PACKAGE_NAME" value="shapes" />
       <option name="MAIN_CLASS_NAME" value="shapes.LineTest" />
-      <option name="METHOD_NAME" value="TestAddLine" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlotTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="shapes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="shapes" />
+      <option name="MAIN_CLASS_NAME" value="shapes.PlotTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlotTest.TestFirstPlotCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="shapes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="shapes" />
+      <option name="MAIN_CLASS_NAME" value="shapes.PlotTest" />
+      <option name="METHOD_NAME" value="TestFirstPlotCommand" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LineTest.TestConstruction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlotTest.TestLastPlotCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment2" />
       <extension name="coverage">
         <pattern>
@@ -242,14 +312,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="shapes" />
-      <option name="MAIN_CLASS_NAME" value="shapes.LineTest" />
-      <option name="METHOD_NAME" value="TestConstruction" />
+      <option name="MAIN_CLASS_NAME" value="shapes.PlotTest" />
+      <option name="METHOD_NAME" value="TestLastPlotCommand" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LineTest.TestVECLineCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlotTest.TestPlotCommand" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Assignment2" />
       <extension name="coverage">
         <pattern>
@@ -258,8 +328,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="shapes" />
-      <option name="MAIN_CLASS_NAME" value="shapes.LineTest" />
-      <option name="METHOD_NAME" value="TestVECLineCommand" />
+      <option name="MAIN_CLASS_NAME" value="shapes.PlotTest" />
+      <option name="METHOD_NAME" value="TestPlotCommand" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -267,11 +337,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LineTest.TestVECLineCommand" />
-        <item itemvalue="Application.TestMain" />
-        <item itemvalue="JUnit.LineTest.TestConstruction" />
-        <item itemvalue="JUnit.LineTest.TestAddLine" />
-        <item itemvalue="Application.main" />
+        <item itemvalue="JUnit.PlotTest" />
+        <item itemvalue="JUnit.LineTest" />
+        <item itemvalue="JUnit.PlotTest.TestLastPlotCommand" />
+        <item itemvalue="JUnit.PlotTest.TestFirstPlotCommand" />
+        <item itemvalue="JUnit.PlotTest.TestPlotCommand" />
       </list>
     </recent_temporary>
   </component>
@@ -289,29 +359,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LineTest_TestAddLine - 2019.05.14 at 15h 05m 29s.xml">
-      <configuration name="LineTest.TestAddLine" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LineTest_TestAddLine - 2019.05.14 at 15h 15m 12s.xml">
-      <configuration name="LineTest.TestAddLine" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LineTest_TestAddLine - 2019.05.14 at 15h 15m 52s.xml">
-      <configuration name="LineTest.TestAddLine" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LineTest_TestAddLine - 2019.05.14 at 15h 18m 03s.xml">
-      <configuration name="LineTest.TestAddLine" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LineTest_TestAddLine - 2019.05.14 at 15h 18m 18s.xml">
-      <configuration name="LineTest.TestAddLine" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LineTest_TestConstruction - 2019.05.14 at 15h 18m 57s.xml">
-      <configuration name="LineTest.TestConstruction" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LineTest_TestVECLineCommand - 2019.05.14 at 15h 33m 53s.xml">
-      <configuration name="LineTest.TestVECLineCommand" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LineTest_TestVECLineCommand - 2019.05.14 at 15h 36m 04s.xml">
       <configuration name="LineTest.TestVECLineCommand" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LineTest_TestNumCommands - 2019.05.14 at 15h 48m 37s.xml">
+      <configuration name="LineTest.TestNumCommands" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LineTest_TestNumCommands - 2019.05.14 at 15h 49m 09s.xml">
+      <configuration name="LineTest.TestNumCommands" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlotTest_TestCoordinate - 2019.05.14 at 21h 47m 34s.xml">
+      <configuration name="PlotTest.TestCoordinate" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlotTest_TestPlotCommand - 2019.05.14 at 21h 54m 28s.xml">
+      <configuration name="PlotTest.TestPlotCommand" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlotTest_TestPlotCommand - 2019.05.14 at 21h 55m 01s.xml">
+      <configuration name="PlotTest.TestPlotCommand" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlotTest_TestFirstPlotCommand - 2019.05.14 at 22h 01m 22s.xml">
+      <configuration name="PlotTest.TestFirstPlotCommand" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlotTest_TestLastPlotCommand - 2019.05.14 at 22h 06m 33s.xml">
+      <configuration name="PlotTest.TestLastPlotCommand" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="LineTest - 2019.05.14 at 22h 10m 59s.xml">
+      <configuration name="LineTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlotTest - 2019.05.14 at 22h 15m 15s.xml">
+      <configuration name="PlotTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -327,7 +403,7 @@
     <frame x="0" y="23" width="1280" height="734" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19547658" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1987076" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -337,12 +413,12 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32866043" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30373833" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30373833" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39875388" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32866043" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.18224299" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2538941" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32866043" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32866043" />
@@ -381,37 +457,25 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/shapes/draw.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#124#125#0" expanded="true" />
-            <element signature="e#148#149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shapes/AbstractShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shapes/main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shapes/draw.java" />
+    <entry file="file://$PROJECT_DIR$/src/shapes/AbstractShape.java" />
+    <entry file="file://$PROJECT_DIR$/src/shapes/main.java" />
     <entry file="file://$PROJECT_DIR$/src/gui/Wiring.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12">
@@ -434,20 +498,114 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/shapes/PlotList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-158">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#173#174#0" expanded="true" />
+            <element signature="e#198#199#0" expanded="true" />
+            <element signature="e#307#308#0" expanded="true" />
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#802#803#0" expanded="true" />
+            <element signature="e#841#842#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/shapes/Line.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="40" column="43" selection-start-line="40" selection-start-column="43" selection-end-line="40" selection-end-column="43" />
+        <state relative-caret-position="435">
+          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lineplottest.VEC">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TestMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+        <state relative-caret-position="270">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LineTestMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlotTestMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/linetest.VEC">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vec/VecIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-131">
+          <caret line="12" column="44" lean-forward="true" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#ReadFile#0;class#VecIO#0" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2483#2484#0" expanded="true" />
+            <element signature="e#2516#2517#0" expanded="true" />
+            <element signature="e#2544#2545#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plottest.VEC">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shapes/LineTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="4" lean-forward="true" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#533#534#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shapes/Plot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -456,48 +614,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shapes/LineList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="23" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="23" />
+        <state relative-caret-position="120">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-            <element signature="e#357#358#0" expanded="true" />
-            <element signature="e#382#383#0" expanded="true" />
-            <element signature="e#878#879#0" expanded="true" />
-            <element signature="e#917#918#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#634#635#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+            <element signature="e#1124#1125#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/linetest.VEC">
+    <entry file="file://$PROJECT_DIR$/src/shapes/PlotTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vec/VecIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="61" column="38" lean-forward="true" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+        <state relative-caret-position="270">
+          <caret line="18" column="23" lean-forward="true" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#297#298#0" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-            <element signature="method#ReadFile#0;class#VEC#0" />
-            <element signature="e#2089#2090#0" expanded="true" />
-            <element signature="e#2116#2117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shapes/LineTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
           </folding>
         </state>
       </provider>

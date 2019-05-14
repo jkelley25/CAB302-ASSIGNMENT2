@@ -8,10 +8,10 @@ public class LineList extends JPanel {
 
     /**
      * Method for constructing line objects
-     * @param x1
-     * @param y1
-     * @param x2
-     * @param y2
+     * @param x1 x coordinate of the first point
+     * @param y1 y coordinate of the first point
+     * @param x2 x coordinate of the second point
+     * @param y2 y coordinate of the second point
      */
     public void AddLine(double x1, double y1, double x2, double y2){
         this.lines.add(new Line(x1,y1,x2,y2));

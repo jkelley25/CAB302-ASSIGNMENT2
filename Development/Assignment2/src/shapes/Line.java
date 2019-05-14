@@ -34,7 +34,8 @@ public class Line {
     public void paint(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Color.BLACK);
-        g2.draw(new Line2D.Double(x1, y1, x2, y2));
+        g2.draw(new Line2D.Double(x1 , y1, x2, y2));
+
     }
 
     public double [] GetCoordinates(){

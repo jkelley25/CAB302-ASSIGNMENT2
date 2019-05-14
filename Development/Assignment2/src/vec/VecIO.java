@@ -10,7 +10,9 @@ import java.util.ArrayList;
 public class VecIO extends FileIO{
     private ArrayList<String[]> data = new ArrayList<>();
     private LineList lines = new LineList();
-    private final int SCALE = 200;
+    private PlotList plots = new PlotList();
+
+    private final int SCALE = 200; // value to resize the command
 
     /**
      * Construct a VecIO object given the fileName
@@ -57,16 +59,30 @@ public class VecIO extends FileIO{
      * Method for fetching each command in the VEC file
      */
     public void GetCommands(){
-        //
+        // iterate through commands and create shape object
         for(String [] com: data){
             if(com[0].equals("LINE")){
                 lines.AddLine(Double.parseDouble(com[1]) * SCALE, Double.parseDouble(com[2]) * SCALE,
                         Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4]) * SCALE );  // create new line
             }
+            if(com[0].equals("PLOT")){
+                plots.AddPlot(Double.parseDouble(com[1]) * SCALE,
+                        Double.parseDouble(com[2]) * SCALE ); // create new plot
+            }
         }
+    }
+
+    public ArrayList<String[]> GetData(){
+        return data;
     }
 
     public LineList GetLines(){
         return lines;
     }
+
+    public PlotList GetPlots(){
+        return plots;
+    }
+
+
 }
