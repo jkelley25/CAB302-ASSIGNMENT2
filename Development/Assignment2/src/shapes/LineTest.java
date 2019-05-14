@@ -66,7 +66,7 @@ public class LineTest {
      */
     @Test
     public void TestNumCommands(){
-        int actual  = vec.GetData().size() - 1;
+        int actual  = vec.GetData().size() - 1; //get data size
         int expected = 12;
         assertEquals(expected,actual);
     }
