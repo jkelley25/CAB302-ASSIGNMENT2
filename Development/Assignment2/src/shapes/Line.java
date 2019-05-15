@@ -7,7 +7,7 @@ import java.awt.geom.Line2D;
  * Class that creates a Line object
  */
 
-public class Line {
+public class Line implements ShapeInterface {
     private double x1;
     private double y1;
     private double x2;
@@ -38,7 +38,11 @@ public class Line {
 
     }
 
-    public double [] GetCoordinates(){
+    /**
+     * Gets the coordinates of the end points
+     * @return coordinates of starting and end point of line
+     */
+    public double [] getCoordinates(){
         double [] coord = {x1, y1, x2, y2};
         return coord;
     }

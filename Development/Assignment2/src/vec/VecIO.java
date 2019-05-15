@@ -9,8 +9,7 @@ import java.util.ArrayList;
  */
 public class VecIO extends FileIO{
     private ArrayList<String[]> data = new ArrayList<>();
-    private LineList lines = new LineList();
-    private PlotList plots = new PlotList();
+    private Draw draw = new Draw();
 
     private final int SCALE = 200; // value to resize the command
 
@@ -62,12 +61,20 @@ public class VecIO extends FileIO{
         // iterate through commands and create shape object
         for(String [] com: data){
             if(com[0].equals("LINE")){
-                lines.AddLine(Double.parseDouble(com[1]) * SCALE, Double.parseDouble(com[2]) * SCALE,
-                        Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4]) * SCALE );  // create new line
+                Line line = new Line(Double.parseDouble(com[1]) * SCALE, Double.parseDouble(com[2]) * SCALE,
+                        Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4]) * SCALE );
+                draw.addCommand(line);
             }
             if(com[0].equals("PLOT")){
-                plots.AddPlot(Double.parseDouble(com[1]) * SCALE,
-                        Double.parseDouble(com[2]) * SCALE ); // create new plot
+                Plot plot = new Plot(Double.parseDouble(com[1]) * SCALE,
+                        Double.parseDouble(com[2]) * SCALE);
+                draw.addCommand(plot);
+            }
+            if(com[0].equals("RECTANGLE")){
+                Rectangle rect = new Rectangle(Double.parseDouble(com[1]) * SCALE,
+                        Double.parseDouble(com[2]) * SCALE,
+                        Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4]));
+                draw.addCommand(rect);
             }
         }
     }
@@ -76,13 +83,11 @@ public class VecIO extends FileIO{
         return data;
     }
 
-    public LineList GetLines(){
-        return lines;
+    public Draw getDrawCommands(){
+        return draw;
     }
 
-    public PlotList GetPlots(){
-        return plots;
-    }
+
 
 
 }

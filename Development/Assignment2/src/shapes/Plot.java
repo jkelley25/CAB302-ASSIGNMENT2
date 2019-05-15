@@ -1,9 +1,7 @@
 package shapes;
-
 import java.awt.*;
-import java.awt.geom.Line2D;
 
-public class Plot {
+public class Plot implements ShapeInterface{
     private double x;
     private double y;
 
@@ -22,7 +20,11 @@ public class Plot {
         g2.drawString(".", (float)x, (float)y);
     }
 
-    public double [] GetCoordinates(){
+    /**
+     * Gets the coordinates of the single point
+     * @return coordinates of the Plot point
+     */
+    public double [] getCoordinates(){
         double [] coord = {x,y};
         return coord;
     }
