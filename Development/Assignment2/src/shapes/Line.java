@@ -7,7 +7,7 @@ import java.awt.geom.Line2D;
  * Class that creates a Line object
  */
 
-public class Line implements ShapeInterface {
+public class Line extends ShapeInterface {
     private double x1;
     private double y1;
     private double x2;
@@ -33,9 +33,9 @@ public class Line implements ShapeInterface {
      */
     public void paint(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.BLACK);
+        Color color = new Color(Line.color.getRGB());
+        g2.setColor(color);
         g2.draw(new Line2D.Double(x1 , y1, x2, y2));
-
     }
 
     /**
@@ -46,4 +46,8 @@ public class Line implements ShapeInterface {
         double [] coord = {x1, y1, x2, y2};
         return coord;
     }
+
+
+
+
 }

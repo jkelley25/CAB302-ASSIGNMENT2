@@ -3,6 +3,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import vec.VecIO;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PlotTest {
@@ -42,33 +44,31 @@ public class PlotTest {
         assertEquals(expected[1], actual[1]);
     }
 
-//    /**
-//     * Test the coordinate of the first PLOT command from the VEC file
-//     */
-//    @Test
-//    public void TestFirstPlotCommand(){
-//        plot = vec.GetPlots();
-//        Plot plot = this.plot.getPlot(0); // get first PLOT command
-//        double [] actual = plot.getCoordinates();
-//        double [] expected = {0.5*SCALE, 0.5*SCALE};
-//        // assert each value of the coordinate
-//        assertEquals(expected[0], actual[0]);
-//        assertEquals(expected[1], actual[1]);
-//    }
-//
-//    /**
-//     * Test the coordinate of the last PLOT command from the VEC file
-//     */
-//    @Test
-//    public void TestLastPlotCommand(){
-//        plot = vec.GetPlots();
-//        Plot plot = this.plot.getPlot(vec.GetData().size() - 1); // get last plot command
-//        double [] actual = plot.getCoordinates();
-//        double [] expected = {0.48*SCALE, 0.52*SCALE};
-//        // assert each value of the coordinate
-//        assertEquals(expected[0], actual[0]);
-//        assertEquals(expected[1], actual[1]);
-//    }
+    /**
+     * Test the coordinate of the first PLOT command from the VEC file
+     */
+    @Test
+    public void TestFirstPlotCommand(){
+        ArrayList<ShapeInterface> shapes = vec.GetData();
+        double [] actual  = shapes.get(0).getCoordinates(); // get first plot command
+        double [] expected = {0.5*SCALE, 0.5*SCALE};
+        // assert each value of the coordinate
+        assertEquals(expected[0], actual[0]);
+        assertEquals(expected[1], actual[1]);
+    }
+
+    /**
+     * Test the coordinate of the last PLOT command from the VEC file
+     */
+    @Test
+    public void TestLastPlotCommand(){
+        ArrayList<ShapeInterface> shapes = vec.GetData();
+        double [] actual = shapes.get(shapes.size() - 1).getCoordinates(); // get last plot command
+        double [] expected = {0.48*SCALE, 0.52*SCALE};
+        // assert each value of the coordinate
+        assertEquals(expected[0], actual[0]);
+        assertEquals(expected[1], actual[1]);
+    }
 
 
 }

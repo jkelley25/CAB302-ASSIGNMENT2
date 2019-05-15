@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e43c6159-fae3-4a92-b9fc-b2cb52e364a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lineplottest.VEC" beforeDir="false" afterPath="$PROJECT_DIR$/lineplottest.VEC" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LineTestMain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlotTestMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/linetest.VEC" beforeDir="false" afterPath="$PROJECT_DIR$/linetest.VEC" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rectangle.VEC" beforeDir="false" afterPath="$PROJECT_DIR$/rectangle.VEC" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shapes/Draw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Draw.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/LineList.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/LineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/LineTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/Plot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Plot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/PlotList.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shapes/PlotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/PlotTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shapes/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shapes/ShapeInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/ShapeInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vec/VecIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vec/VecIO.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shapes/Line.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="36" column="49" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="49" />
+            <state relative-caret-position="122">
+              <caret line="35" column="42" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,10 +39,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shapes/Plot.java">
+        <entry file="file://$PROJECT_DIR$/src/shapes/ShapeInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="13" column="26" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="26" />
+            <state relative-caret-position="456">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+              <folding>
+                <element signature="e#576#577#0" expanded="true" />
+                <element signature="e#602#603#0" expanded="true" />
+                <element signature="e#635#636#0" expanded="true" />
+                <element signature="e#662#663#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/shapes/Rectangle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="271">
+              <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,69 +68,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vec/VecIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="76" column="38" lean-forward="true" selection-start-line="76" selection-start-column="38" selection-end-line="76" selection-end-column="38" />
+            <state relative-caret-position="248">
+              <caret line="88" column="92" selection-start-line="88" selection-start-column="92" selection-end-line="88" selection-end-column="92" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#ReadFile#0;class#VecIO#0" />
-                <element signature="e#2469#2470#0" expanded="true" />
-                <element signature="e#2496#2497#0" expanded="true" />
-                <element signature="e#2532#2533#0" expanded="true" />
-                <element signature="e#2559#2560#0" expanded="true" />
+                <element signature="e#2967#2968#0" expanded="true" />
+                <element signature="e#2996#2997#0" expanded="true" />
+                <element signature="e#3032#3033#0" expanded="true" />
+                <element signature="e#3059#3060#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lineplottest.VEC">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shapes/Rectangle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rectangle.VEC">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="9" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/shapes/LineTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#619#620#0" expanded="true" />
-                <element signature="e#666#667#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shapes/PlotTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1044">
-              <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -121,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/shapes/Draw.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="8" column="36" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="36" />
+            <state relative-caret-position="414">
+              <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#328#329#0" expanded="true" />
@@ -135,11 +99,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TestMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="457">
+              <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rectangle.VEC">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="23" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -173,24 +146,25 @@
         <option value="$PROJECT_DIR$/src/shapes/PlotList.java" />
         <option value="$PROJECT_DIR$/src/shapes/LineList.java" />
         <option value="$PROJECT_DIR$/src/shapes/Shape.java" />
-        <option value="$PROJECT_DIR$/src/shapes/ShapeInterface.java" />
-        <option value="$PROJECT_DIR$/src/shapes/Line.java" />
         <option value="$PROJECT_DIR$/src/shapes/CommandInterface.java" />
         <option value="$PROJECT_DIR$/src/shapes/PlotCommand.java" />
         <option value="$PROJECT_DIR$/src/shapes/test.java" />
         <option value="$PROJECT_DIR$/src/shapes/DraggableGraphic.java" />
         <option value="$PROJECT_DIR$/src/shapes/LineCommand.java" />
-        <option value="$PROJECT_DIR$/src/shapes/Plot.java" />
-        <option value="$PROJECT_DIR$/src/shapes/PlotTest.java" />
         <option value="$PROJECT_DIR$/src/PlotTestMain.java" />
         <option value="$PROJECT_DIR$/src/LineTestMain.java" />
-        <option value="$PROJECT_DIR$/src/shapes/Draw.java" />
-        <option value="$PROJECT_DIR$/rectangle.VEC" />
         <option value="$PROJECT_DIR$/lineplottest.VEC" />
+        <option value="$PROJECT_DIR$/src/shapes/PlotTest.java" />
+        <option value="$PROJECT_DIR$/linetest.VEC" />
+        <option value="$PROJECT_DIR$/src/shapes/LineTest.java" />
+        <option value="$PROJECT_DIR$/src/shapes/Line.java" />
+        <option value="$PROJECT_DIR$/src/shapes/Plot.java" />
+        <option value="$PROJECT_DIR$/src/shapes/Draw.java" />
+        <option value="$PROJECT_DIR$/src/shapes/ShapeInterface.java" />
+        <option value="$PROJECT_DIR$/rectangle.VEC" />
+        <option value="$PROJECT_DIR$/src/TestMain.java" />
         <option value="$PROJECT_DIR$/src/vec/VecIO.java" />
         <option value="$PROJECT_DIR$/src/shapes/Rectangle.java" />
-        <option value="$PROJECT_DIR$/src/TestMain.java" />
-        <option value="$PROJECT_DIR$/src/shapes/LineTest.java" />
       </list>
     </option>
   </component>
@@ -216,12 +190,6 @@
               <item name="Assignment2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="Assignment2" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Assignment2" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Assignment2" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="shapes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -261,7 +229,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PlotTest">
+  <component name="RunManager" selected="Application.TestMain">
     <configuration name="LineTestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="LineTestMain" />
       <module name="Assignment2" />
@@ -324,8 +292,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PlotTest" />
         <item itemvalue="Application.TestMain" />
+        <item itemvalue="JUnit.PlotTest" />
         <item itemvalue="JUnit.LineTest" />
         <item itemvalue="JUnit.LineTest.TestAddLine" />
         <item itemvalue="Application.LineTestMain" />
@@ -346,15 +314,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PlotTest_TestFirstPlotCommand - 2019.05.14 at 22h 01m 22s.xml">
-      <configuration name="PlotTest.TestFirstPlotCommand" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PlotTest_TestLastPlotCommand - 2019.05.14 at 22h 06m 33s.xml">
-      <configuration name="PlotTest.TestLastPlotCommand" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LineTest - 2019.05.14 at 22h 10m 59s.xml">
-      <configuration name="LineTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PlotTest - 2019.05.14 at 22h 15m 15s.xml">
       <configuration name="PlotTest" configurationId="JUnit" />
     </history-entry>
@@ -376,6 +335,15 @@
     <history-entry file="LineTest - 2019.05.15 at 14h 04m 29s.xml">
       <configuration name="LineTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="PlotTest - 2019.05.15 at 14h 29m 00s.xml">
+      <configuration name="PlotTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlotTest - 2019.05.15 at 16h 00m 21s.xml">
+      <configuration name="PlotTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="PlotTest - 2019.05.15 at 17h 25m 05s.xml">
+      <configuration name="PlotTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -390,7 +358,7 @@
     <frame x="0" y="23" width="1280" height="734" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16639742" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16639742" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -400,12 +368,12 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32866043" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30373833" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30373833" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39719626" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32866043" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.22274144" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.28037384" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32866043" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32866043" />
@@ -473,13 +441,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/linetest.VEC">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plottest.VEC">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -543,20 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shapes/ShapeInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shapes/PlotTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1044">
-          <caret line="58" column="7" selection-start-line="58" selection-start-column="7" selection-end-line="58" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/shapes/LineCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -569,29 +516,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shapes/Plot.java">
+    <entry file="file://$PROJECT_DIR$/src/shapes/PlotTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shapes/Draw.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="36" />
+        <state relative-caret-position="217">
+          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#328#329#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rectangle.VEC">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -602,10 +535,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/shapes/Line.java">
+    <entry file="file://$PROJECT_DIR$/linetest.VEC">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" column="49" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="49" />
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shapes/LineTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="49" column="9" lean-forward="true" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shapes/Plot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-69">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shapes/Draw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="27" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#328#329#0" expanded="true" />
+            <element signature="e#359#360#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rectangle.VEC">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -614,47 +587,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vec/VecIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="76" column="38" lean-forward="true" selection-start-line="76" selection-start-column="38" selection-end-line="76" selection-end-column="38" />
+        <state relative-caret-position="248">
+          <caret line="88" column="92" selection-start-line="88" selection-start-column="92" selection-end-line="88" selection-end-column="92" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ReadFile#0;class#VecIO#0" />
-            <element signature="e#2469#2470#0" expanded="true" />
-            <element signature="e#2496#2497#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
-            <element signature="e#2559#2560#0" expanded="true" />
+            <element signature="e#2967#2968#0" expanded="true" />
+            <element signature="e#2996#2997#0" expanded="true" />
+            <element signature="e#3032#3033#0" expanded="true" />
+            <element signature="e#3059#3060#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shapes/Line.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shapes/ShapeInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#576#577#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+            <element signature="e#635#636#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shapes/Rectangle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="271">
+          <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TestMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shapes/LineTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#666#667#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,6 +1,9 @@
 package vec;
 
 import shapes.*;
+import shapes.Rectangle;
+
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 
@@ -9,6 +12,8 @@ import java.util.ArrayList;
  */
 public class VecIO extends FileIO{
     private ArrayList<String[]> data = new ArrayList<>();
+    private ArrayList<ShapeInterface> shapes = new ArrayList<>();
+
     private Draw draw = new Draw();
 
     private final int SCALE = 200; // value to resize the command
@@ -60,27 +65,37 @@ public class VecIO extends FileIO{
     public void GetCommands(){
         // iterate through commands and create shape object
         for(String [] com: data){
+            if(com[0].equals("PEN")){
+                ShapeInterface.penOn();
+                ShapeInterface.setColour(Color.decode(com[1]));
+            }
+
             if(com[0].equals("LINE")){
                 Line line = new Line(Double.parseDouble(com[1]) * SCALE, Double.parseDouble(com[2]) * SCALE,
                         Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4]) * SCALE );
+
                 draw.addCommand(line);
+                shapes.add(line);
             }
             if(com[0].equals("PLOT")){
                 Plot plot = new Plot(Double.parseDouble(com[1]) * SCALE,
                         Double.parseDouble(com[2]) * SCALE);
                 draw.addCommand(plot);
+                shapes.add(plot);
             }
             if(com[0].equals("RECTANGLE")){
-                Rectangle rect = new Rectangle(Double.parseDouble(com[1]) * SCALE,
+                Rectangle rect = new Rectangle(ShapeInterface.color,Double.parseDouble(com[1]) * SCALE,
                         Double.parseDouble(com[2]) * SCALE,
-                        Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4]));
+                        Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4])*SCALE);
+
                 draw.addCommand(rect);
+                shapes.add(rect);
             }
         }
     }
 
-    public ArrayList<String[]> GetData(){
-        return data;
+    public ArrayList<ShapeInterface> GetData(){
+        return shapes;
     }
 
     public Draw getDrawCommands(){

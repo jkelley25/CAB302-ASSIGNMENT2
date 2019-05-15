@@ -1,7 +1,7 @@
 package shapes;
 import java.awt.*;
 
-public class Plot implements ShapeInterface{
+public class Plot extends ShapeInterface{
     private double x;
     private double y;
 
@@ -16,7 +16,7 @@ public class Plot implements ShapeInterface{
      */
     public void paint(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.BLACK);
+        g2.setColor(Plot.color);
         g2.drawString(".", (float)x, (float)y);
     }
 
