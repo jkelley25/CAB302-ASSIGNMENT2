@@ -3,20 +3,16 @@ package shapes;
 import java.awt.*;
 
 public abstract class Shape {
-    protected Color color;
-    protected boolean fill;
-    public static Color globalColor = Color.black; // initial pen color
-    public static Color fillColor;
-    public static boolean fillFlag = false; // initial fill is off
-
+    Color penColor;
+    Color fillColor;
 
     /**
      * Shape constructor given a color
-     * @param color color of the outline of shape
+     * @param penColor color of the outline of shape
      */
-    public Shape(Color color, boolean fill){
-        this.color = color;
-        this.fill = fill;
+    public Shape(Color penColor, Color fillColor){
+        this.penColor = penColor;
+        this.fillColor = fillColor;
     }
 
     /**
@@ -26,25 +22,11 @@ public abstract class Shape {
     public abstract void paint(Graphics g);
 
     /**
-     * Gets the coordinates of the first point
-     * @return
+     * Gets the coordinates of shape
+     * @return double array containing coordinates
      */
     public abstract double [] getCoordinates();
 
-    /**
-     * Sets the color if PEN command is present
-     */
-    public static void setColour(Color c){
-        globalColor = c;
-    }
 
-    public static void setFill(Color c){
-        fillColor = c;
-        fillFlag = true;
-    }
-
-    public static void setFillOff(){
-        fillFlag = false;
-    }
 
 }

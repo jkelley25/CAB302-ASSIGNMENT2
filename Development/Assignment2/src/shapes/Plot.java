@@ -5,8 +5,8 @@ public class Plot extends Shape {
     private double x;
     private double y;
 
-    public Plot(Color color, boolean fill, double x, double y){
-        super(color, fill);
+    public Plot(Color penColor, Color fillColor, double x, double y){
+        super(penColor, fillColor);
         this.x = x;
         this.y = y;
     }
@@ -17,7 +17,7 @@ public class Plot extends Shape {
      */
     public void paint(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(color);
+        g2.setColor(penColor);
         g2.drawString(".", (float)x, (float)y);
     }
 

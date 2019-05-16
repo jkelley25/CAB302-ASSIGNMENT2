@@ -14,14 +14,16 @@ public class Line extends Shape {
     private double y2;
 
     /**
-     * Line constructor given the coordinates passed, in the format (x1,y1) (x2,y2)
+     * Constructs a Line object given the pen color, fill color and end points coordinates
+     * @param penColor
+     * @param fillColor
      * @param x1 x coordinate of the first point
      * @param y1 y coordinate of the first point
      * @param x2 x coordinate of the second point
      * @param y2 y coordinate of the second point
      */
-    public Line(Color color, boolean fill,double x1, double y1, double x2, double y2){
-        super(color, fill);
+    public Line(Color penColor, Color fillColor,double x1, double y1, double x2, double y2){
+        super(penColor, fillColor);
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
@@ -34,7 +36,7 @@ public class Line extends Shape {
      */
     public void paint(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(color);
+        g2.setColor(penColor);
         g2.draw(new Line2D.Double(x1 , y1, x2, y2));
     }
 

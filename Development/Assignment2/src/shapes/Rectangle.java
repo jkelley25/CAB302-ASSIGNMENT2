@@ -9,29 +9,46 @@ public class Rectangle extends Shape {
     private double bx;
     private double by;
 
-    public Rectangle(Color color, Boolean fill, double tx, double ty, double bx, double by ){
-        super(color, fill);
+    /**
+     * Constructs a rectangle object given the pen color, fill color, top-left coordinate and
+     * bottom right coordinate
+     * @param penColor
+     * @param fillColor
+     * @param tx
+     * @param ty
+     * @param bx
+     * @param by
+     */
+    public Rectangle(Color penColor, Color fillColor, double tx, double ty, double bx, double by ){
+        super(penColor, fillColor);
         this.tx = tx;
         this.ty = ty;
         this.bx = bx;
         this.by = by;
     }
 
+    /**
+     * Method for painting to panel using Graphics class
+     * @param g graphics object for drawing
+     */
     @Override
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(color);
+        g2.setColor(penColor);
         Rectangle2D rect = new Rectangle2D.Double(tx,ty,bx - tx , by - ty );
         g2.draw(rect);
 
         //Check if fill is on
-        if(fill){
+        if(fillColor != null){
             g2.setColor(fillColor);
             g2.fill(rect);
         }
     }
 
-
+    /**
+     * Gets the coordinates of the top left and bottom right of the rectangle
+     * @return double array containing corner coordinates of rectangle
+     */
     @Override
     public double[] getCoordinates() {
         double [] coord = {tx, ty, bx,by };

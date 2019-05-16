@@ -1,6 +1,7 @@
 package vec;
 
 import shapes.*;
+import shapes.Polygon;
 import shapes.Rectangle;
 import shapes.Shape;
 
@@ -14,8 +15,9 @@ import java.util.ArrayList;
 public class VecIO extends FileIO{
     private ArrayList<String[]> data = new ArrayList<>();
     private ArrayList<Shape> shapes = new ArrayList<>();
-
     private Draw draw = new Draw();
+    private Color penColor;
+    private Color fillColor = null;
 
     private final int SCALE = 200; // value to resize the command
 
@@ -67,19 +69,21 @@ public class VecIO extends FileIO{
         // iterate through commands and create shape object
         for(String [] com: data){
             if(com[0].equals("PEN")){
-                Shape.setColour(Color.decode(com[1]));
+                penColor = Color.decode(com[1]);
             }
 
+            // check for fill command
             if(com[0].equals("FILL") && !com[1].equals("OFF")){
-                Shape.setFill(Color.decode(com[1]));
+                fillColor = Color.decode(com[1]);
+
             }
 
             if(com[0].equals("FILL") && com[1].equals("OFF")){
-                Shape.setFillOff();
+                fillColor = null;
             }
 
             if(com[0].equals("LINE")){
-                Line line = new Line(Shape.globalColor, Shape.fillFlag,
+                Line line = new Line(penColor, fillColor,
                         Double.parseDouble(com[1]) * SCALE, Double.parseDouble(com[2]) * SCALE,
                         Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4]) * SCALE );
 
@@ -87,7 +91,7 @@ public class VecIO extends FileIO{
                 shapes.add(line);
             }
             if(com[0].equals("PLOT")){
-                Plot plot = new Plot(Shape.globalColor, Shape.fillFlag,
+                Plot plot = new Plot(penColor, fillColor,
                         Double.parseDouble(com[1]) * SCALE,
                         Double.parseDouble(com[2]) * SCALE);
                 draw.addCommand(plot);
@@ -95,14 +99,51 @@ public class VecIO extends FileIO{
             }
 
             if(com[0].equals("RECTANGLE")){
-                Rectangle rect = new Rectangle(Shape.globalColor, Shape.fillFlag,
+                Rectangle rect = new Rectangle(penColor, fillColor,
                         Double.parseDouble(com[1]) * SCALE,
                         Double.parseDouble(com[2]) * SCALE,
                         Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4])*SCALE);
-
                 draw.addCommand(rect);
                 shapes.add(rect);
             }
+
+            if(com[0].equals("ELLIPSE")){
+                Ellipse ellipse = new Ellipse(penColor, fillColor,
+                        Double.parseDouble(com[1]) * SCALE,
+                        Double.parseDouble(com[2]) * SCALE,
+                        Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4])*SCALE);
+                draw.addCommand(ellipse);
+            }
+
+            if(com[0].equals("POLYGON")){
+                int size = com.length/2 + 1;
+                double [] x = new double[size];
+                double [] y = new double [size];
+
+                // get all x coordinates from data and store in x array
+                for(int i = 0; i < size; i ++){
+                    for(int j = 1; j < size; j += 2){
+                        x[i] = Double.parseDouble(com[j]) * SCALE;
+                    }
+                }
+
+                // get all y coordinates from data and store in y array
+                for(int i = 0; i < size; i ++){
+                    for(int j = 1; j < size; j += 2){
+                        y[i] = Double.parseDouble(com[j]) * SCALE;
+                    }
+                }
+
+
+                Polygon poly = new Polygon(penColor, fillColor,x,y); // create polygon
+
+                draw.addCommand(poly);
+//                for(Line line: poly.getLines()){
+//                    draw.addCommand(line);
+//                }
+
+            }
+
         }
     }
 

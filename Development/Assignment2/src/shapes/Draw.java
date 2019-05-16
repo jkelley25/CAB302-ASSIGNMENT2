@@ -10,7 +10,7 @@ public class Draw extends JPanel {
 
     public Draw(){
         setBorder(BorderFactory.createLineBorder(Color.black));
-
+        setBackground(Color.white);
     }
 
     public void addCommand(Shape s){
