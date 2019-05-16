@@ -3,28 +3,34 @@ package shapes;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
-public class Rectangle extends ShapeInterface {
+public class Rectangle extends Shape {
     private double tx;
     private double ty;
     private double bx;
     private double by;
-    private Color color;
 
-    public Rectangle(Color color, double tx, double ty, double bx, double by ){
+    public Rectangle(Color color, Boolean fill, double tx, double ty, double bx, double by ){
+        super(color, fill);
         this.tx = tx;
         this.ty = ty;
         this.bx = bx;
         this.by = by;
-        this.color = color;
-
     }
 
     @Override
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        g.setColor(color);
-        g2.draw(new Rectangle2D.Double(tx,ty,bx ,ty - (ty - by) ));
+        g2.setColor(color);
+        Rectangle2D rect = new Rectangle2D.Double(tx,ty,bx - tx , by - ty );
+        g2.draw(rect);
+
+        //Check if fill is on
+        if(fill){
+            g2.setColor(fillColor);
+            g2.fill(rect);
+        }
     }
+
 
     @Override
     public double[] getCoordinates() {

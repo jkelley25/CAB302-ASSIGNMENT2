@@ -2,6 +2,7 @@ package vec;
 
 import shapes.*;
 import shapes.Rectangle;
+import shapes.Shape;
 
 import java.awt.*;
 import java.io.*;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  */
 public class VecIO extends FileIO{
     private ArrayList<String[]> data = new ArrayList<>();
-    private ArrayList<ShapeInterface> shapes = new ArrayList<>();
+    private ArrayList<Shape> shapes = new ArrayList<>();
 
     private Draw draw = new Draw();
 
@@ -66,25 +67,36 @@ public class VecIO extends FileIO{
         // iterate through commands and create shape object
         for(String [] com: data){
             if(com[0].equals("PEN")){
-                ShapeInterface.penOn();
-                ShapeInterface.setColour(Color.decode(com[1]));
+                Shape.setColour(Color.decode(com[1]));
+            }
+
+            if(com[0].equals("FILL") && !com[1].equals("OFF")){
+                Shape.setFill(Color.decode(com[1]));
+            }
+
+            if(com[0].equals("FILL") && com[1].equals("OFF")){
+                Shape.setFillOff();
             }
 
             if(com[0].equals("LINE")){
-                Line line = new Line(Double.parseDouble(com[1]) * SCALE, Double.parseDouble(com[2]) * SCALE,
+                Line line = new Line(Shape.globalColor, Shape.fillFlag,
+                        Double.parseDouble(com[1]) * SCALE, Double.parseDouble(com[2]) * SCALE,
                         Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4]) * SCALE );
 
                 draw.addCommand(line);
                 shapes.add(line);
             }
             if(com[0].equals("PLOT")){
-                Plot plot = new Plot(Double.parseDouble(com[1]) * SCALE,
+                Plot plot = new Plot(Shape.globalColor, Shape.fillFlag,
+                        Double.parseDouble(com[1]) * SCALE,
                         Double.parseDouble(com[2]) * SCALE);
                 draw.addCommand(plot);
                 shapes.add(plot);
             }
+
             if(com[0].equals("RECTANGLE")){
-                Rectangle rect = new Rectangle(ShapeInterface.color,Double.parseDouble(com[1]) * SCALE,
+                Rectangle rect = new Rectangle(Shape.globalColor, Shape.fillFlag,
+                        Double.parseDouble(com[1]) * SCALE,
                         Double.parseDouble(com[2]) * SCALE,
                         Double.parseDouble(com[3]) * SCALE, Double.parseDouble(com[4])*SCALE);
 
@@ -94,7 +106,7 @@ public class VecIO extends FileIO{
         }
     }
 
-    public ArrayList<ShapeInterface> GetData(){
+    public ArrayList<Shape> GetData(){
         return shapes;
     }
 

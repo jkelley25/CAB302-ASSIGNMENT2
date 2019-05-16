@@ -6,23 +6,22 @@ import java.util.ArrayList;
 
 
 public class Draw extends JPanel {
-    private ArrayList<ShapeInterface> shapes = new ArrayList<>();
+    private ArrayList<Shape> shapes = new ArrayList<>();
 
     public Draw(){
         setBorder(BorderFactory.createLineBorder(Color.black));
 
     }
 
-    public void addCommand(ShapeInterface s){
+    public void addCommand(Shape s){
         shapes.add(s);
     }
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
-        for (ShapeInterface shape: shapes){
+        for (Shape shape: shapes){
             shape.paint(g);
         }
-
     }
 }
