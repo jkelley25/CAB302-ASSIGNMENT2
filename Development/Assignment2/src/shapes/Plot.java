@@ -1,13 +1,12 @@
 package shapes;
-
 import java.awt.*;
-import java.awt.geom.Line2D;
 
-public class Plot {
+public class Plot extends Shape {
     private double x;
     private double y;
 
-    public Plot(double x, double y){
+    public Plot(Color penColor, Color fillColor, double x, double y){
+        super(penColor, fillColor);
         this.x = x;
         this.y = y;
     }
@@ -18,11 +17,15 @@ public class Plot {
      */
     public void paint(Graphics g){
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Color.BLACK);
+        g2.setColor(penColor);
         g2.drawString(".", (float)x, (float)y);
     }
 
-    public double [] GetCoordinates(){
+    /**
+     * Gets the coordinates of the single point
+     * @return coordinates of the Plot point
+     */
+    public double [] getCoordinates(){
         double [] coord = {x,y};
         return coord;
     }
