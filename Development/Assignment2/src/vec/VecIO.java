@@ -19,7 +19,7 @@ public class VecIO extends FileIO{
     private Color penColor;
     private Color fillColor = null;
 
-    private final int SCALE = 200; // value to resize the command
+    private final int SCALE = 600; // value to resize the command
 
     /**
      * Construct a VecIO object given the fileName
