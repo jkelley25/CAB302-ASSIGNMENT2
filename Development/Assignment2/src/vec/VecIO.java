@@ -39,6 +39,7 @@ public class VecIO extends FileIO{
         try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = new FileReader(fileName);
+
             // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader =
                     new BufferedReader(fileReader);
@@ -60,6 +61,19 @@ public class VecIO extends FileIO{
                     "Error reading file '"
                             + fileName + "'");
         }
+    }
+
+
+    public void writeShape(Shape shape) throws IOException {
+        double [] coord = shape.getCoordinates();
+        BufferedWriter writer = new BufferedWriter(new FileWriter("writetest.vec",
+                true)); // allow for appending
+
+        // add new command to file
+        writer.write("LINE " + coord[0] + " " + coord[1] + " " + coord[2] + " "
+        + coord[3]);
+        writer.newLine();
+        writer.close();
     }
 
     /**

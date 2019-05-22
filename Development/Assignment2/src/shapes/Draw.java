@@ -8,9 +8,11 @@ import java.util.ArrayList;
 public class Draw extends JPanel {
     private ArrayList<Shape> shapes = new ArrayList<>();
 
+
     public Draw(){
-        setBorder(BorderFactory.createLineBorder(Color.black));
+        setPreferredSize(new Dimension(600,600));
         setBackground(Color.white);
+
     }
 
     public void addCommand(Shape s){
@@ -23,5 +25,9 @@ public class Draw extends JPanel {
         for (Shape shape: shapes){
             shape.paint(g);
         }
+    }
+
+    public ArrayList<Shape> getCommands(){
+        return shapes;
     }
 }

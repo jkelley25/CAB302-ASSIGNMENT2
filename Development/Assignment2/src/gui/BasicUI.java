@@ -1,16 +1,25 @@
 package gui;
 
-import gui.MenuKeyListener;
+
+import shapes.Draw;
+import shapes.Line;
+import vec.VecIO;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.io.IOException;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.undo.UndoManager;
 
 
 /* TopLevelDemo.java requires no other files. */
-public class TopLevelUI{
+public class BasicUI {
+    static Draw draw = new Draw();
+    static VecIO vec = new VecIO("example1.vec");
+
+
     /**
      * Generates the top level of the basic User Interface
      */
@@ -20,6 +29,8 @@ public class TopLevelUI{
 
         // Create and set up the window
         JFrame frame = new JFrame("VDT: Vector Design Tool");
+        frame.setSize(1000,700);
+        frame.setLayout(new FlowLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Call Menu Bar function which generates a JMenuBar
@@ -35,12 +46,82 @@ public class TopLevelUI{
 
         // Set the menu bar and add the label to the content pane
         frame.setJMenuBar(MenuBar);
-        frame.getContentPane().add(Label, BorderLayout.CENTER);
+
+        // Read file
+        vec.ReadFile();
+
+
+
+        frame.add(draw);
+        draw.addMouseListener(new CanvasPanelListener());
 
         // Display the window.
-        frame.pack();
         frame.setVisible(true);
     }
+
+
+    public static class CanvasPanelListener implements ActionListener, ChangeListener,
+            MouseListener, MouseMotionListener {
+
+        private double x1;
+        private double y1;
+        private double x2;
+        private double y2;
+
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(e);
+        }
+
+        public void stateChanged(ChangeEvent e) {
+            System.out.println(e);
+        }
+
+        public void mouseClicked(MouseEvent e) {
+            System.out.println(e);
+        }
+
+        public void mousePressed(MouseEvent e) {
+            System.out.println(e);
+            x1 = e.getX();
+            y1 = e.getY();
+        }
+
+        public void mouseReleased(MouseEvent e) {
+            System.out.println(e);
+            x2 = e.getX();
+            y2 = e.getY();
+
+            Line line = new Line(Color.black, Color.lightGray, x1,y1,x2,y2);
+            // Draw line
+            draw.addCommand(line);
+            draw.repaint();
+
+            try {
+                vec.writeShape(line);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
+        }
+
+        public void mouseEntered(MouseEvent e) {
+            System.out.println(e);
+        }
+
+        public void mouseExited(MouseEvent e) {
+            System.out.println(e);
+        }
+
+        public void mouseDragged(MouseEvent e) {
+            System.out.println(e);
+        }
+
+        public void mouseMoved(MouseEvent e) {
+            System.out.println(e);
+        }
+    }
+
+
 
     private static void menuBar(JMenuBar MenuBar) {
 
