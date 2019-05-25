@@ -1,6 +1,7 @@
 import gui.Wiring;
 import shapes.Draw;
 import shapes.Line;
+import shapes.Polygon;
 import shapes.Rectangle;
 import vec.VecIO;
 
@@ -9,15 +10,14 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 public class TestMain {
 
     public static void main (String[] args) {
-        VecIO vec = new VecIO("example1.vec");
-        vec.ReadFile();
-        vec.GetCommands();
         JFrame frame = new JFrame("Test");
 
+        VecIO vec = new VecIO("vecfiles/polytest.vec");
         frame.setLayout(new FlowLayout());
         frame.setBackground(Color.WHITE);
 
@@ -25,16 +25,7 @@ public class TestMain {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        frame.add(vec.getDrawCommands(), BorderLayout.CENTER);
-//
-//        JPanel panelleft = new JPanel();
-//        JPanel panelright = new JPanel();
-//        JPanel panelbottom = new JPanel();
-//
-//
-//        frame.getContentPane().add(panelleft, BorderLayout.WEST);
-//        frame.getContentPane().add(panelright, BorderLayout.EAST);
-//        frame.getContentPane().add(panelbottom, BorderLayout.SOUTH);
+        frame.add(vec.getDrawCommands());
         frame.setVisible(true);
 
     }

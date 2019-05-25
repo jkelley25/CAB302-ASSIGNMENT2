@@ -1,74 +1,93 @@
-//package shapes;
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.Test;
-//import vec.VecIO;
-//
-//import java.util.ArrayList;
-//
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//
-//public class PlotTest {
-//    VecIO vec;
-//    Plot plot;
-//    private final int SCALE = 200;
-//
-//    /**
-//     * Clear plot and initialize vec object
-//     */
-//    @BeforeEach
-//    public void Init(){
-//        plot = null;
-//        vec = new VecIO("plottest.VEC");
-//        vec.ReadFile();
-//        vec.GetCommands();
-//    }
-//
-//    /**
-//     * Test PlotCommand construction
-//     */
-//    @Test
-//    public void TestConstruction(){
-//        plot = new Plot(Shape.globalColor,1,1);
-//    }
-//
-//    /**
-//     * Test Plot coordinate
-//     */
-//    @Test
-//    public void TestCoordinate(){
-//        plot = new Plot(Shape.globalColor,10,20);
-//        double [] actual = plot.getCoordinates();
-//        double[] expected = {10,20};
-//        // assert each value of the coordinate
-//        assertEquals(expected[0], actual[0]);
-//        assertEquals(expected[1], actual[1]);
-//    }
-//
-//    /**
-//     * Test the coordinate of the first PLOT command from the VEC file
-//     */
-//    @Test
-//    public void TestFirstPlotCommand(){
-//        ArrayList<Shape> shapes = vec.GetData();
-//        double [] actual  = shapes.get(0).getCoordinates(); // get first plot command
-//        double [] expected = {0.5*SCALE, 0.5*SCALE};
-//        // assert each value of the coordinate
-//        assertEquals(expected[0], actual[0]);
-//        assertEquals(expected[1], actual[1]);
-//    }
-//
-//    /**
-//     * Test the coordinate of the last PLOT command from the VEC file
-//     */
-//    @Test
-//    public void TestLastPlotCommand(){
-//        ArrayList<Shape> shapes = vec.GetData();
-//        double [] actual = shapes.get(shapes.size() - 1).getCoordinates(); // get last plot command
-//        double [] expected = {0.48*SCALE, 0.52*SCALE};
-//        // assert each value of the coordinate
-//        assertEquals(expected[0], actual[0]);
-//        assertEquals(expected[1], actual[1]);
-//    }
-//
-//
-//}
+package shapes;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import vec.VecIO;
+import java.awt.*;
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+/**
+ * Unit test for the Plot class
+ */
+class PlotTest {
+    private VecIO vec = new VecIO("vecfiles/PlotTest.VEC");;
+    private Plot plot;
+    private final int SCALE = 600;
+
+    /**
+     * Clear plot and initialize vec object
+     */
+    @BeforeEach
+    void Init(){
+        plot = null;
+    }
+
+    /**
+     * Test PlotCommand construction
+     */
+    @Test
+    void TestConstruction(){
+        plot = new Plot(Color.black,null,1,1);
+    }
+
+    /**
+     * Test Plot coordinate
+     */
+    @Test
+    void TestCoordinate(){
+        plot = new Plot(Color.black, null,10,20);
+        double [] actual = plot.getCoordinates();
+        double[] expected = {10,20};
+        // assert each value of the coordinate
+        assertEquals(expected[0], actual[0]);
+        assertEquals(expected[1], actual[1]);
+    }
+
+    /**
+     * Test the pen colour of line
+     */
+    @Test
+    void TestPenColour(){
+        plot = new Plot(Color.green, null,10,20);
+        assertEquals(Color.green, plot.penColor);
+    }
+
+    /**
+     * Test the coordinate of the first PLOT command in PlotTest.vec file
+     */
+    @Test
+    void TestFirstPlotCommand(){
+        ArrayList<shapes.Shape> plots = vec.GetData();
+        double [] actual  = plots.get(0).getCoordinates(); // get first plot command
+        double [] expected = {0.5*SCALE, 0.5*SCALE};
+        // assert each value of the coordinate
+        assertEquals(expected[0], actual[0]);
+        assertEquals(expected[1], actual[1]);
+    }
+
+    /**
+     * Test the coordinate of the last PLOT command in PlotTest.vec file
+     */
+    @Test
+    void TestLastPlotCommand(){
+        ArrayList<Shape> shapes = vec.GetData();
+        double [] actual = shapes.get(shapes.size() - 1).getCoordinates(); // get last plot command
+        double [] expected = {0.48*SCALE, 0.52*SCALE};
+        // assert each value of the coordinate
+        assertEquals(expected[0], actual[0]);
+        assertEquals(expected[1], actual[1]);
+    }
+
+    /**
+     * Test the number of commands in the file
+     */
+    @Test
+    void TestNumCommands(){
+        int actual  = vec.GetData().size(); //get data size
+        int expected = 9;
+        assertEquals(expected,actual);
+    }
+
+
+}

@@ -8,37 +8,37 @@ import java.awt.*;
 import java.util.ArrayList;
 
 /**
- * Unit test for Line Class
+ * Unit test for Rectangle class
  */
-class LineTest {
-    private VecIO vec = new VecIO("vecfiles/LineTest.VEC");;
-    private Line line;
+public class RectangleTest {
+    private Rectangle rect;
+    private VecIO vec = new VecIO("vecfiles/RectTest.vec");
     private final int SCALE = 600;
 
     /**
-     * Clear lineCommand and initialize vec object
+     * Clear rectangle before each test
      */
     @BeforeEach
     void Init(){
-        line = null;
+        rect = null;
     }
 
     /**
-     * Test construction of LineCommand objects
+     * Test object construction
      */
     @Test
     void TestConstruction(){
-        line = new Line(Color.black,null,1,1,1,1);
+        rect = new Rectangle(Color.black, null, 1,1,10,10);
     }
 
     /**
-     * Test the coordinates of a line
+     * Test coordinates of rectangle
      */
     @Test
-    void TestLineCoords(){
-        line = new Line(Color.black, null,1,1,10,10);
-        double [] actual = line.getCoordinates();
-        double[] expected = {1,1,10,10};
+    void TestCoordinates(){
+        rect = new Rectangle(Color.black, null, 100,100,200,200);
+        double [] actual = rect.getCoordinates();
+        double [] expected = {100,100,200,200};
         // assert each value in the coordinate array
         assertEquals(expected[0], actual[0]);
         assertEquals(expected[1], actual[1]);
@@ -47,24 +47,31 @@ class LineTest {
     }
 
     /**
-     * Test the pen colour of line
+     * Test Pen colour of the rectangle
      */
     @Test
     void TestPenColour(){
-        line = new Line(Color.red, null,1,1,10,10);
-        Color actual = line.penColor;
-        Color expected = Color.red;
-        assertEquals(expected,actual);
+        rect = new Rectangle(Color.orange, null, 100,100,200,200);
+        assertEquals(Color.orange, rect.penColor);
     }
 
     /**
-     * Test the coordinates of first command in the LineTest.vec file
+     * Test Fill colour of the rectangle
+     */
+    @Test
+    void TestFillColour(){
+        rect = new Rectangle(Color.orange, Color.CYAN, 100,100,200,200);
+        assertEquals(Color.cyan, rect.fillColor);
+    }
+
+    /**
+     * Test the coordinates of the first command in RectTest.vec file
      */
     @Test
     void TestFirstCommand(){
-        ArrayList<shapes.Shape> lines =vec.GetData();
-        double [] actual = lines.get(0).getCoordinates(); //get coords of first line command
-        double [] expected = {0.000000*SCALE, 0.000000*SCALE, 1.000000*SCALE, 0.000000*SCALE};
+        ArrayList<Shape> rects =vec.GetData();
+        double [] actual = rects.get(0).getCoordinates(); //get coords of first line command
+        double [] expected = {0.1*SCALE, 0.1*SCALE, 0.5*SCALE, 0.5*SCALE};
         // assert each value in the coordinate array
         assertEquals(expected[0], actual[0]);
         assertEquals(expected[1], actual[1]);
@@ -73,13 +80,13 @@ class LineTest {
     }
 
     /**
-     * Test the coordinates of first command in the LineTest.vec file
+     * Test the coordinates of the last command in RectTest.vec
      */
     @Test
     void TestLastCommand(){
-        ArrayList<Shape> lines =vec.GetData();
-        double [] actual = lines.get(lines.size() - 1).getCoordinates(); // get coords of last cmd
-        double [] expected = {0.000000*SCALE, 0.000000*SCALE, 1.000000*SCALE, 0.000000*SCALE};
+        ArrayList<Shape> rect =vec.GetData();
+        double [] actual = rect.get(rect.size() - 1).getCoordinates(); // get coords of last cmd
+        double [] expected = {0.5*SCALE, 0.5*SCALE, 0.9*SCALE, 0.9*SCALE};
         // assert each value in the coordinate array
         assertEquals(expected[0], actual[0]);
         assertEquals(expected[1], actual[1]);
@@ -93,7 +100,7 @@ class LineTest {
     @Test
     void TestNumCommands(){
         int actual  = vec.GetData().size(); //get data size
-        int expected = 44;
+        int expected = 5;
         assertEquals(expected,actual);
     }
 

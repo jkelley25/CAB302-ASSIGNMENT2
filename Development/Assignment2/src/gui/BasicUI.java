@@ -1,10 +1,11 @@
 package gui;
 
-
 import shapes.Draw;
+import shapes.Ellipse;
 import shapes.Line;
+import shapes.Polygon;
+import shapes.Rectangle;
 import vec.VecIO;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -13,11 +14,15 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.undo.UndoManager;
 
-
 /* TopLevelDemo.java requires no other files. */
 public class BasicUI {
-    static Draw draw = new Draw();
-    static VecIO vec = new VecIO("example1.vec");
+    private static Draw draw = new Draw();
+    private static VecIO vec;
+
+    // STATES
+    private static String shape;
+    private static boolean load = true;
+    private static boolean save = true;
 
 
     /**
@@ -47,11 +52,21 @@ public class BasicUI {
         // Set the menu bar and add the label to the content pane
         frame.setJMenuBar(MenuBar);
 
-        // Read file
-        vec.ReadFile();
+        // Set the shape using this variable for now until tools are created
+        shape = "Polygon";
 
+        vec = new VecIO("vecfiles/example2.vec");
 
+        //Check if file is loaded
+        if(load){
+            draw = vec.getDrawCommands();
+        }
 
+        if(save){
+
+        }
+
+        //add draw canvas panel
         frame.add(draw);
         draw.addMouseListener(new CanvasPanelListener());
 
@@ -67,6 +82,10 @@ public class BasicUI {
         private double y1;
         private double x2;
         private double y2;
+        Polygon poly;
+        private int numclicks = 0;
+
+
 
         public void actionPerformed(ActionEvent e) {
             System.out.println(e);
@@ -78,6 +97,28 @@ public class BasicUI {
 
         public void mouseClicked(MouseEvent e) {
             System.out.println(e);
+
+            if (shape.equals("Polygon")){
+                ++numclicks;
+                // create empty polygon on first click
+                if(numclicks == 1){
+                    poly = new Polygon(Color.black, null);
+                    poly.addLines((double) e.getX(), (double) e.getY());
+                }
+
+                if(numclicks > 1){
+                    poly.addLines((double) e.getX(), (double) e.getY());
+                    draw.addCommand(poly);
+                    draw.repaint();
+                }
+
+                // check for right click for closing polygon
+                if(e.getButton() == MouseEvent.BUTTON3){
+                    poly.closePolygon();
+                    numclicks = 0; // reset numclicks
+                }
+            }
+
         }
 
         public void mousePressed(MouseEvent e) {
@@ -91,17 +132,40 @@ public class BasicUI {
             x2 = e.getX();
             y2 = e.getY();
 
-            Line line = new Line(Color.black, Color.lightGray, x1,y1,x2,y2);
-            // Draw line
-            draw.addCommand(line);
-            draw.repaint();
+            // Shapes to be created
+            Line line;
+            Rectangle rect;
+            Ellipse ellipse;
 
-            try {
-                vec.writeShape(line);
-            } catch (IOException ex) {
-                ex.printStackTrace();
+            if(shape == "Line"){
+                line = new Line(Color.black, Color.lightGray, x1,y1,x2,y2);
+                // Draw line
+                draw.addCommand(line);
+                draw.repaint();
+                try {
+                    vec.writeShape(line);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
 
+            // Bug: can't draw from bottom left to top right rectangle
+            if(shape == "Rectangle"){
+                if(y2 < y1){
+                    rect = new Rectangle(Color.black, null, x2,y2,x1,y1);
+                } else {
+                    rect = new Rectangle(Color.black, null, x1,y1,x2,y2);
+                }
+                draw.addCommand(rect);
+                draw.repaint();
+            }
+
+            // Incomplete: uses rectangle outline to draw ellipse
+            if(shape == "Ellipse"){
+                ellipse = new Ellipse(Color.black, Color.CYAN, x1,y1,x2,y2);
+                draw.addCommand(ellipse);
+                draw.repaint();
+            }
         }
 
         public void mouseEntered(MouseEvent e) {
@@ -124,7 +188,6 @@ public class BasicUI {
 
 
     private static void menuBar(JMenuBar MenuBar) {
-
         MenuBar.setOpaque(true);
         MenuBar.setBackground(Color.WHITE);
         MenuBar.setPreferredSize(new Dimension(200, 20));
