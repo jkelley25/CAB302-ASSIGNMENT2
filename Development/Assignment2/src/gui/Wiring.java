@@ -1,5 +1,8 @@
 package gui;
 
+import shapes.Draw;
+import shapes.Line;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,10 +33,15 @@ public class Wiring extends JFrame implements ActionListener, Runnable {
     public void actionPerformed(ActionEvent e) {
         //Get event source
         Object src = e.getSource();
-//Consider the alternatives - not all active at once.
+      //Consider the alternatives - not all active at once.
         if (src==btnLoad) {
             JButton btn = ((JButton) src);
-            areDisplay.setText(btn.getText().trim());
+            Draw draw = new Draw();
+            Line line = new Line(Color.black,Color.lightGray, 10,10,50,50);
+            draw.addCommand(line);
+
+            pnlDisplay.add(draw);
+
         }
         if (src==btnUnLoad){
             JButton btn = (JButton) src;
@@ -87,6 +95,7 @@ public class Wiring extends JFrame implements ActionListener, Runnable {
         pnlBtn.add(btnSwitch);
 
         areDisplay = createDisplay();
+
 
         pnlDisplay = createPanel(Color.WHITE);
         getContentPane().add(pnlDisplay, BorderLayout.CENTER);

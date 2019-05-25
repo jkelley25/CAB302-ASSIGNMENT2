@@ -9,7 +9,7 @@ public class Draw extends JPanel {
     private ArrayList<Shape> shapes = new ArrayList<>();
 
     public Draw(){
-        setBorder(BorderFactory.createLineBorder(Color.black));
+        setPreferredSize(new Dimension(600,600));
         setBackground(Color.white);
     }
 
@@ -19,9 +19,13 @@ public class Draw extends JPanel {
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-
+        // paint every shape
         for (Shape shape: shapes){
             shape.paint(g);
         }
+    }
+
+    public ArrayList<Shape> getCommands(){
+        return shapes;
     }
 }

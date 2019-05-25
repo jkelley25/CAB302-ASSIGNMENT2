@@ -7,7 +7,17 @@ import java.util.ArrayList;
 public class Polygon extends Shape {
     private double [] x;
     private double [] y;
-    private ArrayList<Line> lines = new ArrayList<>();
+
+    // coords from drawing
+    private ArrayList<Double> xdr = new ArrayList<>();
+    private ArrayList<Double> ydr = new ArrayList<>();
+    private boolean close = false;
+
+
+    // Creates a Polygon with no coordinates
+    public Polygon(Color penColor, Color fillColor){
+        super(penColor,fillColor);
+    }
 
     public Polygon(Color penColor, Color fillColor, double [] x, double [] y){
         super(penColor, fillColor);
@@ -19,29 +29,57 @@ public class Polygon extends Shape {
     public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(penColor);
-
-        double [] poly = { 0.5 ,0.0, 1.0, 0.5, 0.5, 1.0, 0.0, 0.5};
         Path2D path = new Path2D.Double();
 
-        path.moveTo(x[0], y[0]);
+        // check if coords from drawing isn't empty
+        if(!xdr.isEmpty()){
+            x = new double[xdr.size() ];
+            y = new double[ydr.size() ];
 
-        for(int i = 1; i < x.length; ++i){
-            path.lineTo(x[i], y[i]);
-
-            System.out.println(x[i] + ":" +y[i]);
+            // populate coords array
+            for (int i = 0; i < x.length; i++){
+                x[i] = xdr.get(i);
+                y[i] = ydr.get(i);
+            }
         }
 
-        path.closePath();
+        path.moveTo(x[0], y[0]); // move to initial point
+        // connect each line
+        for(int i = 1; i < x.length; ++i){
+            path.lineTo(x[i], y[i]);
+        }
+
+        if(xdr.isEmpty()){
+            path.closePath(); // close polygon
+        }
+
+        //check if closed on drawing
+        if(close){
+            path.closePath(); // close polygon
+        }
+
         g2.draw(path);
 
+        //Check if fill is on
+        if(fillColor != null){
+            g2.setColor(fillColor);
+            g2.fill(path);
+        }
     }
 
-    public ArrayList<Line> getLines(){
-        return lines;
+    public void addLines(double x1, double y1){
+        xdr.add(x1);
+        ydr.add(y1);
+    }
+
+    public void closePolygon(){
+        close = true;
     }
 
     @Override
     public double[] getCoordinates() {
         return new double[0];
     }
+
+
 }
