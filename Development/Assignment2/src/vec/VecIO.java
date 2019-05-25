@@ -4,7 +4,6 @@ import shapes.*;
 import shapes.Polygon;
 import shapes.Rectangle;
 import shapes.Shape;
-
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -27,6 +26,8 @@ public class VecIO extends FileIO{
      */
     public VecIO(String fileName){
         super(fileName);
+        ReadFile();
+        GetCommands();
     }
 
     /**
@@ -39,6 +40,7 @@ public class VecIO extends FileIO{
         try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = new FileReader(fileName);
+
             // Always wrap FileReader in BufferedReader.
             BufferedReader bufferedReader =
                     new BufferedReader(fileReader);
@@ -62,16 +64,30 @@ public class VecIO extends FileIO{
         }
     }
 
+
+    public void writeShape(Shape shape) throws IOException {
+        double [] coord = shape.getCoordinates();
+        BufferedWriter writer = new BufferedWriter(new FileWriter("writetest.vec",
+                true)); // allow for appending
+
+        // add new command to file
+        writer.write("LINE " + coord[0] + " " + coord[1] + " " + coord[2] + " "
+        + coord[3]);
+        writer.newLine();
+        writer.close();
+    }
+
     /**
      * Method for fetching each command in the VEC file
      */
     public void GetCommands(){
         // iterate through commands and create shape object
         for(String [] com: data){
+
+            /* NEED TO REFACTOR ALL THESE IF STATEMENTS TO OWN METHODS */
             if(com[0].equals("PEN")){
                 penColor = Color.decode(com[1]);
             }
-
             // check for fill command
             if(com[0].equals("FILL") && !com[1].equals("OFF")){
                 fillColor = Color.decode(com[1]);
@@ -116,32 +132,34 @@ public class VecIO extends FileIO{
             }
 
             if(com[0].equals("POLYGON")){
-                int size = com.length/2 + 1;
-                double [] x = new double[size];
-                double [] y = new double [size];
+                int size = com.length - 1;
+                double [] x = new double[size/2];
+                double [] y = new double [size/2];
 
-                // get all x coordinates from data and store in x array
-                for(int i = 0; i < size; i ++){
-                    for(int j = 1; j < size; j += 2){
-                        x[i] = Double.parseDouble(com[j]) * SCALE;
-                    }
+                ArrayList<Double> xcoord = new ArrayList<>();
+                ArrayList<Double> ycoord = new ArrayList<>();
+
+                // add every second value to xcoord
+                for (int i = 1; i < com.length; i+=2){
+                    xcoord.add(Double.parseDouble(com[i])*SCALE);
                 }
 
-                // get all y coordinates from data and store in y array
-                for(int i = 0; i < size; i ++){
-                    for(int j = 1; j < size; j += 2){
-                        y[i] = Double.parseDouble(com[j]) * SCALE;
-                    }
+                // add every second value to xcoord
+                for (int i = 2; i < com.length; i+=2){
+                    ycoord.add(Double.parseDouble(com[i])*SCALE);
                 }
 
+                // add xcoord to x
+                for (int i = 0; i < x.length; i++){
+                    x[i] = xcoord.get(i);
+                }
 
+                // add ycoord to y
+                for (int i = 0; i < x.length; i++){
+                    y[i] = ycoord.get(i);
+                }
                 Polygon poly = new Polygon(penColor, fillColor,x,y); // create polygon
-
                 draw.addCommand(poly);
-//                for(Line line: poly.getLines()){
-//                    draw.addCommand(line);
-//                }
-
             }
 
         }

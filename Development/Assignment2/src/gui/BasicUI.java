@@ -1,16 +1,41 @@
 package gui;
 
+<<<<<<< HEAD
 import vec.VecIO;
 
+=======
+import shapes.Draw;
+import shapes.Ellipse;
+import shapes.Line;
+import shapes.Polygon;
+import shapes.Rectangle;
+import vec.VecIO;
+>>>>>>> b48407c3b29eec5064768b5e926fce49062d5b50
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+import java.io.IOException;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import javax.swing.undo.UndoManager;
 
+<<<<<<< HEAD
 
 
 public class BasicUI extends JFrame{
+=======
+/* TopLevelDemo.java requires no other files. */
+public class BasicUI {
+    private static Draw draw = new Draw();
+    private static VecIO vec;
+
+    // STATES
+    private static String shape;
+    private static boolean load = true;
+    private static boolean save = true;
+
+
+>>>>>>> b48407c3b29eec5064768b5e926fce49062d5b50
     /**
      * Generates the top level of the basic User Interface
      */
@@ -27,6 +52,8 @@ public class BasicUI extends JFrame{
 
         // Create and set up the window
         JFrame frame = new JFrame("VDT: Vector Design Tool");
+        frame.setSize(1000,700);
+        frame.setLayout(new FlowLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Call Menu Bar function which generates a JMenuBar
@@ -44,15 +71,143 @@ public class BasicUI extends JFrame{
 
         // Set the menu bar and add the label to the content pane
         frame.setJMenuBar(MenuBar);
-        frame.getContentPane().add(Label, BorderLayout.CENTER);
+
+        // Set the shape using this variable for now until tools are created
+        shape = "Polygon";
+
+        vec = new VecIO("vecfiles/example2.vec");
+
+        //Check if file is loaded
+        if(load){
+            draw = vec.getDrawCommands();
+        }
+
+        if(save){
+
+        }
+
+        //add draw canvas panel
+        frame.add(draw);
+        draw.addMouseListener(new CanvasPanelListener());
 
         // Display the window.
-        frame.pack();
         frame.setVisible(true);
     }
 
-    private static void menuBar(JMenuBar MenuBar) {
 
+    public static class CanvasPanelListener implements ActionListener, ChangeListener,
+            MouseListener, MouseMotionListener {
+
+        private double x1;
+        private double y1;
+        private double x2;
+        private double y2;
+        Polygon poly;
+        private int numclicks = 0;
+
+
+
+        public void actionPerformed(ActionEvent e) {
+            System.out.println(e);
+        }
+
+        public void stateChanged(ChangeEvent e) {
+            System.out.println(e);
+        }
+
+        public void mouseClicked(MouseEvent e) {
+            System.out.println(e);
+
+            if (shape.equals("Polygon")){
+                ++numclicks;
+                // create empty polygon on first click
+                if(numclicks == 1){
+                    poly = new Polygon(Color.black, null);
+                    poly.addLines((double) e.getX(), (double) e.getY());
+                }
+
+                if(numclicks > 1){
+                    poly.addLines((double) e.getX(), (double) e.getY());
+                    draw.addCommand(poly);
+                    draw.repaint();
+                }
+
+                // check for right click for closing polygon
+                if(e.getButton() == MouseEvent.BUTTON3){
+                    poly.closePolygon();
+                    numclicks = 0; // reset numclicks
+                }
+            }
+
+        }
+
+        public void mousePressed(MouseEvent e) {
+            System.out.println(e);
+            x1 = e.getX();
+            y1 = e.getY();
+        }
+
+        public void mouseReleased(MouseEvent e) {
+            System.out.println(e);
+            x2 = e.getX();
+            y2 = e.getY();
+
+            // Shapes to be created
+            Line line;
+            Rectangle rect;
+            Ellipse ellipse;
+
+            if(shape == "Line"){
+                line = new Line(Color.black, Color.lightGray, x1,y1,x2,y2);
+                // Draw line
+                draw.addCommand(line);
+                draw.repaint();
+                try {
+                    vec.writeShape(line);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+
+            // Bug: can't draw from bottom left to top right rectangle
+            if(shape == "Rectangle"){
+                if(y2 < y1){
+                    rect = new Rectangle(Color.black, null, x2,y2,x1,y1);
+                } else {
+                    rect = new Rectangle(Color.black, null, x1,y1,x2,y2);
+                }
+                draw.addCommand(rect);
+                draw.repaint();
+            }
+
+            // Incomplete: uses rectangle outline to draw ellipse
+            if(shape == "Ellipse"){
+                ellipse = new Ellipse(Color.black, Color.CYAN, x1,y1,x2,y2);
+                draw.addCommand(ellipse);
+                draw.repaint();
+            }
+        }
+
+        public void mouseEntered(MouseEvent e) {
+            System.out.println(e);
+        }
+
+        public void mouseExited(MouseEvent e) {
+            System.out.println(e);
+        }
+
+        public void mouseDragged(MouseEvent e) {
+            System.out.println(e);
+        }
+
+        public void mouseMoved(MouseEvent e) {
+            System.out.println(e);
+        }
+    }
+
+
+
+    private static void menuBar(JMenuBar MenuBar) {
         MenuBar.setOpaque(true);
         MenuBar.setBackground(Color.WHITE);
         MenuBar.setPreferredSize(new Dimension(200, 20));
