@@ -62,10 +62,6 @@ public class BasicUI {
             draw = vec.getDrawCommands();
         }
 
-        if(save){
-
-        }
-
         //add draw canvas panel
         frame.add(draw);
         draw.addMouseListener(new CanvasPanelListener());
