@@ -1,14 +1,22 @@
 package GUI;
 
+import Application.ActivPanel;
+import Application.ActivePanel;
+import Application.Main;
+import Tools.Tools;
+
 import javax.swing.*;
 import javax.tools.Tool;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static Application.Main.App;
+import static Tools.Tools.RECTANGLE;
+
 public class ToolBars extends JPanel {
 
-    Tool tool;
+    Tools tool;
 
     public ToolBars() {
         this.setBackground(Color.DARK_GRAY);
@@ -18,7 +26,7 @@ public class ToolBars extends JPanel {
         JButton selectButton, lineButton, penButton, eraseButton, squareButton, fillButton, colourButton;
 
         // All Credit for Icon Images go to "https://www.flaticon.com/authors/pixel-perfect"
-        selectButton = createToolButton("./src/select.png", "Select");
+        selectButton = createToolButton("./src/select.png", "Select", );
         lineButton = createToolButton("./src/line.png", "Line");
         penButton = createToolButton("./src/pencil.png", "Pen");
         eraseButton = createToolButton("./src/eraser.png", "Erase");
@@ -41,7 +49,8 @@ public class ToolBars extends JPanel {
 
         this.setPreferredSize(new Dimension(50, 100));
     }
-        private static JButton createToolButton(String imageFile, String ToolTip){
+
+        private JButton createToolButton(String imageFile, String ToolTip, Tools tool){
             JButton button = new JButton();
             //button.setSize(new Dimension(15,15));
             ImageIcon buttonIcon = new ImageIcon(imageFile);
@@ -51,15 +60,23 @@ public class ToolBars extends JPanel {
             button.setIcon(buttonIcon);
             button.setToolTipText(ToolTip);
 
-            addButtonListener(button, ToolTip);
+            addButtonListener(button, tool);
             return button;
         }
 
         // Put this method in a new class
-        private static void addButtonListener(JButton button, String currentTool){
-            button.addActionListener(new ActionListener(){
-                public void actionPerformed(ActionEvent event){
-
+        private void addButtonListener(JButton button, Tools tool) {
+            button.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent event) {
+                    if(tool == Tools.LINE){
+                        ActivPanel.setCurrentTool = Tools.LINE;
+                    }
+                    if(tool == RECTANGLE){
+                        ActivPanel.setCurrentTool = RECTANGLE;
+                    }
+                    if(tool == Tools.PEN){
+                        ActivPanel.setCurrentTool = Tools.PEN;
+                    }
 //                Canvas.setCurrentTool(currentTool);
 //                if(currentTool = 6){
 //                    // currentColour = JColorChooser.showDialog(null, "Please select a colour", Color.BLACK);
@@ -69,7 +86,8 @@ public class ToolBars extends JPanel {
 //                    // button.
 //                }
                 }
-            });
+            }
         }
-
 }
+
+
