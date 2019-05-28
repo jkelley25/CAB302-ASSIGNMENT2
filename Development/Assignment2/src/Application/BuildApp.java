@@ -203,9 +203,6 @@ public class BuildApp extends JFrame {
                 StartThread();
                 animating = true;
             }
-
-
-
         }
 
         public void mouseReleased(MouseEvent e) {
@@ -307,8 +304,4 @@ public class BuildApp extends JFrame {
         }
     }
 }
-
-//        public static void main(String [] args){
-//            SwingUtilities.invokeLater();
-//        }
 

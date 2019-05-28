@@ -17,6 +17,5 @@ public class Main {
                 new BuildApp();
             }
         });
-       // App = new BuildApp();
     }
 }
