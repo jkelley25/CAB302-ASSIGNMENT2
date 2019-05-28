@@ -36,8 +36,7 @@ public class ToolBars extends JPanel {
         this.add(eraseButton);
         this.add(fillButton);
         this.add(colourButton);
-
-        this.setPreferredSize(new Dimension(50, 100));
+        this.setPreferredSize(new Dimension(75, 100));
     }
 
 

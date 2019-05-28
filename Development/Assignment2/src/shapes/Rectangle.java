@@ -27,6 +27,12 @@ public class Rectangle extends AbstractShape {
         this.by = by;
     }
 
+    public Rectangle(Color penColor, Color fillColor, double tx, double ty){
+        super(penColor, fillColor);
+        this.tx = tx;
+        this.ty = ty;
+    }
+
     /**
      * Method for painting to panel using Graphics class
      * @param g graphics object for drawing
@@ -53,6 +59,15 @@ public class Rectangle extends AbstractShape {
     public double[] getCoordinates() {
         double [] coord = {tx, ty, bx,by };
         return coord;
+    }
+
+    public void setEndPoint(double x, double y){
+        this.bx = x;
+        this.by = y;
+    }
+
+    public void setPenColor(Color penColor){
+        this.penColor = penColor;
     }
 
 }

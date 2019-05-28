@@ -34,6 +34,7 @@ public class BuildApp extends JFrame {
     public BuildApp() {
         this.setSize(1024, 768);
         this.setLayout(new BorderLayout());
+        this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("VDT: Vector Design Tool");
 
@@ -91,7 +92,7 @@ public class BuildApp extends JFrame {
         }
     }
 
-    // Class for listening for tool bar
+    // Inner class for listening for tool bar
     public static class ToolBarListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -128,14 +129,12 @@ public class BuildApp extends JFrame {
         }
     }
 
-    // Class for listening for key presses
+    // Inner class for listening for key presses
     public static class keyListener implements KeyListener {
-
         @Override
         public void keyTyped(KeyEvent e) {
 
         }
-
         @Override
         public void keyPressed(KeyEvent e) {
             if (e.isControlDown()) {
@@ -151,6 +150,7 @@ public class BuildApp extends JFrame {
         }
     }
 
+    // Inner class for listening for drawing commands on canvas
     public static class CanvasPanelListener implements
             MouseListener, MouseMotionListener, Runnable {
 
@@ -158,16 +158,13 @@ public class BuildApp extends JFrame {
         private double y1;
         private double x2;
         private double y2;
-        Polygon poly;
         private int numclicks = 0;
-        PointerInfo mouse = MouseInfo.getPointerInfo();
-        public Thread thread;
-        private boolean mousePressed = false;
-        private boolean animating = false;
-
+        Thread t;
         Point m = new Point();
-
-        private boolean released = false;
+        private Line line;
+        private Rectangle rectangle;
+        private Ellipse ellipse;
+        private Polygon poly;
 
         public void mouseClicked(MouseEvent e) {
             System.out.println(e);
@@ -185,7 +182,6 @@ public class BuildApp extends JFrame {
                     drawCanvas.addCommand(poly);
                     drawCanvas.repaint();
                 }
-
                 // check for right click for closing polygon
                 if (e.getButton() == MouseEvent.BUTTON3) {
                     poly.closePolygon();
@@ -198,48 +194,64 @@ public class BuildApp extends JFrame {
             System.out.println(e);
             x1 = e.getX();
             y1 = e.getY();
-            mousePressed = true;
-            if(!animating){
-                StartThread();
-                animating = true;
+
+            if(currentShape.equals("Line")){
+                line = new Line(Color.lightGray,null, x1,y1);
+                drawCanvas.addCommand(line);
             }
+
+            if(currentShape.equals("Rectangle")){
+                rectangle = new Rectangle(Color.lightGray, null, x1,y1);
+                drawCanvas.addCommand(rectangle);
+            }
+
+            if(currentShape.equals("Ellipse")){
+                ellipse = new Ellipse(Color.lightGray, null, x1, y1);
+                drawCanvas.addCommand(ellipse);
+            }
+            // start preview thread
+            t = new Thread(this);
+            t.start();
         }
 
         public void mouseReleased(MouseEvent e) {
-            released = true;
+            t.stop();
             System.out.println(e);
             x2 = e.getX();
             y2 = e.getY();
 
-            // Shapes to be created
-            Line line;
-            Rectangle rect;
-            Ellipse ellipse;
-
             if (currentShape.equals("Line")) {
-                line = new Line(penColor, null, x1, y1, x2, y2);
-                // Draw line
-                drawCanvas.addCommand(line);
+                line.setPenColor(penColor);
                 drawCanvas.repaint();
             }
 
-            // Bug: can't draw from bottom left to top right rectangle
-            if (currentShape == "Rectangle") {
-                if (y2 < y1) {
-                    rect = new Rectangle(penColor, fillColor, x2, y2, x1, y1);
-                } else {
-                    rect = new Rectangle(penColor, fillColor, x1, y1, x2, y2);
-                }
-                drawCanvas.addCommand(rect);
+            if(currentShape.equals("Rectangle")){
+                rectangle.setPenColor(penColor);
                 drawCanvas.repaint();
             }
+
+            if(currentShape.equals("Ellipse")){
+                ellipse.setPenColor(penColor);
+                drawCanvas.repaint();
+            }
+//
+//            // Bug: can't draw from bottom left to top right rectangle
+//            if (currentShape == "Rectangle") {
+//                if (y2 < y1) {
+//                    rect = new Rectangle(penColor, fillColor, x2, y2, x1, y1);
+//                } else {
+//                    rect = new Rectangle(penColor, fillColor, x1, y1, x2, y2);
+//                }
+//                drawCanvas.addCommand(rect);
+//                drawCanvas.repaint();
+//            }
 
             // Incomplete: uses rectangle outline to draw ellipse
-            if (currentShape.equals("Ellipse")) {
-                ellipse = new Ellipse(penColor, fillColor, x1, y1, x2, y2);
-                drawCanvas.addCommand(ellipse);
-                drawCanvas.repaint();
-            }
+//            if (currentShape.equals("Ellipse")) {
+//                ellipse = new Ellipse(penColor, fillColor, x1, y1, x2, y2);
+//                drawCanvas.addCommand(ellipse);
+//                drawCanvas.repaint();
+//            }
         }
 
         public void mouseEntered(MouseEvent e) {
@@ -258,50 +270,77 @@ public class BuildApp extends JFrame {
             System.out.println(e);
         }
 
-        int mousePressedCount;
-        Point InitPoint;
-        Point PrevPoint;
-        Point CurrentPoint;
-        Point P1;
-
-        public void StartThread() {
-            thread = new Thread(this);
-            thread.start();
-        }
-
-        public boolean mousePressed(){
-
-            return mousePressed;
-
-        }
-
         @Override
         public void run() {
-            System.out.println("RUN");
-            if (mousePressed()) {
-                if (mousePressedCount < 1) {
-                    PrevPoint = P1.getLocation();
-                    InitPoint = P1.getLocation();
-                } else {
-                    if (CurrentPoint != PrevPoint) {
-                        CurrentPoint = P1.getLocation();
-                        drawCanvas.addCommand(new Line(Color.green, null, InitPoint.getX(), InitPoint.getY(), CurrentPoint.getX(), CurrentPoint.getY()));
-                        PrevPoint = CurrentPoint;
-                        mousePressedCount++;
-                        drawCanvas.repaint();
-                        System.out.println("TEST");
-                    }
+            while(true)
+            {
+                m = drawCanvas.getMousePosition();
+                if(currentShape.equals("Line")){
+                    line.setEndPoint(m.getX(),m.getY());
                 }
+
+                if(currentShape.equals("Rectangle")){
+                    rectangle.setEndPoint(m.getX(),m.getY());
+                }
+
+                if(currentShape.equals("Ellipse")){
+                    ellipse.setEndPoint(m.getX(), m.getY());
+                }
+
+                drawCanvas.repaint();
+                System.out.println(m.getX() + ": " + m.getY());
                 try {
                     Thread.sleep(10);
-
-                } catch (InterruptedException e1) {
-
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            } else {
-                thread.stop();
             }
         }
+
+//        int mousePressedCount;
+//        Point InitPoint;
+//        Point PrevPoint;
+//        Point CurrentPoint;
+//        Point P1;
+//
+//        public void StartThread() {
+//            thread = new Thread(this);
+//            thread.start();
+//        }
+//
+//        public boolean mousePressed(){
+//
+//            return mousePressed;
+//
+//        }
+
+//        @Override
+//        public void run() {
+//            System.out.println("RUN");
+//            if (mousePressed()) {
+//                if (mousePressedCount < 1) {
+//                    PrevPoint = P1.getLocation();
+//                    InitPoint = P1.getLocation();
+//                } else {
+//                    if (CurrentPoint != PrevPoint) {
+//                        CurrentPoint = P1.getLocation();
+//                        drawCanvas.addCommand(new Line(Color.green, null, InitPoint.getX(), InitPoint.getY(), CurrentPoint.getX(), CurrentPoint.getY()));
+//                        PrevPoint = CurrentPoint;
+//                        mousePressedCount++;
+//                        drawCanvas.repaint();
+//                        System.out.println("TEST");
+//                    }
+//                }
+//                try {
+//                    Thread.sleep(10);
+//
+//                } catch (InterruptedException e1) {
+//
+//                }
+//            } else {
+//                thread.stop();
+//            }
+//        }
     }
 }
 

@@ -27,6 +27,12 @@ public class Ellipse extends AbstractShape {
         this.y2 = y2;
     }
 
+    public Ellipse(Color penColor, Color fillColor, double x1, double y1){
+        super(penColor, fillColor);
+        this.x1 = x1;
+        this.y1 = y1;
+    }
+
     /**
      * Method for painting to panel using Graphics class
      * @param g graphics object for drawing
@@ -54,5 +60,14 @@ public class Ellipse extends AbstractShape {
     public double[] getCoordinates() {
         double [] coord = {x1,y1,x2,y2};
         return coord;
+    }
+
+    public void setEndPoint(double x, double y){
+        this.x2 = x;
+        this.y2 = y;
+    }
+
+    public void setPenColor(Color penColor){
+        this.penColor = penColor;
     }
 }
