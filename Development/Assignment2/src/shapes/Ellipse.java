@@ -3,7 +3,7 @@ package shapes;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
-public class Ellipse extends Shape {
+public class Ellipse extends AbstractShape {
     private double x1;
     private double y1;
     private double x2;

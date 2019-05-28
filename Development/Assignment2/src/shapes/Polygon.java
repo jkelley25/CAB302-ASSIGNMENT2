@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.geom.Path2D;
 import java.util.ArrayList;
 
-public class Polygon extends Shape {
+public class Polygon extends AbstractShape {
     private double [] x;
     private double [] y;
 

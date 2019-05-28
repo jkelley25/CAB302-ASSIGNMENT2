@@ -3,7 +3,7 @@ package shapes;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
-public class Rectangle extends Shape {
+public class Rectangle extends AbstractShape {
     private double tx;
     private double ty;
     private double bx;

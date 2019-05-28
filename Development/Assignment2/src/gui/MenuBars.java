@@ -1,15 +1,19 @@
-package GUI;
+package gui;
 //import shapes.Draw;
 //import shapes.Ellipse;
 //import shapes.Line;
 //import shapes.Polygon;
 //import shapes.Rectangle;
-//import vec.VecIO;
+//import vec.VecReader;
 
+import Application.BuildApp;
 import GUI.CanvasPanel;
+import vec.VecReader;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.IOException;
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -22,18 +26,21 @@ import javax.swing.undo.UndoManager;
 /* TopLevelDemo.java requires no other files. */
 public class MenuBars extends JMenuBar {
 //    private static Draw draw = new Draw();
-//    private static VecIO vec;
+//    private static VecReader vec;
 
     // STATES
     private static String shape;
-    private static boolean load = true;
+    public static boolean load = false;
     private static boolean save = true;
+    public static String filePath;
 
     private CanvasPanel canvasPanel;
 
-    JMenu fileMenu;
-    JMenu editMenu;
-    JMenu helpMenu;
+    private JMenu fileMenu;
+    private JMenu editMenu;
+    private JMenu helpMenu;
+
+    public static JMenuItem New, Open, Save, SaveAs, Import, Export, Quit;
 
     /**
      * Generates the top level of the basic User Interface
@@ -51,14 +58,8 @@ public class MenuBars extends JMenuBar {
         this.add(fileMenu);
         this.add(editMenu);
         this.add(helpMenu);
-
     }
 
-//
-//
-    private static void menuBar() {
-
-    }
 
     //
     /* @param JMenuBar
@@ -67,13 +68,13 @@ public class MenuBars extends JMenuBar {
     private static JMenu fileMenu() {
         JMenu File = new JMenu("File");
 
-        JMenuItem New = new JMenuItem("New");
-        JMenuItem Open = new JMenuItem("Open");
-        JMenuItem Save = new JMenuItem("Save");
-        JMenuItem SaveAs = new JMenuItem("Save As");
-        JMenuItem Import = new JMenuItem("Import");
-        JMenuItem Export = new JMenuItem("Export");
-        JMenuItem Quit = new JMenuItem("Quit");
+        New = new JMenuItem("New");
+        Open = new JMenuItem("Open");
+        Save = new JMenuItem("Save");
+        SaveAs = new JMenuItem("Save As");
+        Import = new JMenuItem("Import");
+        Export = new JMenuItem("Export");
+        Quit = new JMenuItem("Quit");
 
         /* Add Item Handler to newly generated JMenuItem's */
         AddMenuListHandler(New, Open, Save, SaveAs, Import, Export, Quit);
@@ -91,6 +92,18 @@ public class MenuBars extends JMenuBar {
         return File;
     }
 
+    public void addFileMenuListner(ActionListener listener){
+        New.addActionListener(listener);
+        Open.addActionListener(listener);
+        Save.addActionListener(listener);
+        SaveAs.addActionListener(listener);
+        Import.addActionListener(listener);
+        Export.addActionListener(listener);
+        Quit.addActionListener(listener);
+    }
+
+
+
     /*
     @param JMenuItem(s)
     Adds Item Handler Action Listener to JMenuItem */
@@ -104,6 +117,10 @@ public class MenuBars extends JMenuBar {
                 Controller is Main Loop, Actions is a class that is called
                 by = new Actions() in Controller, doUndo() is called in Actions
                  */
+
+                if(e.getSource() == Quit){
+                    System.exit(0);
+                }
             }
         });
     }

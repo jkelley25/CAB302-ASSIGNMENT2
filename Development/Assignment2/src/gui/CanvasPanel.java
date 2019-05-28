@@ -6,7 +6,7 @@ import java.awt.*;
 public class CanvasPanel extends JPanel {
 
     public CanvasPanel(){
-        this.setBackground(Color.WHITE);
+        this.setBackground(Color.lightGray);
         this.setPreferredSize(new Dimension(1078, 764));
     }
 

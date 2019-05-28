@@ -3,7 +3,7 @@ package shapes;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
-import vec.VecIO;
+import vec.VecReader;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class RectangleTest {
     private Rectangle rect;
-    private VecIO vec = new VecIO("vecfiles/RectTest.vec");
+    private VecReader vec = new VecReader("vecfiles/RectTest.vec");
     private final int SCALE = 600;
 
     /**
@@ -69,7 +69,7 @@ public class RectangleTest {
      */
     @Test
     void TestFirstCommand(){
-        ArrayList<Shape> rects =vec.GetData();
+        ArrayList<AbstractShape> rects =vec.GetData();
         double [] actual = rects.get(0).getCoordinates(); //get coords of first line command
         double [] expected = {0.1*SCALE, 0.1*SCALE, 0.5*SCALE, 0.5*SCALE};
         // assert each value in the coordinate array
@@ -84,7 +84,7 @@ public class RectangleTest {
      */
     @Test
     void TestLastCommand(){
-        ArrayList<Shape> rect =vec.GetData();
+        ArrayList<AbstractShape> rect =vec.GetData();
         double [] actual = rect.get(rect.size() - 1).getCoordinates(); // get coords of last cmd
         double [] expected = {0.5*SCALE, 0.5*SCALE, 0.9*SCALE, 0.9*SCALE};
         // assert each value in the coordinate array

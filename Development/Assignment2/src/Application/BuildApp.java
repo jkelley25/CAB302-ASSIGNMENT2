@@ -1,40 +1,314 @@
 package Application;
 
 import GUI.CanvasPanel;
-import GUI.MenuBars;
-import GUI.ToolBars;
-
+import gui.MenuBars;
+import gui.ToolBars;
+import shapes.Draw;
+import shapes.Polygon;
+import shapes.Rectangle;
+import vec.VecReader;
 import javax.swing.*;
+import shapes.*;
+
 import java.awt.*;
+import java.awt.event.*;
+
+import static gui.MenuBars.*;
 
 public class BuildApp extends JFrame {
 
-    private final ToolBars ToolBar;
-    private final CanvasPanel CanvasPanel;
-    private final MenuBars MenuBars;
+    private static ToolBars ToolBar;
+    public static CanvasPanel CanvasPanel;
+    private static MenuBars MenuBars = new MenuBars();
+    public static Draw drawCanvas;
+    private static VecReader vec;
+    private static String vecFilePath = null;
 
-    public BuildApp(){
+    //STATES
+    private static String currentShape;
+    private static Color penColor;
+    private static Color fillColor = null;
+    private static boolean load = false;
+    private static boolean save = false;
+
+    public BuildApp() {
         this.setSize(1024, 768);
         this.setLayout(new BorderLayout());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("VDT: Vector Design Tool");
 
-        this.CanvasPanel = new CanvasPanel();
-        this.MenuBars = new MenuBars();
-        this.ToolBar = new ToolBars();
+        drawCanvas = new Draw();
+        CanvasPanel = new CanvasPanel();
+        ToolBar = new ToolBars();
+        ToolBar.addToolBarListener(new ToolBarListener()); // add listeners to toolbar buttons
 
         this.add(ToolBar, BorderLayout.WEST);
         this.add(MenuBars, BorderLayout.NORTH);
-        //this.add(new JScrollPane(CanvasPanel), BorderLayout.CENTER);
-        this.add(CanvasPanel, BorderLayout.CENTER);
+        //this.add(new JScroll Pane(CanvasPanel), BorderLayout.CENTER);
 
-        this.setDefaultColours();
+        if (vecFilePath != null) {
+            vec = new VecReader(vecFilePath);
+            drawCanvas = vec.getDrawCommands();
+        }
+
+        // Adding listeners to components
+        MenuBars.addFileMenuListner(new fileMenuListener()); // add listener to menu
+        drawCanvas.addMouseListener(new CanvasPanelListener()); // add listener to canvas
+        this.addKeyListener(new keyListener());
+        drawCanvas.addKeyListener(new keyListener());
+        this.setFocusable(true);
+        //drawCanvas.addPropertyChangeListener(new propertyListener());
+        drawCanvas.setFocusable(true);
+
+        CanvasPanel.add(drawCanvas);
+        CanvasPanel.setLayout(new FlowLayout());
+
+        this.add(CanvasPanel, BorderLayout.CENTER);
+        this.setBackground(Color.WHITE);
         //this.pack();
         this.setVisible(true);
     }
 
-    public void setDefaultColours(){
-        //this.CanvasPanel.setToolColour(Color.BLACK);
-        this.setBackground(Color.WHITE);
+    // Class for listening for file
+    private static class fileMenuListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == Quit) {
+                System.exit(0);
+            }
+
+            if (e.getSource() == Open) {
+                JFileChooser fc = new JFileChooser();
+                fc.setCurrentDirectory(new java.io.File("."));
+                fc.setDialogTitle("Open a vec file");
+                if (fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION) {
+                    vecFilePath = fc.getSelectedFile().getAbsolutePath();
+                    BuildApp build = new BuildApp();
+                }
+                System.out.println(vecFilePath);
+            }
+        }
+    }
+
+    // Class for listening for tool bar
+    public static class ToolBarListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == ToolBar.penButton) {
+                currentShape = "Pen";
+            }
+
+            if (e.getSource() == ToolBar.fillButton) {
+                fillColor = penColor;
+            }
+
+            if (e.getSource() == ToolBar.lineButton) {
+                currentShape = "Line";
+            }
+
+            if (e.getSource() == ToolBar.squareButton) {
+                currentShape = "Rectangle";
+            }
+
+            if (e.getSource() == ToolBar.polygonButton) {
+                currentShape = "Polygon";
+            }
+
+            if (e.getSource() == ToolBar.ellipseButton) {
+                currentShape = "Ellipse";
+            }
+
+            if (e.getSource() == ToolBar.colourButton) {
+                penColor = JColorChooser.showDialog(null, "Pick color", penColor);
+                if (penColor == null) {
+                    penColor = Color.black;
+                }
+            }
+        }
+    }
+
+    // Class for listening for key presses
+    public static class keyListener implements KeyListener {
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.isControlDown()) {
+                drawCanvas.removeCommand();
+                drawCanvas.repaint();
+                System.out.println("Hello");
+            }
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+
+        }
+    }
+
+    public static class CanvasPanelListener implements
+            MouseListener, MouseMotionListener, Runnable {
+
+        private double x1;
+        private double y1;
+        private double x2;
+        private double y2;
+        Polygon poly;
+        private int numclicks = 0;
+        PointerInfo mouse = MouseInfo.getPointerInfo();
+        public Thread thread;
+        private boolean mousePressed = false;
+        private boolean animating = false;
+
+        Point m = new Point();
+
+        private boolean released = false;
+
+        public void mouseClicked(MouseEvent e) {
+            System.out.println(e);
+
+            if (currentShape.equals("Polygon")) {
+                ++numclicks;
+                // create empty polygon on first click
+                if (numclicks == 1) {
+                    poly = new Polygon(penColor, fillColor);
+                    poly.addLines((double) e.getX(), (double) e.getY());
+                }
+
+                if (numclicks > 1) {
+                    poly.addLines((double) e.getX(), (double) e.getY());
+                    drawCanvas.addCommand(poly);
+                    drawCanvas.repaint();
+                }
+
+                // check for right click for closing polygon
+                if (e.getButton() == MouseEvent.BUTTON3) {
+                    poly.closePolygon();
+                    numclicks = 0; // reset polygon
+                }
+            }
+        }
+
+        public void mousePressed(MouseEvent e) {
+            System.out.println(e);
+            x1 = e.getX();
+            y1 = e.getY();
+            mousePressed = true;
+            if(!animating){
+                StartThread();
+                animating = true;
+            }
+
+
+
+        }
+
+        public void mouseReleased(MouseEvent e) {
+            released = true;
+            System.out.println(e);
+            x2 = e.getX();
+            y2 = e.getY();
+
+            // Shapes to be created
+            Line line;
+            Rectangle rect;
+            Ellipse ellipse;
+
+            if (currentShape.equals("Line")) {
+                line = new Line(penColor, null, x1, y1, x2, y2);
+                // Draw line
+                drawCanvas.addCommand(line);
+                drawCanvas.repaint();
+            }
+
+            // Bug: can't draw from bottom left to top right rectangle
+            if (currentShape == "Rectangle") {
+                if (y2 < y1) {
+                    rect = new Rectangle(penColor, fillColor, x2, y2, x1, y1);
+                } else {
+                    rect = new Rectangle(penColor, fillColor, x1, y1, x2, y2);
+                }
+                drawCanvas.addCommand(rect);
+                drawCanvas.repaint();
+            }
+
+            // Incomplete: uses rectangle outline to draw ellipse
+            if (currentShape.equals("Ellipse")) {
+                ellipse = new Ellipse(penColor, fillColor, x1, y1, x2, y2);
+                drawCanvas.addCommand(ellipse);
+                drawCanvas.repaint();
+            }
+        }
+
+        public void mouseEntered(MouseEvent e) {
+            //System.out.println(e);
+        }
+
+        public void mouseExited(MouseEvent e) {
+            //System.out.println(e);
+        }
+
+        public void mouseDragged(MouseEvent e) {
+            System.out.println(e);
+        }
+
+        public void mouseMoved(MouseEvent e) {
+            System.out.println(e);
+        }
+
+        int mousePressedCount;
+        Point InitPoint;
+        Point PrevPoint;
+        Point CurrentPoint;
+        Point P1;
+
+        public void StartThread() {
+            thread = new Thread(this);
+            thread.start();
+        }
+
+        public boolean mousePressed(){
+
+            return mousePressed;
+
+        }
+
+        @Override
+        public void run() {
+            System.out.println("RUN");
+            if (mousePressed()) {
+                if (mousePressedCount < 1) {
+                    PrevPoint = P1.getLocation();
+                    InitPoint = P1.getLocation();
+                } else {
+                    if (CurrentPoint != PrevPoint) {
+                        CurrentPoint = P1.getLocation();
+                        drawCanvas.addCommand(new Line(Color.green, null, InitPoint.getX(), InitPoint.getY(), CurrentPoint.getX(), CurrentPoint.getY()));
+                        PrevPoint = CurrentPoint;
+                        mousePressedCount++;
+                        drawCanvas.repaint();
+                        System.out.println("TEST");
+                    }
+                }
+                try {
+                    Thread.sleep(10);
+
+                } catch (InterruptedException e1) {
+
+                }
+            } else {
+                thread.stop();
+            }
+        }
     }
 }
+
+//        public static void main(String [] args){
+//            SwingUtilities.invokeLater();
+//        }
+

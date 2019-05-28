@@ -2,7 +2,8 @@ package shapes;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import vec.VecIO;
+import vec.VecReader;
+
 import java.awt.*;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Unit test for the Plot class
  */
 class PlotTest {
-    private VecIO vec = new VecIO("vecfiles/PlotTest.VEC");;
+    private VecReader vec = new VecReader("vecfiles/PlotTest.VEC");;
     private Plot plot;
     private final int SCALE = 600;
 
@@ -58,7 +59,7 @@ class PlotTest {
      */
     @Test
     void TestFirstPlotCommand(){
-        ArrayList<shapes.Shape> plots = vec.GetData();
+        ArrayList<AbstractShape> plots = vec.GetData();
         double [] actual  = plots.get(0).getCoordinates(); // get first plot command
         double [] expected = {0.5*SCALE, 0.5*SCALE};
         // assert each value of the coordinate
@@ -71,7 +72,7 @@ class PlotTest {
      */
     @Test
     void TestLastPlotCommand(){
-        ArrayList<Shape> shapes = vec.GetData();
+        ArrayList<AbstractShape> shapes = vec.GetData();
         double [] actual = shapes.get(shapes.size() - 1).getCoordinates(); // get last plot command
         double [] expected = {0.48*SCALE, 0.52*SCALE};
         // assert each value of the coordinate

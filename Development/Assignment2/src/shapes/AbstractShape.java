@@ -2,15 +2,15 @@ package shapes;
 
 import java.awt.*;
 
-public abstract class Shape {
+public abstract class AbstractShape {
     Color penColor;
     Color fillColor;
 
     /**
-     * Shape constructor given a color
+     * AbstractShape constructor given a color
      * @param penColor color of the outline of shape
      */
-    public Shape(Color penColor, Color fillColor){
+    public AbstractShape(Color penColor, Color fillColor){
         this.penColor = penColor;
         this.fillColor = fillColor;
     }

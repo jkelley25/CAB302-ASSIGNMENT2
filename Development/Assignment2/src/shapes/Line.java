@@ -7,7 +7,7 @@ import java.awt.geom.Line2D;
  * Class that creates a Line object
  */
 
-public class Line extends Shape {
+public class Line extends AbstractShape {
     private double x1;
     private double y1;
     private double x2;

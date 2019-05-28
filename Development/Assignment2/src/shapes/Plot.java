@@ -1,7 +1,7 @@
 package shapes;
 import java.awt.*;
 
-public class Plot extends Shape {
+public class Plot extends AbstractShape {
     private double x;
     private double y;
 
