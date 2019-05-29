@@ -143,7 +143,6 @@ public class BuildApp extends JFrame {
                 System.out.println("Hello");
             }
         }
-
         @Override
         public void keyReleased(KeyEvent e) {
 
@@ -192,9 +191,11 @@ public class BuildApp extends JFrame {
 
         public void mousePressed(MouseEvent e) {
             System.out.println(e);
+            // get initial position of mouse when pressed
             x1 = e.getX();
             y1 = e.getY();
 
+            // Check which shape is drawing
             if(currentShape.equals("Line")){
                 line = new Line(Color.lightGray,null, x1,y1);
                 drawCanvas.addCommand(line);
@@ -280,7 +281,16 @@ public class BuildApp extends JFrame {
                 }
 
                 if(currentShape.equals("Rectangle")){
-                    rectangle.setEndPoint(m.getX(),m.getY());
+                    if (m.getY() < y1) {
+                        rectangle.setStartPoint(m.getX(), m.getY());
+                        rectangle.setEndPoint(x1, y1);
+                    } else if(m.getY() < y1 && m.getX() > x1){
+                        rectangle.setStartPoint(x1, y1 - m.getY());
+                        rectangle.setEndPoint(m.getX(), m.getY());
+                    }
+                    else {
+                        rectangle.setEndPoint(m.getX(),m.getY());
+                    }
                 }
 
                 if(currentShape.equals("Ellipse")){

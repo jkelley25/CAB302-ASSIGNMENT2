@@ -61,9 +61,13 @@ public class Rectangle extends AbstractShape {
         return coord;
     }
 
-    public void setEndPoint(double x, double y){
-        this.bx = x;
-        this.by = y;
+    public void setStartPoint(double x1, double y1){
+        this.tx = x1;
+        this.ty = y1;
+    }
+    public void setEndPoint(double x2, double y2){
+        this.bx = x2;
+        this.by = y2;
     }
 
     public void setPenColor(Color penColor){
