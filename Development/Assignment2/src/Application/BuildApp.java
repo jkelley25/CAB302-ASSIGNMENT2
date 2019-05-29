@@ -27,7 +27,8 @@ public class BuildApp extends JFrame {
     //STATES
     private static String currentShape;
     private static Color penColor;
-    private static Color fillColor = null;
+    private static Color fillColor;
+    private static Color selectedColor = null;
     private static boolean load = false;
     private static boolean save = false;
 
@@ -101,7 +102,10 @@ public class BuildApp extends JFrame {
             }
 
             if (e.getSource() == ToolBar.fillButton) {
-                fillColor = penColor;
+                fillColor = JColorChooser.showDialog(null, "Pick fill color", penColor);
+                if (fillColor == null) {
+                    fillColor = null;
+                }
             }
 
             if (e.getSource() == ToolBar.lineButton) {
@@ -121,7 +125,7 @@ public class BuildApp extends JFrame {
             }
 
             if (e.getSource() == ToolBar.colourButton) {
-                penColor = JColorChooser.showDialog(null, "Pick color", penColor);
+                penColor = JColorChooser.showDialog(null, "Pick pen color", penColor);
                 if (penColor == null) {
                     penColor = Color.black;
                 }
@@ -228,6 +232,7 @@ public class BuildApp extends JFrame {
 
             if(currentShape.equals("Rectangle")){
                 rectangle.setPenColor(penColor);
+                rectangle.setFillColor(fillColor);
                 drawCanvas.repaint();
             }
 
@@ -235,24 +240,6 @@ public class BuildApp extends JFrame {
                 ellipse.setPenColor(penColor);
                 drawCanvas.repaint();
             }
-//
-//            // Bug: can't draw from bottom left to top right rectangle
-//            if (currentShape == "Rectangle") {
-//                if (y2 < y1) {
-//                    rect = new Rectangle(penColor, fillColor, x2, y2, x1, y1);
-//                } else {
-//                    rect = new Rectangle(penColor, fillColor, x1, y1, x2, y2);
-//                }
-//                drawCanvas.addCommand(rect);
-//                drawCanvas.repaint();
-//            }
-
-            // Incomplete: uses rectangle outline to draw ellipse
-//            if (currentShape.equals("Ellipse")) {
-//                ellipse = new Ellipse(penColor, fillColor, x1, y1, x2, y2);
-//                drawCanvas.addCommand(ellipse);
-//                drawCanvas.repaint();
-//            }
         }
 
         public void mouseEntered(MouseEvent e) {
@@ -284,17 +271,39 @@ public class BuildApp extends JFrame {
                     if (m.getY() < y1) {
                         rectangle.setStartPoint(m.getX(), m.getY());
                         rectangle.setEndPoint(x1, y1);
-                    } else if(m.getY() < y1 && m.getX() > x1){
-                        rectangle.setStartPoint(x1, y1 - m.getY());
-                        rectangle.setEndPoint(m.getX(), m.getY());
                     }
-                    else {
+                    if(m.getY() < y1 && m.getX() > x1){
+                        System.out.println("Test");
+
+                        // if drawing from bottom left to top right
+                        // BUG not fixed                                      /// BUG ///
+                        //double width  = m.getX() - x1;
+                        rectangle.setEndPoint(m.getX(), y1);
+                        rectangle.setStartPoint(x1,m.getY());
+                        //rectangle.setEndPoint(m.getX(), y1*m.getY());/// NEED TO CHANGE THE Y COORD OF ENDPOINT SHOULD BE THE HEIGHT
+                    }
+                    if(m.getX() > x1) {
                         rectangle.setEndPoint(m.getX(),m.getY());
                     }
                 }
 
                 if(currentShape.equals("Ellipse")){
-                    ellipse.setEndPoint(m.getX(), m.getY());
+                    if (m.getY() < y1) {
+                        ellipse.setStartPoint(m.getX(), m.getY());
+                        ellipse.setEndPoint(x1, y1);
+                    }
+                    if(m.getY() < y1 && m.getX() > x1){
+                        System.out.println("Test");
+                        // if drawing from bottom left to top right
+                        // BUG not fixed                                      /// BUG ///
+                        //double width  = m.getX() - x1;
+                        ellipse.setEndPoint(m.getX(), y1 + m.getY());
+                        ellipse.setStartPoint(x1,m.getY());
+                        //rectangle.setEndPoint(m.getX(), y1*m.getY());/// NEED TO CHANGE THE Y COORD OF ENDPOINT SHOULD BE THE HEIGHT
+                    }
+                    if(m.getX() > x1) {
+                        ellipse.setEndPoint(m.getX(),m.getY());
+                    }
                 }
 
                 drawCanvas.repaint();
@@ -306,51 +315,6 @@ public class BuildApp extends JFrame {
                 }
             }
         }
-
-//        int mousePressedCount;
-//        Point InitPoint;
-//        Point PrevPoint;
-//        Point CurrentPoint;
-//        Point P1;
-//
-//        public void StartThread() {
-//            thread = new Thread(this);
-//            thread.start();
-//        }
-//
-//        public boolean mousePressed(){
-//
-//            return mousePressed;
-//
-//        }
-
-//        @Override
-//        public void run() {
-//            System.out.println("RUN");
-//            if (mousePressed()) {
-//                if (mousePressedCount < 1) {
-//                    PrevPoint = P1.getLocation();
-//                    InitPoint = P1.getLocation();
-//                } else {
-//                    if (CurrentPoint != PrevPoint) {
-//                        CurrentPoint = P1.getLocation();
-//                        drawCanvas.addCommand(new Line(Color.green, null, InitPoint.getX(), InitPoint.getY(), CurrentPoint.getX(), CurrentPoint.getY()));
-//                        PrevPoint = CurrentPoint;
-//                        mousePressedCount++;
-//                        drawCanvas.repaint();
-//                        System.out.println("TEST");
-//                    }
-//                }
-//                try {
-//                    Thread.sleep(10);
-//
-//                } catch (InterruptedException e1) {
-//
-//                }
-//            } else {
-//                thread.stop();
-//            }
-//        }
     }
 }
 

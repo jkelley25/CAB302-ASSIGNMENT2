@@ -74,4 +74,7 @@ public class Rectangle extends AbstractShape {
         this.penColor = penColor;
     }
 
+    public void setFillColor(Color fillColor) {
+        this.fillColor = fillColor;
+    }
 }
