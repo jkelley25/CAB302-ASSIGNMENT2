@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class VecReader extends FileIO{
     private ArrayList<String[]> data = new ArrayList<>();
     private ArrayList<AbstractShape> shapes = new ArrayList<>();
-    private Draw draw = new Draw();
+   // private Draw draw = new Draw();
     private Color penColor;
     private Color fillColor = null;
 
@@ -86,27 +86,32 @@ public class VecReader extends FileIO{
             // check for LINE cmd
             if(com[0].equals("LINE")){
                 Line newLine = CommandRead.readLine(penColor, fillColor, com,SCALE);
-                draw.addCommand(newLine);
+                //draw.addCommand(newLine);
+                shapes.add(newLine);
             }
             // check for PLOT cmd
             if(com[0].equals("PLOT")){
                 Plot plot = CommandRead.readPlot(penColor, com, SCALE);
-                draw.addCommand(plot);
+                //draw.addCommand(plot);
+                shapes.add(plot);
             }
             // check for RECTANGLE cmd
             if(com[0].equals("RECTANGLE")){
                 Rectangle rect =  CommandRead.readRetangle(penColor, fillColor, com, SCALE);
-                draw.addCommand(rect);
+                //draw.addCommand(rect);
+                shapes.add(rect);
             }
             // check for ELLIPSE cmd
             if(com[0].equals("ELLIPSE")){
                 Ellipse ellipse = CommandRead.readEllipse(penColor, fillColor, com, SCALE);
-                draw.addCommand(ellipse);
+                //draw.addCommand(ellipse);
+                shapes.add(ellipse);
             }
             // check for POLYGON cmd
             if(com[0].equals("POLYGON")){
                 Polygon poly = CommandRead.readPolygon(penColor, fillColor, com, SCALE);
-                draw.addCommand(poly);
+                //draw.addCommand(poly);
+                shapes.add(poly);
             }
         }
     }
@@ -114,12 +119,4 @@ public class VecReader extends FileIO{
     public ArrayList<AbstractShape> GetData(){
         return shapes;
     }
-
-    public Draw getDrawCommands(){
-        return draw;
-    }
-
-
-
-
 }

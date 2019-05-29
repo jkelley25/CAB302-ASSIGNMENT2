@@ -34,5 +34,7 @@ public class Draw extends JPanel {
         return shapes;
     }
 
-
+    public void setCommands(ArrayList<AbstractShape> shapes){
+        this.shapes = shapes;
+    }
 }

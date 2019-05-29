@@ -7,8 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 public class ToolBars extends JPanel {
 
-    Tool tool;
-    //Box ToolBox = Box.createVerticalBox();
     public static JButton selectButton, lineButton, penButton, eraseButton, squareButton,
             fillButton, colourButton, polygonButton, ellipseButton;
 
@@ -39,10 +37,9 @@ public class ToolBars extends JPanel {
         this.setPreferredSize(new Dimension(75, 100));
     }
 
-
     private JButton createToolButton(String imageFile, String ToolTip) {
         JButton button = new JButton();
-        //button.setSize(new Dimension(15,15));
+        button.setSize(new Dimension(30,30));
         ImageIcon buttonIcon = new ImageIcon(imageFile);
         Image img = buttonIcon.getImage();
         Image img2 = img.getScaledInstance(15, 15, Image.SCALE_SMOOTH);

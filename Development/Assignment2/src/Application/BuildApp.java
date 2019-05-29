@@ -9,9 +9,11 @@ import shapes.Rectangle;
 import vec.VecReader;
 import javax.swing.*;
 import shapes.*;
+import vec.VecWriter;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 
 import static gui.MenuBars.*;
 
@@ -21,7 +23,8 @@ public class BuildApp extends JFrame {
     public static CanvasPanel CanvasPanel;
     private static MenuBars MenuBars = new MenuBars();
     public static Draw drawCanvas;
-    private static VecReader vec;
+    private static VecReader vecRead;
+    public static VecWriter vecWriter = new VecWriter();
     private static String vecFilePath = null;
 
     //STATES
@@ -38,7 +41,16 @@ public class BuildApp extends JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("VDT: Vector Design Tool");
+        loadNewCanvas();
+    }
 
+    public void reloadCanvas(){
+        vecRead = new VecReader(vecFilePath);
+        drawCanvas.setCommands(vecRead.GetData());
+        drawCanvas.repaint();
+    }
+
+    public void loadNewCanvas(){
         drawCanvas = new Draw();
         CanvasPanel = new CanvasPanel();
         ToolBar = new ToolBars();
@@ -46,12 +58,6 @@ public class BuildApp extends JFrame {
 
         this.add(ToolBar, BorderLayout.WEST);
         this.add(MenuBars, BorderLayout.NORTH);
-        //this.add(new JScroll Pane(CanvasPanel), BorderLayout.CENTER);
-
-        if (vecFilePath != null) {
-            vec = new VecReader(vecFilePath);
-            drawCanvas = vec.getDrawCommands();
-        }
 
         // Adding listeners to components
         MenuBars.addFileMenuListner(new fileMenuListener()); // add listener to menu
@@ -61,35 +67,63 @@ public class BuildApp extends JFrame {
         this.setFocusable(true);
         //drawCanvas.addPropertyChangeListener(new propertyListener());
         drawCanvas.setFocusable(true);
-
         CanvasPanel.add(drawCanvas);
         CanvasPanel.setLayout(new FlowLayout());
-
         this.add(CanvasPanel, BorderLayout.CENTER);
         this.setBackground(Color.WHITE);
-        //this.pack();
         this.setVisible(true);
     }
 
     // Class for listening for file
-    private static class fileMenuListener implements ActionListener {
-
+    private class fileMenuListener implements ActionListener, Runnable {
+        Thread t;
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == Quit) {
                 System.exit(0);
             }
-
+            // if opening on a new window
             if (e.getSource() == Open) {
                 JFileChooser fc = new JFileChooser();
                 fc.setCurrentDirectory(new java.io.File("."));
-                fc.setDialogTitle("Open a vec file");
+                fc.setDialogTitle("Open a vecRead file on a new window");
                 if (fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION) {
                     vecFilePath = fc.getSelectedFile().getAbsolutePath();
-                    BuildApp build = new BuildApp();
+                    t = new Thread(this);
+                    t.start();
                 }
-                System.out.println(vecFilePath);
             }
+
+            if(e.getSource() == Import){
+                JFileChooser fc = new JFileChooser();
+                fc.setCurrentDirectory(new java.io.File("."));
+                fc.setDialogTitle("Import vecRead file to current window");
+                if(fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION){
+                    vecFilePath = fc.getSelectedFile().getAbsolutePath();
+                    reloadCanvas(); // reload canvas
+                }
+            }
+
+            if(e.getSource() == SaveAs){
+                JFileChooser fc = new JFileChooser();
+                fc.setCurrentDirectory(new java.io.File("."));
+                fc.setDialogTitle("Save to file");
+                if(fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION){
+                    String savePath = fc.getSelectedFile().getAbsolutePath();
+                    try {
+                        vecWriter.saveToFile(savePath);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
+            }
+        }
+
+        @Override
+        public void run() {
+            BuildApp newApp = new BuildApp();
+            newApp.loadNewCanvas();
         }
     }
 
@@ -142,8 +176,6 @@ public class BuildApp extends JFrame {
         @Override
         public void keyPressed(KeyEvent e) {
             if (e.isControlDown()) {
-                drawCanvas.removeCommand();
-                drawCanvas.repaint();
                 System.out.println("Hello");
             }
         }
@@ -228,6 +260,7 @@ public class BuildApp extends JFrame {
             if (currentShape.equals("Line")) {
                 line.setPenColor(penColor);
                 drawCanvas.repaint();
+                vecWriter.addShapeToFile(line);
             }
 
             if(currentShape.equals("Rectangle")){
