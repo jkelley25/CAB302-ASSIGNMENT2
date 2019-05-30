@@ -27,6 +27,7 @@ public class BuildApp extends JFrame {
     public static VecWriter vecWriter = new VecWriter();
     private static String vecFilePath = null;
 
+
     //STATES
     private static String currentShape;
     private static Color penColor;
@@ -68,11 +69,17 @@ public class BuildApp extends JFrame {
         // Adding listeners to components
         MenuBars.addFileMenuListner(new fileMenuListener()); // add listener to menu
         drawCanvas.addMouseListener(new CanvasPanelListener()); // add listener to canvas
-        this.addKeyListener(new keyListener());
-        drawCanvas.addKeyListener(new keyListener());
-        this.setFocusable(true);
-        //drawCanvas.addPropertyChangeListener(new propertyListener());
-        drawCanvas.setFocusable(true);
+//        this.addKeyListener(new keyListener());
+//        drawCanvas.addKeyListener(new keyListener());
+//        CanvasPanel.addKeyListener(new keyListener());
+//        CanvasPanel.setFocusable(true);
+//        this.setFocusable(true);
+//        //drawCanvas.addPropertyChangeListener(new propertyListener());
+//        drawCanvas.setFocusable(true);
+
+        KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+        manager.addKeyEventDispatcher(new MyDispatcher());
+
         CanvasPanel.add(drawCanvas);
         CanvasPanel.setLayout(new FlowLayout());
         this.add(CanvasPanel, BorderLayout.CENTER);
@@ -80,11 +87,28 @@ public class BuildApp extends JFrame {
         this.setVisible(true);
     }
 
-    // Class for listening for file
+    // Inner Class for listening for file menu
     private class fileMenuListener implements ActionListener, Runnable {
         Thread t;
+        private String savePath;
         @Override
         public void actionPerformed(ActionEvent e) {
+//            if(e.getSource() == New){
+//                if(drawCanvas.getCommands() != null){
+//                    int result = JOptionPane.showConfirmDialog( CanvasPanel ,
+//                            "Do you want to start new canvas? This will clear working canvas", "Confirmation : ",
+//                            JOptionPane.YES_NO_OPTION);
+//                    if (result == 0){
+//                        drawCanvas.clearCommands();
+//                        try{
+//                            drawCanvas.repaint();
+//                        } catch (NullPointerException n){
+//                            System.out.println("Empty");
+//                        }
+//
+//                    }
+//                }
+//            }
             if (e.getSource() == Quit) {
                 int result = JOptionPane.showConfirmDialog( CanvasPanel ,
                         "Do you want to Exit ?", "Exit Confirmation : ",
@@ -112,6 +136,16 @@ public class BuildApp extends JFrame {
                 if(fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION){
                     vecFilePath = fc.getSelectedFile().getAbsolutePath();
                     reloadCanvas(); // reload canvas
+                    penColor = Color.BLACK;
+                    fillColor = null;
+                }
+            }
+
+            if(e.getSource() == Save && savePath != null){
+                try {
+                    vecWriter.saveToFile(savePath);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
             }
 
@@ -120,14 +154,13 @@ public class BuildApp extends JFrame {
                 fc.setCurrentDirectory(new java.io.File("."));
                 fc.setDialogTitle("Save to file");
                 if(fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION){
-                    String savePath = fc.getSelectedFile().getAbsolutePath();
+                    savePath = fc.getSelectedFile().getAbsolutePath();
                     try {
                         vecWriter.saveToFile(savePath);
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
                 }
-
             }
         }
 
@@ -142,34 +175,34 @@ public class BuildApp extends JFrame {
     public static class ToolBarListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == ToolBar.penButton) {
+            if (e.getSource() == ToolBars.penButton) {
                 currentShape = "Pen";
             }
 
-            if (e.getSource() == ToolBar.fillButton) {
+            if (e.getSource() == ToolBars.fillButton) {
                 fillColor = JColorChooser.showDialog(null, "Pick fill color", penColor);
                 if (fillColor == null) {
                     fillColor = null;
                 }
             }
 
-            if (e.getSource() == ToolBar.lineButton) {
+            if (e.getSource() == ToolBars.lineButton) {
                 currentShape = "Line";
             }
 
-            if (e.getSource() == ToolBar.squareButton) {
+            if (e.getSource() == ToolBars.squareButton) {
                 currentShape = "Rectangle";
             }
 
-            if (e.getSource() == ToolBar.polygonButton) {
+            if (e.getSource() == ToolBars.polygonButton) {
                 currentShape = "Polygon";
             }
 
-            if (e.getSource() == ToolBar.ellipseButton) {
+            if (e.getSource() == ToolBars.ellipseButton) {
                 currentShape = "Ellipse";
             }
 
-            if (e.getSource() == ToolBar.colourButton) {
+            if (e.getSource() == ToolBars.colourButton) {
                 penColor = JColorChooser.showDialog(null, "Pick pen color", penColor);
                 if (penColor == null) {
                     penColor = Color.black;
@@ -177,7 +210,16 @@ public class BuildApp extends JFrame {
             }
         }
     }
-
+    private class MyDispatcher implements KeyEventDispatcher {
+        @Override
+        public boolean dispatchKeyEvent(KeyEvent e) {
+            if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Z) {
+                drawCanvas.removeCommand(); // remove last command
+                System.out.println("tester");
+            }
+            return false;
+        }
+    }
     // Inner class for listening for key presses
     public static class keyListener implements KeyListener {
         @Override

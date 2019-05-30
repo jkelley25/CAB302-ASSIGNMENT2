@@ -19,10 +19,10 @@ public class Draw extends JPanel {
     }
 
     public void removeCommand(){
-        shapes.remove(shapes.size());
+        shapes.remove(shapes.size() - 1);
     }
 
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) throws NullPointerException{
         super.paintComponent(g);
         // paint every shape
         for (AbstractShape shape: shapes){
@@ -36,5 +36,9 @@ public class Draw extends JPanel {
 
     public void setCommands(ArrayList<AbstractShape> shapes){
         this.shapes = shapes;
+    }
+
+    public void clearCommands(){
+        shapes = null;
     }
 }
