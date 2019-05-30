@@ -61,6 +61,16 @@ public class Rectangle extends AbstractShape {
         return coord;
     }
 
+    @Override
+    public Color getPenColor() {
+        return this.penColor;
+    }
+
+    @Override
+    public Color getFillColor() {
+        return this.fillColor;
+    }
+
     public void setStartPoint(double x1, double y1){
         this.tx = x1;
         this.ty = y1;

@@ -44,12 +44,18 @@ public class BuildApp extends JFrame {
         loadNewCanvas();
     }
 
+    /**
+     * Method for importing to current canvas
+     */
     public void reloadCanvas(){
         vecRead = new VecReader(vecFilePath);
         drawCanvas.setCommands(vecRead.GetData());
         drawCanvas.repaint();
     }
 
+    /**
+     * Load components to the main frame
+     */
     public void loadNewCanvas(){
         drawCanvas = new Draw();
         CanvasPanel = new CanvasPanel();
@@ -80,7 +86,12 @@ public class BuildApp extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == Quit) {
-                System.exit(0);
+                int result = JOptionPane.showConfirmDialog( CanvasPanel ,
+                        "Do you want to Exit ?", "Exit Confirmation : ",
+                        JOptionPane.YES_NO_OPTION);
+                if(result == 0){
+                    System.exit(result);
+                }
             }
             // if opening on a new window
             if (e.getSource() == Open) {
@@ -221,6 +232,7 @@ public class BuildApp extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON3) {
                     poly.closePolygon();
                     numclicks = 0; // reset polygon
+                    vecWriter.addShapeToFile(poly);
                 }
             }
         }
@@ -245,6 +257,7 @@ public class BuildApp extends JFrame {
             if(currentShape.equals("Ellipse")){
                 ellipse = new Ellipse(Color.lightGray, null, x1, y1);
                 drawCanvas.addCommand(ellipse);
+                vecWriter.addShapeToFile(ellipse);
             }
             // start preview thread
             t = new Thread(this);
@@ -267,11 +280,13 @@ public class BuildApp extends JFrame {
                 rectangle.setPenColor(penColor);
                 rectangle.setFillColor(fillColor);
                 drawCanvas.repaint();
+                vecWriter.addShapeToFile(rectangle);
             }
 
             if(currentShape.equals("Ellipse")){
                 ellipse.setPenColor(penColor);
                 drawCanvas.repaint();
+                vecWriter.addShapeToFile(ellipse);
             }
         }
 

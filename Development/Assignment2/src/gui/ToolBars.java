@@ -10,19 +10,18 @@ public class ToolBars extends JPanel {
     public static JButton selectButton, lineButton, penButton, eraseButton, squareButton,
             fillButton, colourButton, polygonButton, ellipseButton;
 
-
     public ToolBars() {
         this.setBackground(Color.DARK_GRAY);
         // All Credit for Icon Images go to "https://www.flaticon.com/authors/pixel-perfect"
-        selectButton = createToolButton("./src/icons/select.png", "Select");
-        lineButton = createToolButton("./src/icons/line.png", "Line");
-        penButton = createToolButton("./src/icons/pencil.png", "Pen");
-        eraseButton = createToolButton("./src/icons/eraser.png", "Erase");
-        squareButton = createToolButton("./src/icons/square.png", "Square");
-        fillButton = createToolButton("./src/icons/fill.png", "Fill");
-        colourButton = createToolButton("./src/icons/colourwheel.png", "Colour");
-        polygonButton = createToolButton("./src/icons/polygon.png", "Polygon");
-        ellipseButton = createToolButton("./src/icons/ellipse.png", "Ellipse");
+        selectButton = createToolButton("./icons/select.png", "Select");
+        lineButton = createToolButton("./icons/line.png", "Line");
+        penButton = createToolButton("./icons/pencil.png", "Pen");
+        eraseButton = createToolButton("./icons/eraser.png", "Erase");
+        squareButton = createToolButton("./icons/square.png", "Square");
+        fillButton = createToolButton("./icons/fill.png", "Fill");
+        colourButton = createToolButton("./icons/colourwheel.png", "Colour");
+        polygonButton = createToolButton("./icons/polygon.png", "Polygon");
+        ellipseButton = createToolButton("./icons/ellipse.png", "Ellipse");
 
 
         this.add(selectButton);

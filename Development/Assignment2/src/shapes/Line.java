@@ -55,6 +55,16 @@ public class Line extends AbstractShape {
         return coord;
     }
 
+    @Override
+    public Color getPenColor() {
+        return this.penColor;
+    }
+
+    @Override
+    public Color getFillColor() {
+        return this.fillColor;
+    }
+
     public void setEndPoint(double x, double y){
         this.x2 = x;
         this.y2 = y;

@@ -27,6 +27,10 @@ public abstract class AbstractShape {
      */
     public abstract double [] getCoordinates();
 
+    public abstract Color getPenColor();
+
+    public abstract Color getFillColor();
+
 
 
 }

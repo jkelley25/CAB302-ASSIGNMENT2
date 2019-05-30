@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Polygon extends AbstractShape {
     private double [] x;
     private double [] y;
-
+    private ArrayList<Double> coords = new ArrayList<>();
     // coords from drawing
     private ArrayList<Double> xdr = new ArrayList<>();
     private ArrayList<Double> ydr = new ArrayList<>();
@@ -70,6 +70,9 @@ public class Polygon extends AbstractShape {
     public void addLines(double x1, double y1){
         xdr.add(x1);
         ydr.add(y1);
+        // add to coordinates
+        coords.add(x1);
+        coords.add(y1);
     }
 
     public void closePolygon(){
@@ -78,7 +81,22 @@ public class Polygon extends AbstractShape {
 
     @Override
     public double[] getCoordinates() {
-        return new double[0];
+        double [] polycoords = new double[coords.size() - 1];
+        // populate poly coordinates
+        for(int i = 0; i < polycoords.length; i++){
+            polycoords[i] = coords.get(i);
+        }
+        return polycoords;
+    }
+
+    @Override
+    public Color getPenColor() {
+        return this.penColor;
+    }
+
+    @Override
+    public Color getFillColor() {
+        return this.fillColor;
     }
 
 

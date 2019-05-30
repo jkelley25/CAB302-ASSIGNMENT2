@@ -29,4 +29,14 @@ public class Plot extends AbstractShape {
         double [] coord = {x,y};
         return coord;
     }
+
+    @Override
+    public Color getPenColor() {
+        return this.penColor;
+    }
+
+    @Override
+    public Color getFillColor() {
+        return null;
+    }
 }
