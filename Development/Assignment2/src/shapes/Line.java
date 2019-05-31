@@ -22,7 +22,7 @@ public class Line extends AbstractShape {
      * @param x2 x coordinate of the second point
      * @param y2 y coordinate of the second point
      */
-    public Line(Color penColor, Color fillColor,double x1, double y1, double x2, double y2){
+    public Line(Color penColor, Color fillColor,double x1, double y1, double x2, double y2) throws ShapeException {
         super(penColor, fillColor);
         this.x1 = x1;
         this.y1 = y1;
@@ -30,7 +30,7 @@ public class Line extends AbstractShape {
         this.y2 = y2;
     }
 
-    public Line(Color penColor, Color fillColor,double x1, double y1){
+    public Line(Color penColor, Color fillColor,double x1, double y1) throws ShapeException {
         super(penColor, fillColor);
         this.x1 = x1;
         this.y1 = y1;

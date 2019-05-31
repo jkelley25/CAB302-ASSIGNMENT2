@@ -142,30 +142,30 @@ public class BuildApp extends JFrame {
                     vecFilePath = fc.getSelectedFile().getAbsolutePath();
                     savePath = vecFilePath; // set as default save location
                     reloadCanvas(); // reload canvas
-                    penColor = null;
+                    penColor = Color.black;
                     fillColor = null;
                 }
             }
-//
-//            if(e.getSource() == Save ){
-//                if(savePath == null){
-//                    JFileChooser fc = new JFileChooser();
-//                    fc.setCurrentDirectory(new java.io.File("."));
-//                    fc.setDialogTitle("Save to file");
-//                    if (fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION) {
-//                        vecFilePath = fc.getSelectedFile().getAbsolutePath();
-//                        t = new Thread(this);
-//                        t.start();
-//                    }
-//                } else {
-//                    try {
-//                        vecWriter.saveToFile(savePath);
-//                    } catch (IOException ex) {
-//                        ex.printStackTrace();
-//                    }
-//                }
-//
-//            }
+
+            if(e.getSource() == Save ){
+                if(vecFilePath == null){
+                    JFileChooser fc = new JFileChooser();
+                    fc.setCurrentDirectory(new java.io.File("."));
+                    fc.setDialogTitle("Save to file");
+                    if (fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION) {
+                        vecFilePath = fc.getSelectedFile().getAbsolutePath();
+                        t = new Thread(this);
+                        t.start();
+                    }
+                } else {
+                    try {
+                        vecWriter.saveToFile(savePath);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
+            }
 
             if(e.getSource() == SaveAs){
                 JFileChooser fc = new JFileChooser();
@@ -319,7 +319,11 @@ public class BuildApp extends JFrame {
 
         public void mousePressed(MouseEvent e) {
             System.out.println(e);
-            createShapes(e);
+            try {
+                createShapes(e);
+            } catch (ShapeException ex) {
+                ex.printStackTrace();
+            }
             // start preview thread
             t = new Thread(this);
             t.start();
@@ -411,7 +415,11 @@ public class BuildApp extends JFrame {
         private void createPolgon(MouseEvent e) {
             // create empty polygon on first click
             if (numclicks == 1) {
-                poly = new Polygon(penColor, fillColor);
+                try {
+                    poly = new Polygon(penColor, fillColor);
+                } catch (ShapeException ex) {
+                    ex.printStackTrace();
+                }
                 poly.addLines((double) e.getX(), (double) e.getY());
             }
 
@@ -428,14 +436,18 @@ public class BuildApp extends JFrame {
             }
         }
 
-        private void createShapes(MouseEvent e) {
+        private void createShapes(MouseEvent e) throws ShapeException {
             // get initial position of mouse when pressed
             x1 = e.getX();
             y1 = e.getY();
 
             // Check which shape is drawing
             if(currentShape.equals("Line")){
-                line = new Line(Color.lightGray,null, x1,y1);
+                try {
+                    line = new Line(Color.lightGray,null, x1,y1);
+                } catch (ShapeException ex) {
+                    ex.printStackTrace();
+                }
                 drawCanvas.addCommand(line);
             }
 
@@ -445,7 +457,11 @@ public class BuildApp extends JFrame {
             }
 
             if(currentShape.equals("Ellipse")){
-                ellipse = new Ellipse(Color.lightGray, null, x1, y1);
+                try {
+                    ellipse = new Ellipse(Color.lightGray, null, x1, y1);
+                } catch (ShapeException ex) {
+                    ex.printStackTrace();
+                }
                 drawCanvas.addCommand(ellipse);
                 vecWriter.addShapeToFile(ellipse);
             }

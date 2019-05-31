@@ -4,11 +4,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import shapes.AbstractShape;
 import shapes.Plot;
+import shapes.ShapeException;
 import vec.VecReader;
 
 import java.awt.*;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Unit test for the Plot class
@@ -30,7 +32,7 @@ class PlotTest {
      * Test PlotCommand construction
      */
     @Test
-    void TestConstruction(){
+    void TestConstruction() throws ShapeException {
         plot = new Plot(Color.black,null,1,1);
     }
 
@@ -38,7 +40,7 @@ class PlotTest {
      * Test Plot coordinate
      */
     @Test
-    void TestCoordinate(){
+    void TestCoordinate() throws ShapeException {
         plot = new Plot(Color.black, null,10,20);
         double [] actual = plot.getCoordinates();
         double[] expected = {10,20};
@@ -51,7 +53,7 @@ class PlotTest {
      * Test the pen colour of line
      */
     @Test
-    void TestPenColour(){
+    void TestPenColour() throws ShapeException {
         plot = new Plot(Color.green, null,10,20);
         assertEquals(Color.green, plot.getPenColor());
     }
@@ -60,7 +62,7 @@ class PlotTest {
      * Test the coordinate of the first PLOT command in PlotTest.vec file
      */
     @Test
-    void TestFirstPlotCommand(){
+    void TestFirstPlotCommand() throws ShapeException {
         ArrayList<AbstractShape> plots = vec.GetData();
         double [] actual  = plots.get(0).getCoordinates(); // get first plot command
         double [] expected = {0.5*SCALE, 0.5*SCALE};
@@ -73,7 +75,7 @@ class PlotTest {
      * Test the coordinate of the last PLOT command in PlotTest.vec file
      */
     @Test
-    void TestLastPlotCommand(){
+    void TestLastPlotCommand() throws ShapeException {
         ArrayList<AbstractShape> shapes = vec.GetData();
         double [] actual = shapes.get(shapes.size() - 1).getCoordinates(); // get last plot command
         double [] expected = {0.48*SCALE, 0.52*SCALE};
@@ -92,5 +94,19 @@ class PlotTest {
         assertEquals(expected,actual);
     }
 
+    @Test
+    void TestException() {
+        assertThrows(Exception.class, () -> {
+            plot = new Plot(Color.decode(""), null,10,20);
+        });
+    }
 
+    @Test
+    void TestExceptionMessage() {
+        try {
+            plot = new Plot(Color.decode("23"), null, 1,1);
+        } catch (ShapeException e) {
+            assertEquals("Invalid pen color!", e.getMessage());
+        }
+    }
 }

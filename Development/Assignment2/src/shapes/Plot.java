@@ -5,7 +5,7 @@ public class Plot extends AbstractShape {
     private double x;
     private double y;
 
-    public Plot(Color penColor, Color fillColor, double x, double y){
+    public Plot(Color penColor, Color fillColor, double x, double y) throws ShapeException {
         super(penColor, fillColor);
         this.x = x;
         this.y = y;

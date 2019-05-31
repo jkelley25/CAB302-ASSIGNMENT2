@@ -15,11 +15,11 @@ public class Polygon extends AbstractShape {
 
 
     // Creates a Polygon with no coordinates
-    public Polygon(Color penColor, Color fillColor){
+    public Polygon(Color penColor, Color fillColor) throws ShapeException {
         super(penColor,fillColor);
     }
 
-    public Polygon(Color penColor, Color fillColor, double [] x, double [] y){
+    public Polygon(Color penColor, Color fillColor, double [] x, double [] y) throws ShapeException {
         super(penColor, fillColor);
         this.x = x;
         this.y = y;

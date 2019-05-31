@@ -2,9 +2,12 @@ package test;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.BeforeEach;
 import shapes.AbstractShape;
 import shapes.Line;
+import shapes.ShapeException;
 import vec.VecReader;
 import java.awt.*;
 import java.util.ArrayList;
@@ -29,7 +32,7 @@ class LineTest {
      * Test construction of LineCommand objects
      */
     @Test
-    void TestConstruction(){
+    void TestConstruction() throws ShapeException {
         line = new Line(Color.black,null,1,1,1,1);
     }
 
@@ -37,7 +40,7 @@ class LineTest {
      * Test the coordinates of a line
      */
     @Test
-    void TestLineCoords(){
+    void TestLineCoords() throws ShapeException {
         line = new Line(Color.black, null,1,1,10,10);
         double [] actual = line.getCoordinates();
         double[] expected = {1,1,10,10};
@@ -52,7 +55,7 @@ class LineTest {
      * Test the pen colour of line
      */
     @Test
-    void TestPenColour(){
+    void TestPenColour() throws ShapeException {
         line = new Line(Color.red, null,1,1,10,10);
         Color actual = line.getPenColor();
         Color expected = Color.red;
@@ -63,7 +66,7 @@ class LineTest {
      * Test the coordinates of first command in the LineTest.vec file
      */
     @Test
-    void TestFirstCommand(){
+    void TestFirstCommand() throws ShapeException {
         ArrayList<AbstractShape> lines =vec.GetData();
         double [] actual = lines.get(0).getCoordinates(); //get coords of first line command
         double [] expected = {0.000000*SCALE, 0.000000*SCALE, 1.000000*SCALE, 0.000000*SCALE};
@@ -78,7 +81,7 @@ class LineTest {
      * Test the coordinates of first command in the LineTest.vec file
      */
     @Test
-    void TestLastCommand(){
+    void TestLastCommand() throws ShapeException {
         ArrayList<AbstractShape> lines =vec.GetData();
         double [] actual = lines.get(lines.size() - 1).getCoordinates(); // get coords of last cmd
         double [] expected = {0.000000*SCALE, 0.000000*SCALE, 1.000000*SCALE, 0.000000*SCALE};
@@ -97,6 +100,22 @@ class LineTest {
         int actual  = vec.GetData().size(); //get data size
         int expected = 44;
         assertEquals(expected,actual);
+    }
+
+    @Test
+    void TestException() {
+        assertThrows(Exception.class, () -> {
+            line = new Line(Color.decode(""), null,10,20);
+        });
+    }
+
+    @Test
+    void TestExceptionMessage() {
+        try {
+            line = new Line(Color.decode("23"), null, 1,1);
+        } catch (ShapeException e) {
+            assertEquals("Invalid pen color!", e.getMessage());
+        }
     }
 
 }

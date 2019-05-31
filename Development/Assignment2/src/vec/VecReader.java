@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class VecReader extends FileIO{
     private ArrayList<String[]> data = new ArrayList<>();
     private ArrayList<AbstractShape> shapes = new ArrayList<>();
-   // private Draw draw = new Draw();
     private Color penColor;
     private Color fillColor = null;
 
@@ -26,7 +25,11 @@ public class VecReader extends FileIO{
     public VecReader(String fileName){
         super(fileName);
         ReadFile();
-        GetCommands();
+        try {
+            GetCommands();
+        } catch (ShapeException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -59,11 +62,14 @@ public class VecReader extends FileIO{
         }
     }
 
+    public ArrayList<AbstractShape> GetData(){
+        return shapes;
+    }
 
     /**
      * Method for fetching each command in the VEC file
      */
-    public void GetCommands(){
+    private void GetCommands() throws ShapeException {
         // iterate through commands and create shape object
         for(String [] com: data){
             // check for PEN cmd
@@ -111,7 +117,5 @@ public class VecReader extends FileIO{
         }
     }
 
-    public ArrayList<AbstractShape> GetData(){
-        return shapes;
-    }
+
 }

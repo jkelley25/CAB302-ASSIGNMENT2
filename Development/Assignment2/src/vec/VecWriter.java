@@ -5,7 +5,6 @@ import shapes.*;
 import shapes.Polygon;
 import shapes.Rectangle;
 
-import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;

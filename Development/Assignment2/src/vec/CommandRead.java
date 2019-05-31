@@ -1,8 +1,6 @@
 package vec;
 
-import shapes.Ellipse;
-import shapes.Line;
-import shapes.Plot;
+import shapes.*;
 import shapes.Polygon;
 import shapes.Rectangle;
 
@@ -41,7 +39,7 @@ public class CommandRead {
      * @param scale The scale value in which to scale the vector coordinates
      * @return Line object
      */
-    static Line readLine(Color penColour, Color fillColour, String [] cmd, int scale){
+    static Line readLine(Color penColour, Color fillColour, String [] cmd, int scale) throws ShapeException {
         return new Line(penColour, fillColour,
                 Double.parseDouble(cmd[1]) * scale, Double.parseDouble(cmd[2]) * scale,
                 Double.parseDouble(cmd[3]) * scale, Double.parseDouble(cmd[4]) * scale );
@@ -54,7 +52,7 @@ public class CommandRead {
      * @param scale The scale value in which to scale the vector coordinates
      * @return Plot object
      */
-    static Plot readPlot(Color penColour, String [] cmd, int scale){
+    static Plot readPlot(Color penColour, String [] cmd, int scale) throws ShapeException {
         return new Plot(penColour, null,
                 Double.parseDouble(cmd[1]) * scale,
                 Double.parseDouble(cmd[2]) * scale);
@@ -68,7 +66,7 @@ public class CommandRead {
      * @param scale The scale value in which to scale the vector coordinates
      * @return Rectangle object
      */
-    static Rectangle readRetangle(Color penColour, Color fillColour, String [] cmd, int scale){
+    static Rectangle readRetangle(Color penColour, Color fillColour, String [] cmd, int scale) throws ShapeException {
         return new Rectangle(penColour, fillColour,
                 Double.parseDouble(cmd[1]) * scale,
                 Double.parseDouble(cmd[2]) * scale,
@@ -83,7 +81,7 @@ public class CommandRead {
      * @param scale The scale value in which to scale the vector coordinates
      * @return Ellipse object
      */
-    static Ellipse readEllipse(Color penColour, Color fillColour, String [] cmd, int scale){
+    static Ellipse readEllipse(Color penColour, Color fillColour, String [] cmd, int scale) throws ShapeException {
         return new Ellipse(penColour, fillColour,
                 Double.parseDouble(cmd[1]) * scale,
                 Double.parseDouble(cmd[2]) * scale,
@@ -98,7 +96,7 @@ public class CommandRead {
      * @param scale The scale value in which to scale the vector coordinates
      * @return Polygon object
      */
-    static Polygon readPolygon(Color penColour, Color fillColour, String [] cmd, int scale){
+    static Polygon readPolygon(Color penColour, Color fillColour, String [] cmd, int scale) throws ShapeException {
         int size = cmd.length - 1;
         double [] x = new double[size/2];
         double [] y = new double [size/2];

@@ -19,7 +19,7 @@ public class Ellipse extends AbstractShape {
      * @param x2
      * @param y2
      */
-    public Ellipse(Color penColor, Color fillColor, double x1, double y1, double x2, double y2){
+    public Ellipse(Color penColor, Color fillColor, double x1, double y1, double x2, double y2) throws ShapeException {
         super(penColor, fillColor);
         this.x1 = x1;
         this.y1 = y1;
@@ -27,7 +27,7 @@ public class Ellipse extends AbstractShape {
         this.y2 = y2;
     }
 
-    public Ellipse(Color penColor, Color fillColor, double x1, double y1){
+    public Ellipse(Color penColor, Color fillColor, double x1, double y1) throws ShapeException {
         super(penColor, fillColor);
         this.x1 = x1;
         this.y1 = y1;

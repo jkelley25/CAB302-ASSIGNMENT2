@@ -19,7 +19,7 @@ public class Rectangle extends AbstractShape {
      * @param bx
      * @param by
      */
-    public Rectangle(Color penColor, Color fillColor, double tx, double ty, double bx, double by ){
+    public Rectangle(Color penColor, Color fillColor, double tx, double ty, double bx, double by ) throws ShapeException {
         super(penColor, fillColor);
         this.tx = tx;
         this.ty = ty;
@@ -27,7 +27,7 @@ public class Rectangle extends AbstractShape {
         this.by = by;
     }
 
-    public Rectangle(Color penColor, Color fillColor, double tx, double ty){
+    public Rectangle(Color penColor, Color fillColor, double tx, double ty) throws ShapeException {
         super(penColor, fillColor);
         this.tx = tx;
         this.ty = ty;

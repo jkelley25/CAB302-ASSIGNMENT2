@@ -2,8 +2,11 @@ package test;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.BeforeEach;
 import shapes.AbstractShape;
+import shapes.ShapeException;
 import vec.VecReader;
 import shapes.Rectangle;
 
@@ -30,7 +33,7 @@ public class RectangleTest {
      * Test object construction
      */
     @Test
-    void TestConstruction(){
+    void TestConstruction() throws ShapeException {
         rect = new Rectangle(Color.black, null, 100,100,200,200);
     }
 
@@ -38,7 +41,7 @@ public class RectangleTest {
      * Test coordinates of rectangle
      */
     @Test
-    void TestCoordinates(){
+    void TestCoordinates() throws ShapeException {
         rect = new Rectangle(Color.black, null, 100,100,200,200);
         double [] actual = rect.getCoordinates();
         double [] expected = {100,100,200,200};
@@ -53,7 +56,7 @@ public class RectangleTest {
      * Test Pen colour of the rectangle
      */
     @Test
-    void TestPenColour(){
+    void TestPenColour() throws ShapeException {
         rect = new Rectangle(Color.orange, null, 100,100,200,200);
         assertEquals(Color.orange, rect.getPenColor());
     }
@@ -62,7 +65,7 @@ public class RectangleTest {
      * Test Fill colour of the rectangle
      */
     @Test
-    void TestFillColour(){
+    void TestFillColour() throws ShapeException {
         rect = new Rectangle(Color.orange, Color.CYAN, 100,100,200,200);
         assertEquals(Color.cyan, rect.getFillColor());
     }
@@ -71,7 +74,7 @@ public class RectangleTest {
      * Test the coordinates of the first command in RectTest.vec file
      */
     @Test
-    void TestFirstCommand(){
+    void TestFirstCommand() throws ShapeException {
         ArrayList<AbstractShape> rects =vec.GetData();
         double [] actual = rects.get(0).getCoordinates(); //get coords of first line command
         double [] expected = {0.1*SCALE, 0.1*SCALE, 0.5*SCALE, 0.5*SCALE};
@@ -86,7 +89,7 @@ public class RectangleTest {
      * Test the coordinates of the last command in RectTest.vec
      */
     @Test
-    void TestLastCommand(){
+    void TestLastCommand() throws ShapeException {
         ArrayList<AbstractShape> rect =vec.GetData();
         double [] actual = rect.get(rect.size() - 1).getCoordinates(); // get coords of last cmd
         double [] expected = {0.5*SCALE, 0.5*SCALE, 0.9*SCALE, 0.9*SCALE};
@@ -105,6 +108,31 @@ public class RectangleTest {
         int actual  = vec.GetData().size(); //get data size
         int expected = 5;
         assertEquals(expected,actual);
+    }
+
+    @Test
+    void TestException() {
+        assertThrows(Exception.class, () -> {
+            rect = new Rectangle(Color.decode(""), null,10,20);
+        });
+    }
+
+    @Test
+    void TestExceptionMessage() {
+        try {
+            rect = new Rectangle(Color.decode("23"), null, 1,1);
+        } catch (ShapeException e) {
+            assertEquals("Invalid pen color!", e.getMessage());
+        }
+    }
+
+    @Test
+    void TestFillExceptionMsg(){
+        try {
+            rect = new Rectangle(Color.black, Color.decode("23"), 1,1);
+        } catch (ShapeException e) {
+            assertEquals("Invalid fill color!", e.getMessage());
+        }
     }
 
 }
