@@ -1,5 +1,6 @@
 package vec;
 
+import Application.BuildApp;
 import shapes.*;
 import shapes.Polygon;
 import shapes.Rectangle;
@@ -37,6 +38,8 @@ public class VecWriter {
         writer.close(); // close when finished writing
     }
 
+    // ------------------------------------------------- Helper Methods -------------------------------- \\
+
     private void writePolygon(BufferedWriter writer, int i, double[] coord) throws IOException {
         if(shapes.get(i).getClass().equals(Polygon.class)){
             // write PEN only if previous shape has different color
@@ -52,7 +55,7 @@ public class VecWriter {
             }
             writer.write("POLYGON ");
             for(double cd: coord){
-                writer.write(cd/SCALE + " "); // add each coord value
+                writer.write(cd/ BuildApp.scale + " "); // add each coord value
             }
             writer.newLine();
         }
@@ -71,8 +74,8 @@ public class VecWriter {
                 writer.write("PEN " + hex.toUpperCase());
                 writer.newLine();
             }
-            writer.write("ELLIPSE " + coord[0]/SCALE + " " + coord[1]/SCALE + " " + coord[2]/SCALE + " "
-                    + coord[3]/SCALE);
+            writer.write("ELLIPSE " + coord[0]/BuildApp.scale + " " + coord[1]/BuildApp.scale + " " +
+                    coord[2]/BuildApp.scale + " " + coord[3]/BuildApp.scale);
             writer.newLine();
         }
     }
@@ -90,8 +93,8 @@ public class VecWriter {
                 writer.write("PEN " + hex.toUpperCase());
                 writer.newLine();
             }
-            writer.write("RECTANGLE " + coord[0]/SCALE + " " + coord[1]/SCALE + " " + coord[2]/SCALE + " "
-                    + coord[3]/SCALE);
+            writer.write("RECTANGLE " + coord[0]/BuildApp.scale + " " + coord[1]/BuildApp.scale + " " +
+                    coord[2]/BuildApp.scale + " " + coord[3]/BuildApp.scale);
             writer.newLine();
         }
     }
@@ -109,10 +112,9 @@ public class VecWriter {
                 writer.write("PEN " + hex.toUpperCase());
                 writer.newLine();
             }
-
             // add new command to file
-            writer.write("LINE " + coord[0] / SCALE + " " + coord[1] / SCALE + " " + coord[2] / SCALE + " "
-                    + coord[3] / SCALE);
+            writer.write("LINE " + coord[0] / BuildApp.scale + " " + coord[1] / BuildApp.scale + " " +
+                    coord[2] / BuildApp.scale + " " + coord[3] / BuildApp.scale);
             writer.newLine();
         }
     }

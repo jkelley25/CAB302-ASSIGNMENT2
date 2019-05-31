@@ -1,9 +1,12 @@
-package shapes;
+package test;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
+import shapes.AbstractShape;
 import vec.VecReader;
+import shapes.Rectangle;
+
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -12,7 +15,7 @@ import java.util.ArrayList;
  */
 public class RectangleTest {
     private Rectangle rect;
-    private VecReader vec = new VecReader("vecfiles/RectTest.vec");
+    private VecReader vec = new VecReader("TestFiles/RectTest.vec");
     private final int SCALE = 600;
 
     /**
@@ -28,7 +31,7 @@ public class RectangleTest {
      */
     @Test
     void TestConstruction(){
-        rect = new Rectangle(Color.black, null, 1,1,10,10);
+        rect = new Rectangle(Color.black, null, 100,100,200,200);
     }
 
     /**
@@ -52,7 +55,7 @@ public class RectangleTest {
     @Test
     void TestPenColour(){
         rect = new Rectangle(Color.orange, null, 100,100,200,200);
-        assertEquals(Color.orange, rect.penColor);
+        assertEquals(Color.orange, rect.getPenColor());
     }
 
     /**
@@ -61,7 +64,7 @@ public class RectangleTest {
     @Test
     void TestFillColour(){
         rect = new Rectangle(Color.orange, Color.CYAN, 100,100,200,200);
-        assertEquals(Color.cyan, rect.fillColor);
+        assertEquals(Color.cyan, rect.getFillColor());
     }
 
     /**

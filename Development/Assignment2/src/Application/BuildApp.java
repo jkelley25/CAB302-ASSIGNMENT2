@@ -2,6 +2,7 @@ package Application;
 
 import GUI.CanvasPanel;
 import gui.MenuBars;
+import gui.StatusBar;
 import gui.ToolBars;
 import shapes.Draw;
 import shapes.Polygon;
@@ -10,31 +11,26 @@ import vec.VecReader;
 import javax.swing.*;
 import shapes.*;
 import vec.VecWriter;
-
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-
 import static gui.MenuBars.*;
 
 public class BuildApp extends JFrame {
 
     private static ToolBars ToolBar;
     public static CanvasPanel CanvasPanel;
-    private static MenuBars MenuBars = new MenuBars();
+    private static MenuBars MenuBars;
     public static Draw drawCanvas;
     private static VecReader vecRead;
     public static VecWriter vecWriter = new VecWriter();
     private static String vecFilePath = null;
-
+    public static int scale = 600;
 
     //STATES
     private static String currentShape;
     private static Color penColor;
     private static Color fillColor;
-    private static Color selectedColor = null;
-    private static boolean load = false;
-    private static boolean save = false;
 
     public BuildApp() {
         this.setSize(1024, 768);
@@ -48,8 +44,9 @@ public class BuildApp extends JFrame {
     /**
      * Method for importing to current canvas
      */
-    public void reloadCanvas(){
+    private void reloadCanvas(){
         vecRead = new VecReader(vecFilePath);
+        drawCanvas.clearCommands();
         drawCanvas.setCommands(vecRead.GetData());
         drawCanvas.repaint();
     }
@@ -57,25 +54,37 @@ public class BuildApp extends JFrame {
     /**
      * Load components to the main frame
      */
-    public void loadNewCanvas(){
+    private void loadNewCanvas(){
         drawCanvas = new Draw();
         CanvasPanel = new CanvasPanel();
         ToolBar = new ToolBars();
-        ToolBar.addToolBarListener(new ToolBarListener()); // add listeners to toolbar buttons
+        MenuBars = new MenuBars();
+        StatusBar status = new StatusBar();
 
+        this.add(status, BorderLayout.PAGE_END);
         this.add(ToolBar, BorderLayout.WEST);
         this.add(MenuBars, BorderLayout.NORTH);
 
         // Adding listeners to components
         MenuBars.addFileMenuListner(new fileMenuListener()); // add listener to menu
+        MenuBars.addEditMenuListener(new editMenuListener()); // add listener to edit menu
         drawCanvas.addMouseListener(new CanvasPanelListener()); // add listener to canvas
-//        this.addKeyListener(new keyListener());
-//        drawCanvas.addKeyListener(new keyListener());
-//        CanvasPanel.addKeyListener(new keyListener());
-//        CanvasPanel.setFocusable(true);
-//        this.setFocusable(true);
-//        //drawCanvas.addPropertyChangeListener(new propertyListener());
-//        drawCanvas.setFocusable(true);
+        ToolBar.addToolBarListener(new ToolBarListener()); // add listeners to toolbar buttons
+        this.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                if(scale == 600){
+                    if(drawCanvas.getSize().width == 600){
+                        drawCanvas.setPreferredSize(new Dimension(900, 900));
+                    }
+                }
+
+                if(drawCanvas.getSize().width == 900){
+                    scale = 900;
+                    drawCanvas.repaint();
+                }
+            }
+        });
 
         KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
         manager.addKeyEventDispatcher(new MyDispatcher());
@@ -83,9 +92,11 @@ public class BuildApp extends JFrame {
         CanvasPanel.add(drawCanvas);
         CanvasPanel.setLayout(new FlowLayout());
         this.add(CanvasPanel, BorderLayout.CENTER);
+
         this.setBackground(Color.WHITE);
         this.setVisible(true);
     }
+
 
     // Inner Class for listening for file menu
     private class fileMenuListener implements ActionListener, Runnable {
@@ -93,22 +104,6 @@ public class BuildApp extends JFrame {
         private String savePath;
         @Override
         public void actionPerformed(ActionEvent e) {
-//            if(e.getSource() == New){
-//                if(drawCanvas.getCommands() != null){
-//                    int result = JOptionPane.showConfirmDialog( CanvasPanel ,
-//                            "Do you want to start new canvas? This will clear working canvas", "Confirmation : ",
-//                            JOptionPane.YES_NO_OPTION);
-//                    if (result == 0){
-//                        drawCanvas.clearCommands();
-//                        try{
-//                            drawCanvas.repaint();
-//                        } catch (NullPointerException n){
-//                            System.out.println("Empty");
-//                        }
-//
-//                    }
-//                }
-//            }
             if (e.getSource() == Quit) {
                 int result = JOptionPane.showConfirmDialog( CanvasPanel ,
                         "Do you want to Exit ?", "Exit Confirmation : ",
@@ -117,11 +112,21 @@ public class BuildApp extends JFrame {
                     System.exit(result);
                 }
             }
+            if(e.getSource() == New){
+                int result = JOptionPane.showConfirmDialog( CanvasPanel ,
+                        "Start new? This will clear current canvas", "New Confirmation : ",
+                        JOptionPane.OK_CANCEL_OPTION);
+                if(result == 0){
+                    drawCanvas.clearCommands();
+                    drawCanvas.repaint();
+                    savePath = null;
+                }
+            }
             // if opening on a new window
             if (e.getSource() == Open) {
                 JFileChooser fc = new JFileChooser();
                 fc.setCurrentDirectory(new java.io.File("."));
-                fc.setDialogTitle("Open a vecRead file on a new window");
+                fc.setDialogTitle("Open a vec file on a new window");
                 if (fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION) {
                     vecFilePath = fc.getSelectedFile().getAbsolutePath();
                     t = new Thread(this);
@@ -135,19 +140,32 @@ public class BuildApp extends JFrame {
                 fc.setDialogTitle("Import vecRead file to current window");
                 if(fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION){
                     vecFilePath = fc.getSelectedFile().getAbsolutePath();
+                    savePath = vecFilePath; // set as default save location
                     reloadCanvas(); // reload canvas
-                    penColor = Color.BLACK;
+                    penColor = null;
                     fillColor = null;
                 }
             }
-
-            if(e.getSource() == Save && savePath != null){
-                try {
-                    vecWriter.saveToFile(savePath);
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
-            }
+//
+//            if(e.getSource() == Save ){
+//                if(savePath == null){
+//                    JFileChooser fc = new JFileChooser();
+//                    fc.setCurrentDirectory(new java.io.File("."));
+//                    fc.setDialogTitle("Save to file");
+//                    if (fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION) {
+//                        vecFilePath = fc.getSelectedFile().getAbsolutePath();
+//                        t = new Thread(this);
+//                        t.start();
+//                    }
+//                } else {
+//                    try {
+//                        vecWriter.saveToFile(savePath);
+//                    } catch (IOException ex) {
+//                        ex.printStackTrace();
+//                    }
+//                }
+//
+//            }
 
             if(e.getSource() == SaveAs){
                 JFileChooser fc = new JFileChooser();
@@ -168,6 +186,54 @@ public class BuildApp extends JFrame {
         public void run() {
             BuildApp newApp = new BuildApp();
             newApp.loadNewCanvas();
+        }
+    }
+
+    private class editMenuListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource() == Undo){
+                try{
+                    drawCanvas.removeCommand(); // remove last command
+                    drawCanvas.repaint();
+                } catch (NullPointerException n){
+                    System.out.println("No shapes to undo");
+                }
+            }
+            if(e.getSource() == Redo){
+                try{
+                    drawCanvas.redoCommand();
+                    drawCanvas.repaint();
+                    System.out.println("Test");
+                } catch (NullPointerException n){
+                    System.out.println("No redos left");
+                }
+            }
+            if(e.getSource() == UndoHistory){
+                showUndoHistory();
+            }
+            if(e.getSource() == ClearCanvas){
+                drawCanvas.clearCommands();
+                repaint();
+            }
+        }
+
+        private void showUndoHistory() {
+            EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    JFrame f = new JFrame("Test");
+                    f.setPreferredSize(new Dimension(400, 600));
+                    String[] data = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
+                    f.add(new JList<>(data));
+                    f.pack();
+                    f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    f.setLocationRelativeTo(BuildApp.this);
+                    f.setVisible(true);
+                }
+            });
+
         }
     }
 
@@ -210,31 +276,19 @@ public class BuildApp extends JFrame {
             }
         }
     }
+
     private class MyDispatcher implements KeyEventDispatcher {
         @Override
         public boolean dispatchKeyEvent(KeyEvent e) {
             if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Z) {
-                drawCanvas.removeCommand(); // remove last command
-                System.out.println("tester");
+                try{
+                    drawCanvas.removeCommand(); // remove last command
+                    drawCanvas.repaint();
+                } catch (NullPointerException n){
+                    System.out.println("No more shapes to undo");
+                }
             }
             return false;
-        }
-    }
-    // Inner class for listening for key presses
-    public static class keyListener implements KeyListener {
-        @Override
-        public void keyTyped(KeyEvent e) {
-
-        }
-        @Override
-        public void keyPressed(KeyEvent e) {
-            if (e.isControlDown()) {
-                System.out.println("Hello");
-            }
-        }
-        @Override
-        public void keyReleased(KeyEvent e) {
-
         }
     }
 
@@ -259,48 +313,13 @@ public class BuildApp extends JFrame {
 
             if (currentShape.equals("Polygon")) {
                 ++numclicks;
-                // create empty polygon on first click
-                if (numclicks == 1) {
-                    poly = new Polygon(penColor, fillColor);
-                    poly.addLines((double) e.getX(), (double) e.getY());
-                }
-
-                if (numclicks > 1) {
-                    poly.addLines((double) e.getX(), (double) e.getY());
-                    drawCanvas.addCommand(poly);
-                    drawCanvas.repaint();
-                }
-                // check for right click for closing polygon
-                if (e.getButton() == MouseEvent.BUTTON3) {
-                    poly.closePolygon();
-                    numclicks = 0; // reset polygon
-                    vecWriter.addShapeToFile(poly);
-                }
+                createPolgon(e);
             }
         }
 
         public void mousePressed(MouseEvent e) {
             System.out.println(e);
-            // get initial position of mouse when pressed
-            x1 = e.getX();
-            y1 = e.getY();
-
-            // Check which shape is drawing
-            if(currentShape.equals("Line")){
-                line = new Line(Color.lightGray,null, x1,y1);
-                drawCanvas.addCommand(line);
-            }
-
-            if(currentShape.equals("Rectangle")){
-                rectangle = new Rectangle(Color.lightGray, null, x1,y1);
-                drawCanvas.addCommand(rectangle);
-            }
-
-            if(currentShape.equals("Ellipse")){
-                ellipse = new Ellipse(Color.lightGray, null, x1, y1);
-                drawCanvas.addCommand(ellipse);
-                vecWriter.addShapeToFile(ellipse);
-            }
+            createShapes(e);
             // start preview thread
             t = new Thread(this);
             t.start();
@@ -311,25 +330,7 @@ public class BuildApp extends JFrame {
             System.out.println(e);
             x2 = e.getX();
             y2 = e.getY();
-
-            if (currentShape.equals("Line")) {
-                line.setPenColor(penColor);
-                drawCanvas.repaint();
-                vecWriter.addShapeToFile(line);
-            }
-
-            if(currentShape.equals("Rectangle")){
-                rectangle.setPenColor(penColor);
-                rectangle.setFillColor(fillColor);
-                drawCanvas.repaint();
-                vecWriter.addShapeToFile(rectangle);
-            }
-
-            if(currentShape.equals("Ellipse")){
-                ellipse.setPenColor(penColor);
-                drawCanvas.repaint();
-                vecWriter.addShapeToFile(ellipse);
-            }
+            drawShapes();
         }
 
         public void mouseEntered(MouseEvent e) {
@@ -403,6 +404,71 @@ public class BuildApp extends JFrame {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+            }
+        }
+
+        // ------------------------------------------------- Helper Methods -------------------------------- \\
+        private void createPolgon(MouseEvent e) {
+            // create empty polygon on first click
+            if (numclicks == 1) {
+                poly = new Polygon(penColor, fillColor);
+                poly.addLines((double) e.getX(), (double) e.getY());
+            }
+
+            if (numclicks > 1) {
+                poly.addLines((double) e.getX(), (double) e.getY());
+                drawCanvas.addCommand(poly);
+                drawCanvas.repaint();
+            }
+            // check for right click for closing polygon
+            if (e.getButton() == MouseEvent.BUTTON3) {
+                poly.closePolygon();
+                numclicks = 0; // reset polygon
+                vecWriter.addShapeToFile(poly);
+            }
+        }
+
+        private void createShapes(MouseEvent e) {
+            // get initial position of mouse when pressed
+            x1 = e.getX();
+            y1 = e.getY();
+
+            // Check which shape is drawing
+            if(currentShape.equals("Line")){
+                line = new Line(Color.lightGray,null, x1,y1);
+                drawCanvas.addCommand(line);
+            }
+
+            if(currentShape.equals("Rectangle")){
+                rectangle = new Rectangle(Color.lightGray, null, x1,y1);
+                drawCanvas.addCommand(rectangle);
+            }
+
+            if(currentShape.equals("Ellipse")){
+                ellipse = new Ellipse(Color.lightGray, null, x1, y1);
+                drawCanvas.addCommand(ellipse);
+                vecWriter.addShapeToFile(ellipse);
+            }
+        }
+
+        private void drawShapes() {
+            if (currentShape.equals("Line")) {
+                line.setPenColor(penColor);
+                drawCanvas.repaint();
+                vecWriter.addShapeToFile(line);
+            }
+
+            if(currentShape.equals("Rectangle")){
+                rectangle.setPenColor(penColor);
+                rectangle.setFillColor(fillColor);
+                drawCanvas.repaint();
+                vecWriter.addShapeToFile(rectangle);
+            }
+
+            if(currentShape.equals("Ellipse")){
+                ellipse.setPenColor(penColor);
+                drawCanvas.repaint();
+                vecWriter.addShapeToFile(ellipse);
             }
         }
     }

@@ -81,6 +81,10 @@ public class Ellipse extends AbstractShape {
         this.penColor = penColor;
     }
 
+    public void setFillColor(Color fillColor){
+        this.fillColor = fillColor;
+    }
+
     public void setStartPoint(double x, double y) {
         this.x1 = x;
         this.y1 = y;

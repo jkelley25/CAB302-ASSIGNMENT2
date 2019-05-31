@@ -1,5 +1,6 @@
 package vec;
 
+import Application.BuildApp;
 import shapes.*;
 import shapes.Polygon;
 import shapes.Rectangle;
@@ -17,8 +18,6 @@ public class VecReader extends FileIO{
    // private Draw draw = new Draw();
     private Color penColor;
     private Color fillColor = null;
-
-    private final int SCALE = 600; // value to resize the command
 
     /**
      * Construct a VecReader object given the fileName
@@ -53,14 +52,10 @@ public class VecReader extends FileIO{
             bufferedReader.close();
         }
         catch(FileNotFoundException ex) {
-            System.out.println(
-                    "Unable to open file '" +
-                            fileName + "'");
+            System.out.println("Unable to open file '" + fileName + "'");
         }
         catch(IOException ex) {
-            System.out.println(
-                    "Error reading file '"
-                            + fileName + "'");
+            System.out.println("Error reading file '" + fileName + "'");
         }
     }
 
@@ -85,31 +80,31 @@ public class VecReader extends FileIO{
             }
             // check for LINE cmd
             if(com[0].equals("LINE")){
-                Line newLine = CommandRead.readLine(penColor, fillColor, com,SCALE);
+                Line newLine = CommandRead.readLine(penColor, fillColor, com, BuildApp.scale);
                 //draw.addCommand(newLine);
                 shapes.add(newLine);
             }
             // check for PLOT cmd
             if(com[0].equals("PLOT")){
-                Plot plot = CommandRead.readPlot(penColor, com, SCALE);
+                Plot plot = CommandRead.readPlot(penColor, com, BuildApp.scale);
                 //draw.addCommand(plot);
                 shapes.add(plot);
             }
             // check for RECTANGLE cmd
             if(com[0].equals("RECTANGLE")){
-                Rectangle rect =  CommandRead.readRetangle(penColor, fillColor, com, SCALE);
+                Rectangle rect =  CommandRead.readRetangle(penColor, fillColor, com, BuildApp.scale);
                 //draw.addCommand(rect);
                 shapes.add(rect);
             }
             // check for ELLIPSE cmd
             if(com[0].equals("ELLIPSE")){
-                Ellipse ellipse = CommandRead.readEllipse(penColor, fillColor, com, SCALE);
+                Ellipse ellipse = CommandRead.readEllipse(penColor, fillColor, com, BuildApp.scale);
                 //draw.addCommand(ellipse);
                 shapes.add(ellipse);
             }
             // check for POLYGON cmd
             if(com[0].equals("POLYGON")){
-                Polygon poly = CommandRead.readPolygon(penColor, fillColor, com, SCALE);
+                Polygon poly = CommandRead.readPolygon(penColor, fillColor, com, BuildApp.scale);
                 //draw.addCommand(poly);
                 shapes.add(poly);
             }

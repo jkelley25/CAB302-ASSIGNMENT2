@@ -1,8 +1,10 @@
-package shapes;
+package test;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
+import shapes.AbstractShape;
+import shapes.Line;
 import vec.VecReader;
 import java.awt.*;
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ import java.util.ArrayList;
  * Unit test for Line Class
  */
 class LineTest {
-    private VecReader vec = new VecReader("vecfiles/LineTest.VEC");;
+    private VecReader vec = new VecReader("TestFiles/LineTest.VEC"); // file being tested
     private Line line;
     private final int SCALE = 600;
 
@@ -52,7 +54,7 @@ class LineTest {
     @Test
     void TestPenColour(){
         line = new Line(Color.red, null,1,1,10,10);
-        Color actual = line.penColor;
+        Color actual = line.getPenColor();
         Color expected = Color.red;
         assertEquals(expected,actual);
     }

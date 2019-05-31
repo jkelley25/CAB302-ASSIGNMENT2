@@ -1,7 +1,9 @@
-package shapes;
+package test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import shapes.AbstractShape;
+import shapes.Plot;
 import vec.VecReader;
 
 import java.awt.*;
@@ -12,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Unit test for the Plot class
  */
 class PlotTest {
-    private VecReader vec = new VecReader("vecfiles/PlotTest.VEC");;
+    private VecReader vec = new VecReader("TestFiles/PlotTest.VEC");;
     private Plot plot;
     private final int SCALE = 600;
 
@@ -51,7 +53,7 @@ class PlotTest {
     @Test
     void TestPenColour(){
         plot = new Plot(Color.green, null,10,20);
-        assertEquals(Color.green, plot.penColor);
+        assertEquals(Color.green, plot.getPenColor());
     }
 
     /**

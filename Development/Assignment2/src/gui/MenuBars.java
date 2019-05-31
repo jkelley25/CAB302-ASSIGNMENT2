@@ -1,25 +1,10 @@
 package gui;
-//import shapes.Draw;
-//import shapes.Ellipse;
-//import shapes.Line;
-//import shapes.Polygon;
-//import shapes.Rectangle;
-//import vec.VecReader;
 
-import Application.BuildApp;
 import GUI.CanvasPanel;
-import vec.VecReader;
-
 import java.awt.*;
 import java.awt.event.*;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
-import java.io.IOException;
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.undo.UndoManager;
+
 
 
 
@@ -40,8 +25,8 @@ public class MenuBars extends JMenuBar {
     private JMenu editMenu;
     private JMenu helpMenu;
 
-    public static JMenuItem New, Open, Save, SaveAs, Import, Export, Quit;
-
+    public static JMenuItem New, Open, Save, SaveAs, Import, Export, Quit; // File Menu
+    public static JMenuItem Undo, Redo, UndoHistory, ClearCanvas;
     /**
      * Generates the top level of the basic User Interface
      */
@@ -76,8 +61,6 @@ public class MenuBars extends JMenuBar {
         Export = new JMenuItem("Export");
         Quit = new JMenuItem("Quit");
 
-        /* Add Item Handler to newly generated JMenuItem's */
-        AddMenuListHandler(New, Open, Save, SaveAs, Import, Export, Quit);
 
         /* Add menu items to menu */
         addMenuItem(New, File);
@@ -102,36 +85,12 @@ public class MenuBars extends JMenuBar {
         Quit.addActionListener(listener);
     }
 
-
-
-    /*
-    @param JMenuItem(s)
-    Adds Item Handler Action Listener to JMenuItem */
-    private static void AddMenuListHandler(JMenuItem Item, JMenuItem... Items) {
-        // ActionEvent CtrlZ = new ActionEvent(Undo, 1, "Ctrl-Z Undo" );
-        Item.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                doUndo();
-                /* Add Controller.Actions.doUndo(); here
-                Controller is Main Loop, Actions is a class that is called
-                by = new Actions() in Controller, doUndo() is called in Actions
-                 */
-
-                if(e.getSource() == Quit){
-                    System.exit(0);
-                }
-            }
-        });
+    public void addEditMenuListener(ActionListener listener){
+        Undo.addActionListener(listener);
+        Redo.addActionListener(listener);
+        UndoHistory.addActionListener(listener);
+        ClearCanvas.addActionListener(listener);
     }
-
-    //
-    /* Undo Function --> add to Edit Menu --> Wire Up to Ctrl-Z key Event */
-    private static void doUndo() {
-        final UndoManager Undo = new UndoManager();
-
-    }
-//
 
     /* @param JMenuBar
     Adds Edit as a Menu to Menu Bar
@@ -140,11 +99,15 @@ public class MenuBars extends JMenuBar {
         JMenu Edit = new JMenu("Edit");
         // Add Edit Menu to Menu Bar
         // Create Menu Items
-        JMenuItem Undo = new JMenuItem("Undo");
-        JMenuItem Redo = new JMenuItem("Redo");
+        Undo = new JMenuItem("Undo");
+        Redo = new JMenuItem("Redo");
+        UndoHistory = new JMenuItem("Undo History");
+        ClearCanvas = new JMenuItem("Clear Canvas");
         // Add Menu Items to Menu
         addMenuItem(Undo, Edit);
         addMenuItem(Redo, Edit);
+        addMenuItem(UndoHistory, Edit);
+        addMenuItem(ClearCanvas, Edit);
 
         return Edit;
     }
