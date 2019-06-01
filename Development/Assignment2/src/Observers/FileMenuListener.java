@@ -3,6 +3,8 @@ package Observers;
 import Application.BuildApp;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,8 +12,10 @@ import java.io.IOException;
 
 import static Application.BuildApp.*;
 import static gui.MenuBars.*;
-import static gui.MenuBars.Open;
 
+/**
+ * Class for listening for file menu actions
+ */
 public class FileMenuListener implements ActionListener, Runnable {
     Thread t;
     private String savePath;
@@ -35,23 +39,14 @@ public class FileMenuListener implements ActionListener, Runnable {
                 savePath = null;
             }
         }
-        // if opening on a new window
-        if (e.getSource() == Open) {
-            JFileChooser fc = new JFileChooser();
-            fc.setCurrentDirectory(new java.io.File("."));
-            fc.setDialogTitle("Open a vec file on a new window");
-            if (fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION) {
-                vecFilePath = fc.getSelectedFile().getAbsolutePath();
-                t = new Thread(this);
-                t.start();
-            }
-        }
 
-        if(e.getSource() == Import){
+        if(e.getSource() == Load){
+            FileFilter filter = new FileNameExtensionFilter("Vec File","vec");
             JFileChooser fc = new JFileChooser();
+            fc.setFileFilter(filter);
             fc.setCurrentDirectory(new java.io.File("."));
-            fc.setDialogTitle("Import vecRead file to current window");
-            if(fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION){
+            fc.setDialogTitle("Load vecRead file to current window");
+            if(fc.showOpenDialog(Load) == JFileChooser.APPROVE_OPTION){
                 vecFilePath = fc.getSelectedFile().getAbsolutePath();
                 savePath = vecFilePath; // set as default save location
                 reloadCanvas(); // reload canvas
@@ -65,7 +60,7 @@ public class FileMenuListener implements ActionListener, Runnable {
                 JFileChooser fc = new JFileChooser();
                 fc.setCurrentDirectory(new java.io.File("."));
                 fc.setDialogTitle("Save to file");
-                if (fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION) {
+                if (fc.showOpenDialog(Save) == JFileChooser.APPROVE_OPTION) {
                     vecFilePath = fc.getSelectedFile().getAbsolutePath();
                     t = new Thread(this);
                     t.start();
@@ -77,16 +72,15 @@ public class FileMenuListener implements ActionListener, Runnable {
                     ex.printStackTrace();
                 }
             }
-
         }
-
         if(e.getSource() == SaveAs){
             JFileChooser fc = new JFileChooser();
             fc.setCurrentDirectory(new java.io.File("."));
             fc.setDialogTitle("Save to file");
-            if(fc.showOpenDialog(Open) == JFileChooser.APPROVE_OPTION){
+            if(fc.showOpenDialog(SaveAs) == JFileChooser.APPROVE_OPTION){
                 savePath = fc.getSelectedFile().getAbsolutePath();
                 try {
+                    vecWriter.setShapes(drawCanvas.getCommands());
                     vecWriter.saveToFile(savePath);
                 } catch (IOException ex) {
                     ex.printStackTrace();

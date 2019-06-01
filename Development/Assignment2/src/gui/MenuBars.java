@@ -25,8 +25,8 @@ public class MenuBars extends JMenuBar {
     private JMenu editMenu;
     private JMenu helpMenu;
 
-    public static JMenuItem New, Open, Save, SaveAs, Import, Export, Quit; // File Menu
-    public static JMenuItem Undo, Redo, UndoHistory, ClearCanvas;
+    public static JMenuItem New, Save, SaveAs, Load, Quit; // File Menu
+    public static JMenuItem Undo, Redo, ClearCanvas;
     /**
      * Generates the top level of the basic User Interface
      */
@@ -52,43 +52,32 @@ public class MenuBars extends JMenuBar {
      */
     private static JMenu fileMenu() {
         JMenu File = new JMenu("File");
-
         New = new JMenuItem("New");
-        Open = new JMenuItem("Open");
         Save = new JMenuItem("Save");
         SaveAs = new JMenuItem("Save As");
-        Import = new JMenuItem("Import");
-        Export = new JMenuItem("Export");
+        Load = new JMenuItem("Load");
         Quit = new JMenuItem("Quit");
-
-
         /* Add menu items to menu */
         addMenuItem(New, File);
-        addMenuItem(Open, File);
         addMenuItem(Save, File);
         addMenuItem(SaveAs, File);
-        addMenuItem(Import, File);
-        addMenuItem(Export, File);
+        addMenuItem(Load, File);
         File.addSeparator();
         addMenuItem(Quit, File);
-
         return File;
     }
 
     public void addFileMenuListner(ActionListener listener){
         New.addActionListener(listener);
-        Open.addActionListener(listener);
         Save.addActionListener(listener);
         SaveAs.addActionListener(listener);
-        Import.addActionListener(listener);
-        Export.addActionListener(listener);
+        Load.addActionListener(listener);
         Quit.addActionListener(listener);
     }
 
     public void addEditMenuListener(ActionListener listener){
         Undo.addActionListener(listener);
         Redo.addActionListener(listener);
-        UndoHistory.addActionListener(listener);
         ClearCanvas.addActionListener(listener);
     }
 
@@ -101,14 +90,11 @@ public class MenuBars extends JMenuBar {
         // Create Menu Items
         Undo = new JMenuItem("Undo");
         Redo = new JMenuItem("Redo");
-        UndoHistory = new JMenuItem("Undo History");
         ClearCanvas = new JMenuItem("Clear Canvas");
         // Add Menu Items to Menu
         addMenuItem(Undo, Edit);
         addMenuItem(Redo, Edit);
-        addMenuItem(UndoHistory, Edit);
         addMenuItem(ClearCanvas, Edit);
-
         return Edit;
     }
 
@@ -118,20 +104,6 @@ public class MenuBars extends JMenuBar {
         /* Add Instructions to list */
         JMenuItem Instructions = new JMenuItem("How To");
         addMenuItem(Instructions, Help);
-        /* Add Help Menu to Menu Bar */
-        // MenuBar.add(Help);
-
-        /* Call After Importing/New Function is created
-        JWindow Page = new JWindow();
-        --> Creates New Tab
-         */
-//        JToolBar ToolBar = new JToolBar();
-//        JToggleButton Select = new JToggleButton();
-//        JToolTip SelectTip = new JToolTip();
-//        SelectTip.setTipText("Select");
-//        Select.add(SelectTip);
-//        ToolBar.add(Select);
-
         return Help;
     }
 
@@ -144,11 +116,3 @@ public class MenuBars extends JMenuBar {
     }
 }
 
-//    public static void main(String[] args) {
-//        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-//            public void run() {
-//                createGUI();
-//            }
-//        });
-//    }
-//}

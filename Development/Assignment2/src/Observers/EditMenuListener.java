@@ -1,7 +1,5 @@
 package Observers;
 
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,6 +7,9 @@ import static Application.BuildApp.drawCanvas;
 import static gui.MenuBars.*;
 import static gui.MenuBars.ClearCanvas;
 
+/**
+ * Class for listening for edit menu actions
+ */
 public class EditMenuListener implements ActionListener {
 
     @Override
@@ -30,28 +31,9 @@ public class EditMenuListener implements ActionListener {
                 System.out.println("No redos left");
             }
         }
-        if(e.getSource() == UndoHistory){
-            showUndoHistory();
-        }
         if(e.getSource() == ClearCanvas){
             drawCanvas.clearCommands();
             drawCanvas.repaint();
         }
-    }
-
-    private void showUndoHistory() {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                JFrame f = new JFrame("Test");
-                f.setPreferredSize(new Dimension(400, 600));
-                String[] data = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
-                f.add(new JList<>(data));
-                f.pack();
-                f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                f.setLocationRelativeTo(null);
-                f.setVisible(true);
-            }
-        });
     }
 }

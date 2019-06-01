@@ -9,11 +9,14 @@ import java.awt.event.ActionListener;
 
 import static Application.BuildApp.*;
 
+/**
+ * Class for listening for toolbar actions
+ */
 public class ToolBarListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ToolBars.penButton) {
-            currentShape = "Pen";
+            currentShape = "Plot";
         }
         if (e.getSource() == ToolBars.fillButton) {
             fillColor = JColorChooser.showDialog(null, "Pick fill color", penColor);
@@ -33,7 +36,7 @@ public class ToolBarListener implements ActionListener {
         if (e.getSource() == ToolBars.ellipseButton) {
             currentShape = "Ellipse";
         }
-        if (e.getSource() == ToolBars.colourButton) {
+        if (e.getSource() == ToolBars.penColorButton) {
             penColor = JColorChooser.showDialog(null, "Pick pen color", penColor);
             if (penColor == null) {
                 penColor = Color.black;

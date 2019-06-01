@@ -1,9 +1,7 @@
 package Observers;
 
-import shapes.Ellipse;
-import shapes.Line;
+import shapes.*;
 import shapes.Rectangle;
-import shapes.ShapeException;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -12,6 +10,9 @@ import java.awt.event.MouseMotionListener;
 
 import static Application.BuildApp.*;
 
+/**
+ * Class for listening for mouse actions on the main canvas
+ */
 public class CanvasPanelListener implements
         MouseListener, MouseMotionListener, Runnable {
 
@@ -22,6 +23,7 @@ public class CanvasPanelListener implements
     private int numclicks = 0;
     Thread t;
     Point m = new Point();
+    private Plot plot;
     private Line line;
     private shapes.Rectangle rectangle;
     private Ellipse ellipse;
@@ -32,6 +34,16 @@ public class CanvasPanelListener implements
         if (currentShape.equals("Polygon")) {
             ++numclicks;
             createPolgon(e);
+        }
+
+        if(currentShape.equals("Plot")){
+            try {
+                plot = new Plot(penColor, null, e.getX(),e.getY());
+                drawCanvas.addCommand(plot);
+                drawCanvas.repaint();
+            } catch (ShapeException ex) {
+                ex.printStackTrace();
+            }
         }
     }
 

@@ -6,6 +6,7 @@ import shapes.Polygon;
 import shapes.Rectangle;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,9 +25,23 @@ public class VecWriter {
         shapes.add(shape);
     }
 
+    public void setShapes(ArrayList<AbstractShape> newShapes){
+        this.shapes = null;
+        this.shapes = newShapes;
+    }
     public void saveToFile(String filePath) throws IOException {
+        File f = new File(filePath);
+        if(f.exists()){
+            f.delete();
+            try {
+                f.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         BufferedWriter writer = new BufferedWriter(new FileWriter(filePath,
                 true)); // allow for appending
+        writer.flush();
         for(int i = 0; i < shapes.size(); i++) {
             double[] coord = new double[0];
             try {

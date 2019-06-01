@@ -2,28 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e43c6159-fae3-4a92-b9fc-b2cb52e364a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Assignment2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Assignment2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examplefiles/example1.vec" beforeDir="false" afterPath="$PROJECT_DIR$/resources/examplefiles/example1.vec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examplefiles/example2.vec" beforeDir="false" afterPath="$PROJECT_DIR$/resources/examplefiles/example2.vec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examplefiles/example3.vec" beforeDir="false" afterPath="$PROJECT_DIR$/resources/examplefiles/example3.vec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/colourwheel.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/colourwheel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/ellipse.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/ellipse.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/eraser.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/eraser.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/fill.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/fill.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/line.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/line.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/pencil.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/pencil.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/polygon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/polygon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/select.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/select.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icons/square.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/square.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Application/BuildApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/BuildApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Observers/CanvasPanelListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Observers/CanvasPanelListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Observers/EditMenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Observers/EditMenuListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Observers/FileMenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Observers/FileMenuListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Observers/ToolBarListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Observers/ToolBarListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MenuBars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MenuBars.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/StatusBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/StatusBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ToolBarEnums.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/AbstractShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/AbstractShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/Draw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Draw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/Ellipse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Ellipse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/Line.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Line.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/Plot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Plot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/Polygon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Polygon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shapes/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shapes/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/EllipseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/EllipseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/ExceptionTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/LineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/LineTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/PlotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/PlotTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/RectangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/RectangleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/VecReadTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/VecReadTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vec/CommandRead.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vec/VecReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vec/VecReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/ToolBars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ToolBars.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vec/VecWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vec/VecWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vecfiles/fill.VEC" beforeDir="false" afterPath="$PROJECT_DIR$/resources/vecfiles/fill.VEC" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vecfiles/fill2.VEC" beforeDir="false" afterPath="$PROJECT_DIR$/resources/vecfiles/fill2.VEC" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vecfiles/fill3.VEC" beforeDir="false" afterPath="$PROJECT_DIR$/resources/vecfiles/fill3.VEC" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vecfiles/polytest.vec" beforeDir="false" afterPath="$PROJECT_DIR$/resources/vecfiles/polytest.vec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vecfiles/writetest.vec" beforeDir="false" afterPath="$PROJECT_DIR$/resources/vecfiles/writetest.vec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/write.vec" beforeDir="false" afterPath="$PROJECT_DIR$/write.vec" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -44,8 +49,82 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/BuildApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+            <state relative-caret-position="367">
+              <caret line="96" column="1" lean-forward="true" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/ToolBars.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Observers/ToolBarListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/MenuBars.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1580">
+              <caret line="79" column="41" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#4036#4037#0" expanded="true" />
+                <element signature="e#4070#4071#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/StatusBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Observers/StatusBarListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-68">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Observers/FileMenuListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="233">
+              <caret line="83" column="49" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -54,73 +133,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/PolygonTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/shapes/Rectangle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1600">
-              <caret line="80" column="24" lean-forward="true" selection-start-line="80" selection-start-column="24" selection-end-line="80" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/RectangleTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="145" selection-start-line="145" selection-end-line="165" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TestFiles/PolyTest.vec">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" selection-start-column="8" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examplefiles/example2.vec">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="3" selection-end-column="115" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/EditMenuListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/vec/VecWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2420">
-              <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+            <state relative-caret-position="720">
+              <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,10 +145,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/FileMenuListener.java">
+        <entry file="file://$PROJECT_DIR$/src/Observers/EditMenuListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="380">
+              <caret line="19" column="37" lean-forward="true" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,16 +157,16 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Application/CanvasPanelListener.java">
+        <entry file="file://$PROJECT_DIR$/src/Observers/CanvasPanelListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1443#1444#0" expanded="true" />
-                <element signature="e#1488#1489#0" expanded="true" />
-                <element signature="e#1536#1537#0" expanded="true" />
-                <element signature="e#1581#1582#0" expanded="true" />
+                <element signature="e#1840#1841#0" expanded="true" />
+                <element signature="e#1877#1878#0" expanded="true" />
+                <element signature="e#1921#1922#0" expanded="true" />
+                <element signature="e#1958#1959#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,11 +193,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/shapes/RectangleTest.java" />
-        <option value="$PROJECT_DIR$/writetest.vec" />
-        <option value="$PROJECT_DIR$/src/shapes/LineTest.java" />
-        <option value="$PROJECT_DIR$/src/vec/VecIO.java" />
-        <option value="$PROJECT_DIR$/vecfiles/polytest.vec" />
         <option value="$PROJECT_DIR$/src/TestMain.java" />
         <option value="$PROJECT_DIR$/src/gui/BasicUI-edit.java" />
         <option value="$PROJECT_DIR$/src/gui/BasicUI-up.java" />
@@ -190,11 +201,9 @@
         <option value="$PROJECT_DIR$/src/gui/ColorChooser.java" />
         <option value="H:/Practicals/lec09-gui/src/week8/AllEvents.java" />
         <option value="$PROJECT_DIR$/src/Application/Main.java" />
-        <option value="$PROJECT_DIR$/src/gui/ToolBars.java" />
         <option value="$PROJECT_DIR$/write.vec" />
         <option value="$PROJECT_DIR$/vecfiles/example1.vec" />
         <option value="$PROJECT_DIR$/src/gui/FramesAndPanels.java" />
-        <option value="$PROJECT_DIR$/src/gui/MenuBars.java" />
         <option value="$PROJECT_DIR$/src/gui/CanvasPanel.java" />
         <option value="$PROJECT_DIR$/src/gui/test.java" />
         <option value="$PROJECT_DIR$/src/App.form" />
@@ -207,7 +216,6 @@
         <option value="$PROJECT_DIR$/src/shapes/Line.java" />
         <option value="$PROJECT_DIR$/src/shapes/Plot.java" />
         <option value="$PROJECT_DIR$/src/shapes/Ellipse.java" />
-        <option value="$PROJECT_DIR$/src/vec/VecWriter.java" />
         <option value="$PROJECT_DIR$/src/shapes/Rectangle.java" />
         <option value="$PROJECT_DIR$/src/shapes/Draw.java" />
         <option value="$PROJECT_DIR$/src/shapes/Polygon.java" />
@@ -218,16 +226,24 @@
         <option value="$PROJECT_DIR$/src/test/VecReadTest.java" />
         <option value="$PROJECT_DIR$/src/Application/FileMenuListener.java" />
         <option value="$PROJECT_DIR$/src/Application/EditMenuListener.java" />
-        <option value="$PROJECT_DIR$/src/gui/StatusBar.java" />
         <option value="$PROJECT_DIR$/src/gui/ToolBarEnums.java" />
         <option value="$PROJECT_DIR$/src/Application/ToolBarListener.java" />
-        <option value="$PROJECT_DIR$/src/Application/BuildApp.java" />
         <option value="$PROJECT_DIR$/src/Application/CanvasPanelListener.java" />
         <option value="$PROJECT_DIR$/src/vec/CommandWrite.java" />
         <option value="$PROJECT_DIR$/src/vec/CommandRead.java" />
         <option value="$PROJECT_DIR$/src/vec/VecReader.java" />
         <option value="$PROJECT_DIR$/TestFiles/PolyTest.vec" />
         <option value="$PROJECT_DIR$/src/test/PolygonTest.java" />
+        <option value="$PROJECT_DIR$/src/gui/StatusBar.java" />
+        <option value="$PROJECT_DIR$/src/gui/MenuBars.java" />
+        <option value="$PROJECT_DIR$/src/Application/BuildApp.java" />
+        <option value="$PROJECT_DIR$/src/Observers/CanvasPanelListener.java" />
+        <option value="$PROJECT_DIR$/src/Observers/EditMenuListener.java" />
+        <option value="$PROJECT_DIR$/src/Observers/StatusBarListener.java" />
+        <option value="$PROJECT_DIR$/src/Observers/ToolBarListener.java" />
+        <option value="$PROJECT_DIR$/src/gui/ToolBars.java" />
+        <option value="$PROJECT_DIR$/src/Observers/FileMenuListener.java" />
+        <option value="$PROJECT_DIR$/src/vec/VecWriter.java" />
       </list>
     </option>
   </component>
@@ -259,7 +275,36 @@
             <path>
               <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Observers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="vec" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -293,15 +338,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/gui" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources" />
       <recent name="D:\Documents\Uni\CAB302-ASSIGNMENT2\Development\Assignment2\examplefiles" />
       <recent name="D:\Documents\Uni\CAB302-ASSIGNMENT2\Development\Assignment2\vecTestFiles" />
       <recent name="$PROJECT_DIR$/vecfiles" />
       <recent name="$PROJECT_DIR$/src/icons" />
-      <recent name="$PROJECT_DIR$/vec files" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/gui" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -316,7 +361,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.test in Assignment2">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application.Main" />
       <module name="Assignment2" />
@@ -341,22 +386,6 @@
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.PolygonTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PolygonTest.TestException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Assignment2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.PolygonTest" />
-      <option name="METHOD_NAME" value="TestException" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -393,13 +422,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="test in Assignment2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Assignment2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.test in Assignment2" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.PolygonTest" />
         <item itemvalue="JUnit.PolygonTest.TestNegExcpMsg" />
         <item itemvalue="JUnit.PolygonTest.TestNegException" />
-        <item itemvalue="JUnit.PolygonTest.TestException" />
       </list>
     </recent_temporary>
   </component>
@@ -459,8 +502,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="734" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25121164" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17609046" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -470,12 +514,12 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32866043" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2538941" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28037384" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39719626" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3261105" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.23943663" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.23364486" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32827735" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32554516" />
@@ -538,7 +582,7 @@
     <SUITE FILE_PATH="coverage/Assignment2$EllipseTest.ic" NAME="EllipseTest Coverage Results" MODIFIED="1559296818378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>test.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Assignment2$test_in_Assignment2.ic" NAME="test in Assignment2 Coverage Results" MODIFIED="1559356134940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Assignment2$test_in_Assignment2.ic" NAME="test in Assignment2 Coverage Results" MODIFIED="1559369047957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>test.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/Assignment2$PolygonTest.ic" NAME="PolygonTest Coverage Results" MODIFIED="1559361958359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -546,7 +590,6 @@
     </SUITE>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Volumes/NO NAME/CABS/project2/src/Application/ActivPanel.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/util/ArrayList.java" />
     <entry file="file://$PROJECT_DIR$/src/gui/ToolBarButton.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Thread.java" />
@@ -556,26 +599,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/FramesAndPanels.java" />
     <entry file="file://$PROJECT_DIR$/src/gui/PanelsAndWidgets.java" />
-    <entry file="file://$PROJECT_DIR$/src/gui/MenuBars.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="21" column="36" lean-forward="true" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/ToolBars.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="31" lean-forward="true" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.3/lib/src.zip!/java.desktop/java/awt/GridLayout.java" />
     <entry file="file://$PROJECT_DIR$/src/gui/CanvasPanel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -589,7 +612,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.form" />
     <entry file="file://$PROJECT_DIR$/src/App.java" />
-    <entry file="file://$PROJECT_DIR$/examplefiles/example1.vec">
+    <entry file="file://$PROJECT_DIR$/resources/examplefiles/example1.vec">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="46" column="27" lean-forward="true" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
@@ -610,10 +633,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vecfiles/fill2.VEC">
+    <entry file="file://$PROJECT_DIR$/resources/vecfiles/fill2.VEC">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/vecfiles/polytest.vec">
+    <entry file="file://$PROJECT_DIR$/resources/vecfiles/polytest.vec">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/shapes/ShapeException.java">
@@ -761,71 +784,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/StatusBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/FileMenuListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/CanvasPanelListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1443#1444#0" expanded="true" />
-            <element signature="e#1488#1489#0" expanded="true" />
-            <element signature="e#1536#1537#0" expanded="true" />
-            <element signature="e#1581#1582#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/EditMenuListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/vec/CommandWrite.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vec/VecWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2420">
-          <caret line="123" column="5" lean-forward="true" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -869,17 +831,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/ToolBarListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/examplefiles/example2.vec">
+    <entry file="file://$PROJECT_DIR$/resources/examplefiles/example2.vec">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="3" selection-end-column="115" />
@@ -913,20 +865,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/BuildApp.java">
+    <entry file="file://$PROJECT_DIR$/src/test/PolygonTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+        <state relative-caret-position="160">
+          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/StatusBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/PolygonTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Observers/CanvasPanelListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
+        <state relative-caret-position="260">
+          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1840#1841#0" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+            <element signature="e#1921#1922#0" expanded="true" />
+            <element signature="e#1958#1959#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/MenuBars.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1580">
+          <caret line="79" column="41" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4036#4037#0" expanded="true" />
+            <element signature="e#4070#4071#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Observers/ToolBarListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/ToolBars.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Observers/EditMenuListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="37" lean-forward="true" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/BuildApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="96" column="1" lean-forward="true" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Observers/StatusBarListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Observers/FileMenuListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="83" column="49" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/vec/VecWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

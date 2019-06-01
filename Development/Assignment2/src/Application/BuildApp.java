@@ -1,10 +1,7 @@
 package Application;
 
 import GUI.CanvasPanel;
-import Observers.CanvasPanelListener;
-import Observers.EditMenuListener;
-import Observers.FileMenuListener;
-import Observers.ToolBarListener;
+import Observers.*;
 import gui.MenuBars;
 import gui.StatusBar;
 import gui.ToolBars;
@@ -38,6 +35,7 @@ public class BuildApp extends JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("VDT: Vector Design Tool");
+        currentShape = "Plot";
         loadNewCanvas();
     }
 
@@ -70,29 +68,12 @@ public class BuildApp extends JFrame {
         menuBars.addEditMenuListener(new EditMenuListener()); // add listener to edit menu
         drawCanvas.addMouseListener(new CanvasPanelListener()); // add listener to canvas
         toolBar.addToolBarListener(new ToolBarListener()); // add listeners to toolbar buttons
-//        this.addComponentListener(new ComponentAdapter() {
-//            @Override
-//            public void componentResized(ComponentEvent e) {
-//                if(scale == 600){
-//                    if(drawCanvas.getSize().width == 600){
-//                        drawCanvas.setPreferredSize(new Dimension(900, 900));
-//                    }
-//                }
-//
-//                if(drawCanvas.getSize().width == 900){
-//                    scale = 900;
-//                    drawCanvas.repaint();
-//                }
-//            }
-//        });
-
+        status.addStatusBarListener(new StatusBarListener()); // add listener for status bar
         KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
         manager.addKeyEventDispatcher(new MyDispatcher());
-
         CanvasPanel.add(drawCanvas);
         CanvasPanel.setLayout(new FlowLayout());
         this.add(CanvasPanel, BorderLayout.CENTER);
-
         this.setBackground(Color.WHITE);
         this.setVisible(true);
     }

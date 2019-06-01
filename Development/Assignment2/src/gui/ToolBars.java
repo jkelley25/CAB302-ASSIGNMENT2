@@ -2,39 +2,34 @@ package gui;
 
 
 import javax.swing.*;
-import javax.tools.Tool;
 import java.awt.*;
 import java.awt.event.ActionListener;
 public class ToolBars extends JPanel {
 
-    public static JButton selectButton, lineButton, penButton, eraseButton, squareButton,
-            fillButton, colourButton, polygonButton, ellipseButton;
+    public static JButton  lineButton, penButton, squareButton,
+            fillButton, penColorButton, polygonButton, ellipseButton;
 
     public ToolBars() {
         this.setBackground(Color.DARK_GRAY);
         // All Credit for Icon Images go to "https://www.flaticon.com/authors/pixel-perfect"
-        selectButton = createToolButton("./icons/select.png", "Select");
-        lineButton = createToolButton("./icons/line.png", "Line");
-        penButton = createToolButton("./icons/pencil.png", "Pen");
-        eraseButton = createToolButton("./icons/eraser.png", "Erase");
-        squareButton = createToolButton("./icons/square.png", "Square");
-        fillButton = createToolButton("./icons/fill.png", "Fill");
-        colourButton = createToolButton("./icons/colourwheel.png", "Colour");
-        polygonButton = createToolButton("./icons/polygon.png", "Polygon");
-        ellipseButton = createToolButton("./icons/ellipse.png", "Ellipse");
+        lineButton = createToolButton("./resources/icons/line.png", "Line");
+        penButton = createToolButton("./resources/icons/pencil.png", "Pen");
+        squareButton = createToolButton("./resources/icons/square.png", "Square");
+        fillButton = createToolButton("./resources/icons/fill.png", "Fill Color");
+        penColorButton = createToolButton("./resources/icons/colourwheel.png", " Pen Colour");
+        polygonButton = createToolButton("./resources/icons/polygon.png", "Polygon");
+        ellipseButton = createToolButton("./resources/icons/ellipse.png", "Ellipse");
 
-
-        this.add(selectButton);
         this.add(penButton);
         this.add(lineButton);
         this.add(squareButton);
         this.add(polygonButton);
         this.add(ellipseButton);
-        this.add(eraseButton);
         this.add(fillButton);
-        this.add(colourButton);
+        this.add(penColorButton);
         this.setPreferredSize(new Dimension(75, 100));
     }
+
 
     private JButton createToolButton(String imageFile, String ToolTip) {
         JButton button = new JButton();
@@ -50,14 +45,13 @@ public class ToolBars extends JPanel {
 
     // Add Actionlistener to each tool
     public void addToolBarListener (ActionListener listener){
-        selectButton.addActionListener(listener);
         lineButton.addActionListener(listener);
         penButton.addActionListener(listener);
         squareButton.addActionListener(listener);
         fillButton.addActionListener(listener);
         polygonButton.addActionListener(listener);
         ellipseButton.addActionListener(listener);
-        colourButton.addActionListener(listener);
+        penColorButton.addActionListener(listener);
     }
 }
 
