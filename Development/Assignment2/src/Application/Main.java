@@ -2,9 +2,12 @@ package Application;
 
 import javax.swing.*;
 
+/**
+ * Main of the application
+ */
 public class Main {
 
-    public static BuildApp App;
+    private static BuildApp App;
 
     public static void main(String[] args){
         SwingUtilities.invokeLater(new Runnable() {

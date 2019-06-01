@@ -275,12 +275,18 @@ public class CanvasPanelListener implements
                 e.printStackTrace();
             }
             drawCanvas.repaint();
+            drawCanvas.addCommand(rectangle);
             vecWriter.addShapeToFile(rectangle);
         }
 
         if(currentShape.equals("Ellipse")){
             try {
                 ellipse.setPenColor(penColor);
+            } catch (ShapeException e) {
+                e.printStackTrace();
+            }
+            try {
+                ellipse.setFillColor(fillColor);
             } catch (ShapeException e) {
                 e.printStackTrace();
             }

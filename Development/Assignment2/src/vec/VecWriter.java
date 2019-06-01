@@ -30,6 +30,7 @@ public class VecWriter {
         this.shapes = newShapes;
     }
     public void saveToFile(String filePath) throws IOException {
+        // clear file
         File f = new File(filePath);
         if(f.exists()){
             f.delete();
@@ -39,6 +40,7 @@ public class VecWriter {
                 e.printStackTrace();
             }
         }
+        // writ to file
         BufferedWriter writer = new BufferedWriter(new FileWriter(filePath,
                 true)); // allow for appending
         writer.flush();
@@ -56,8 +58,6 @@ public class VecWriter {
         }
         writer.close(); // close when finished writing
     }
-
-    // ------------------------------------------------- Helper Methods -------------------------------- \\
 
     private void writePolygon(BufferedWriter writer, int i, double[] coord) throws IOException {
         if(shapes.get(i).getClass().equals(Polygon.class)){
@@ -88,9 +88,10 @@ public class VecWriter {
                 writer.write("PEN " + hex.toUpperCase());
                 writer.newLine();
             }
-            if (i > 0 && shapes.get(i).getPenColor() != null && shapes.get(i).getPenColor() != shapes.get(i - 1).getPenColor()) {
-                String hex = "#" + Integer.toHexString(shapes.get(i).getPenColor().getRGB()).substring(2);
-                writer.write("PEN " + hex.toUpperCase());
+            if (i > 0 && shapes.get(i).getFillColor() != null && shapes.get(i).getFillColor() !=
+                    shapes.get(i - 1).getFillColor()) {
+                String hex = "#" + Integer.toHexString(shapes.get(i).getFillColor().getRGB()).substring(2);
+                writer.write("FILL " + hex.toUpperCase());
                 writer.newLine();
             }
             writer.write("ELLIPSE " + coord[0]/BuildApp.scale + " " + coord[1]/BuildApp.scale + " " +
@@ -107,9 +108,10 @@ public class VecWriter {
                 writer.write("PEN " + hex.toUpperCase());
                 writer.newLine();
             }
-            if (i > 0 && shapes.get(i).getPenColor() != null && shapes.get(i).getPenColor() != shapes.get(i - 1).getPenColor()) {
-                String hex = "#" + Integer.toHexString(shapes.get(i).getPenColor().getRGB()).substring(2);
-                writer.write("PEN " + hex.toUpperCase());
+            if (i > 0 && shapes.get(i).getFillColor() != null && shapes.get(i).getFillColor()
+                    != shapes.get(i - 1).getFillColor()) {
+                String hex = "#" + Integer.toHexString(shapes.get(i).getFillColor().getRGB()).substring(2);
+                writer.write("FILL " + hex.toUpperCase());
                 writer.newLine();
             }
             writer.write("RECTANGLE " + coord[0]/BuildApp.scale + " " + coord[1]/BuildApp.scale + " " +
@@ -122,11 +124,6 @@ public class VecWriter {
         if (shapes.get(i).getClass().equals(Line.class)) {
             // write PEN only if previous shape has different color
             if(i == 0 && shapes.get(i).getPenColor() != null) {
-                String hex = "#" + Integer.toHexString(shapes.get(i).getPenColor().getRGB()).substring(2);
-                writer.write("PEN " + hex.toUpperCase());
-                writer.newLine();
-            }
-            if (i > 0 && shapes.get(i).getPenColor() != null && shapes.get(i).getPenColor() != shapes.get(i - 1).getPenColor()) {
                 String hex = "#" + Integer.toHexString(shapes.get(i).getPenColor().getRGB()).substring(2);
                 writer.write("PEN " + hex.toUpperCase());
                 writer.newLine();

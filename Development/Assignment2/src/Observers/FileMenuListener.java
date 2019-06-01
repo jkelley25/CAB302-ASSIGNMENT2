@@ -67,6 +67,7 @@ public class FileMenuListener implements ActionListener, Runnable {
                 }
             } else {
                 try {
+                    vecWriter.setShapes(drawCanvas.getCommands());
                     vecWriter.saveToFile(savePath);
                 } catch (IOException ex) {
                     ex.printStackTrace();

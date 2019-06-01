@@ -2,33 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e43c6159-fae3-4a92-b9fc-b2cb52e364a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examplefiles/example1.vec" beforeDir="false" afterPath="$PROJECT_DIR$/resources/examplefiles/example1.vec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examplefiles/example2.vec" beforeDir="false" afterPath="$PROJECT_DIR$/resources/examplefiles/example2.vec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examplefiles/example3.vec" beforeDir="false" afterPath="$PROJECT_DIR$/resources/examplefiles/example3.vec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/colourwheel.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/colourwheel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/ellipse.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/ellipse.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/eraser.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/eraser.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/fill.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/fill.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/line.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/line.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/pencil.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/pencil.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/polygon.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/polygon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/select.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/select.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icons/square.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/icons/square.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Application/BuildApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/BuildApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Application/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Application/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Observers/CanvasPanelListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Observers/CanvasPanelListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Observers/EditMenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Observers/EditMenuListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Observers/FileMenuListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Observers/FileMenuListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Observers/ToolBarListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Observers/ToolBarListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MenuBars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MenuBars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/StatusBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/StatusBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/ToolBars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/ToolBars.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/vec/VecWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/vec/VecWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vecfiles/fill.VEC" beforeDir="false" afterPath="$PROJECT_DIR$/resources/vecfiles/fill.VEC" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vecfiles/fill2.VEC" beforeDir="false" afterPath="$PROJECT_DIR$/resources/vecfiles/fill2.VEC" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vecfiles/fill3.VEC" beforeDir="false" afterPath="$PROJECT_DIR$/resources/vecfiles/fill3.VEC" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vecfiles/polytest.vec" beforeDir="false" afterPath="$PROJECT_DIR$/resources/vecfiles/polytest.vec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vecfiles/writetest.vec" beforeDir="false" afterPath="$PROJECT_DIR$/resources/vecfiles/writetest.vec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/write.vec" beforeDir="false" afterPath="$PROJECT_DIR$/write.vec" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -39,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="181" />
+    <option name="myElementSize" value="167" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -49,7 +26,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Application/BuildApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
+            <state relative-caret-position="1920">
               <caret line="96" column="1" lean-forward="true" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -66,6 +43,15 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Application/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -97,21 +83,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/StatusBar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Observers/StatusBarListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
+            <state relative-caret-position="200">
               <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -123,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Observers/FileMenuListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="83" column="49" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="49" />
+            <state relative-caret-position="133">
+              <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,8 +109,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/vec/VecWriter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+            <state relative-caret-position="771">
+              <caret line="113" column="34" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -159,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Observers/CanvasPanelListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
+            <state relative-caret-position="358">
+              <caret line="291" column="13" lean-forward="true" selection-start-line="291" selection-start-column="13" selection-end-line="291" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1840#1841#0" expanded="true" />
@@ -200,7 +174,6 @@
         <option value="$PROJECT_DIR$/src/gui/BasicUI.java" />
         <option value="$PROJECT_DIR$/src/gui/ColorChooser.java" />
         <option value="H:/Practicals/lec09-gui/src/week8/AllEvents.java" />
-        <option value="$PROJECT_DIR$/src/Application/Main.java" />
         <option value="$PROJECT_DIR$/write.vec" />
         <option value="$PROJECT_DIR$/vecfiles/example1.vec" />
         <option value="$PROJECT_DIR$/src/gui/FramesAndPanels.java" />
@@ -237,12 +210,13 @@
         <option value="$PROJECT_DIR$/src/gui/StatusBar.java" />
         <option value="$PROJECT_DIR$/src/gui/MenuBars.java" />
         <option value="$PROJECT_DIR$/src/Application/BuildApp.java" />
-        <option value="$PROJECT_DIR$/src/Observers/CanvasPanelListener.java" />
         <option value="$PROJECT_DIR$/src/Observers/EditMenuListener.java" />
         <option value="$PROJECT_DIR$/src/Observers/StatusBarListener.java" />
         <option value="$PROJECT_DIR$/src/Observers/ToolBarListener.java" />
         <option value="$PROJECT_DIR$/src/gui/ToolBars.java" />
+        <option value="$PROJECT_DIR$/src/Application/Main.java" />
         <option value="$PROJECT_DIR$/src/Observers/FileMenuListener.java" />
+        <option value="$PROJECT_DIR$/src/Observers/CanvasPanelListener.java" />
         <option value="$PROJECT_DIR$/src/vec/VecWriter.java" />
       </list>
     </option>
@@ -275,36 +249,13 @@
             <path>
               <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
               <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Observers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Assignment2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Assignment2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="vec" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -361,7 +312,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.test in Assignment2">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Application.Main" />
       <module name="Assignment2" />
@@ -438,8 +389,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.test in Assignment2" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.test in Assignment2" />
         <item itemvalue="JUnit.PolygonTest" />
         <item itemvalue="JUnit.PolygonTest.TestNegExcpMsg" />
         <item itemvalue="JUnit.PolygonTest.TestNegException" />
@@ -460,12 +411,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PolygonTest_TestFirstCommand - 2019.06.01 at 14h 15m 40s.xml">
-      <configuration name="PolygonTest.TestFirstCommand" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PolygonTest_TestNumCommands - 2019.06.01 at 14h 16m 25s.xml">
-      <configuration name="PolygonTest.TestNumCommands" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PolygonTest_TestFirstCommand - 2019.06.01 at 14h 18m 00s.xml">
       <configuration name="PolygonTest.TestFirstCommand" configurationId="JUnit" />
     </history-entry>
@@ -490,6 +435,12 @@
     <history-entry file="PolygonTest - 2019.06.01 at 14h 22m 57s.xml">
       <configuration name="PolygonTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="test_in_Assignment2 - 2019.06.01 at 16h 04m 12s.xml">
+      <configuration name="test in Assignment2" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_in_Assignment2 - 2019.06.01 at 16h 18m 23s.xml">
+      <configuration name="test in Assignment2" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -504,7 +455,7 @@
     <frame x="0" y="23" width="1280" height="734" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17609046" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14458804" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -514,12 +465,12 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32866043" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28037384" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28193146" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39719626" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3261105" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.23364486" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.288162" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32827735" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32554516" />
@@ -872,33 +823,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/StatusBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Observers/CanvasPanelListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1840#1841#0" expanded="true" />
-            <element signature="e#1877#1878#0" expanded="true" />
-            <element signature="e#1921#1922#0" expanded="true" />
-            <element signature="e#1958#1959#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -945,19 +875,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Application/BuildApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="96" column="1" lean-forward="true" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Observers/StatusBarListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
+        <state relative-caret-position="200">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -965,20 +885,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Observers/FileMenuListener.java">
+    <entry file="file://$PROJECT_DIR$/src/Application/BuildApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="83" column="49" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="49" />
+        <state relative-caret-position="1920">
+          <caret line="96" column="1" lean-forward="true" selection-start-line="96" selection-start-column="1" selection-end-line="96" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Application/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Observers/FileMenuListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="68" column="21" lean-forward="true" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Observers/CanvasPanelListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="291" column="13" lean-forward="true" selection-start-line="291" selection-start-column="13" selection-end-line="291" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1840#1841#0" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+            <element signature="e#1921#1922#0" expanded="true" />
+            <element signature="e#1958#1959#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/vec/VecWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+        <state relative-caret-position="771">
+          <caret line="113" column="34" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
