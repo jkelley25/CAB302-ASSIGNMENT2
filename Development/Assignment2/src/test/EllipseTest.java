@@ -7,28 +7,41 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import shapes.AbstractShape;
 import shapes.Ellipse;
-import shapes.Plot;
 import shapes.ShapeException;
 import vec.VecReader;
 
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Unit test for Ellipse class
+ */
 class EllipseTest {
     private Ellipse ellipse;
     private VecReader vec = new VecReader("TestFiles/EllipseTest.vec");
     private int SCALE = 600;
 
+    /**
+     * Clear object before each test
+     */
     @BeforeEach
     void init(){
         ellipse = null;
     }
 
+    /**
+     * Test obeject construction
+     *
+     */
     @Test
     void TestConstuction() throws ShapeException {
         ellipse = new Ellipse(Color.black, null, 100, 100);
     }
 
+    /**
+     * Test Coordinates
+     *
+     */
     @Test
     void TestCoords() throws ShapeException {
         ellipse = new Ellipse(Color.black, null, 1,2,3,4);
@@ -41,6 +54,10 @@ class EllipseTest {
         assertEquals(expected[3], actual[3]);
     }
 
+    /**
+     * Test start coordinate
+     *
+     */
     @Test
     void TestStartCoord() throws ShapeException {
         ellipse = new Ellipse(Color.black, null, 10,10);
@@ -52,8 +69,12 @@ class EllipseTest {
         assertEquals(expected[1], actual[1]);
     }
 
+    /**
+     * Test end coordiante
+     *
+     */
     @Test
-    void TestEnCoord() throws ShapeException {
+    void TestEndCoord() throws ShapeException {
         ellipse = new Ellipse(Color.black, null, 10,10);
         ellipse.setEndPoint(200,200);
         double [] actual = ellipse.getCoordinates();
@@ -62,14 +83,22 @@ class EllipseTest {
         assertEquals(expected[1], actual[3]);
      }
 
-     @Test
+    /**
+     * Test pen color
+     *
+     */
+    @Test
     void TestPenColor() throws ShapeException {
         ellipse = new Ellipse(Color.black, null, 1,1);
         ellipse.setPenColor(Color.green);
         assertEquals(Color.green, ellipse.getPenColor());
      }
 
-     @Test
+    /**
+     * Test fill color
+     *
+     */
+    @Test
     void TestFillColor() throws ShapeException {
         ellipse = new Ellipse(Color.black, null, 1,1);
         ellipse.setFillColor(Color.green);
@@ -116,6 +145,9 @@ class EllipseTest {
         assertEquals(expected,actual);
     }
 
+    /**
+     * Test invalid pen color exception is thrown
+     */
     @Test
     void TestException() {
         assertThrows(Exception.class, () -> {
@@ -123,6 +155,9 @@ class EllipseTest {
         });
     }
 
+    /**
+     * Test pen exception msg
+     */
     @Test
     void TestPenExceptionMessage() {
         try {
@@ -132,12 +167,37 @@ class EllipseTest {
         }
     }
 
+    /**
+     * Test Fill exception msg
+     */
     @Test
     void TestFillExceptionMsg(){
         try {
             ellipse = new Ellipse(Color.black, Color.decode("23"), 1,1);
         } catch (ShapeException e) {
             assertEquals("Invalid fill color!", e.getMessage());
+        }
+    }
+
+    /**
+     * Test negative exception is thrown
+     */
+    @Test
+    void TestNegException(){
+        assertThrows(Exception.class, () -> {
+            ellipse = new Ellipse(Color.black, null, -1,-1);
+        });
+    }
+
+    /**
+     * Test negative msg
+     */
+    @Test
+    void TestNegExcpMsg(){
+        try {
+            ellipse = new Ellipse(Color.green, null, -1,1);
+        } catch (ShapeException e) {
+            assertEquals("Coordinates cannot be negative", e.getMessage());
         }
     }
 }

@@ -94,6 +94,9 @@ class PlotTest {
         assertEquals(expected,actual);
     }
 
+    /**
+     * Test exception is thrown for invalid color
+     */
     @Test
     void TestException() {
         assertThrows(Exception.class, () -> {
@@ -101,12 +104,37 @@ class PlotTest {
         });
     }
 
+    /**
+     * Test exception message
+     */
     @Test
     void TestExceptionMessage() {
         try {
             plot = new Plot(Color.decode("23"), null, 1,1);
         } catch (ShapeException e) {
             assertEquals("Invalid pen color!", e.getMessage());
+        }
+    }
+
+    /**
+     * Test negative coord exception thrown
+     */
+    @Test
+    void TestNegException(){
+        assertThrows(Exception.class, () -> {
+            plot = new Plot(Color.black, null, -1,-1);
+        });
+    }
+
+    /**
+     * Test negative coord message
+     */
+    @Test
+    void TestNegExcpMsg(){
+        try {
+            plot = new Plot(Color.green, null, -1,1);
+        } catch (ShapeException e) {
+            assertEquals("Coordinate cannot be negative", e.getMessage());
         }
     }
 }

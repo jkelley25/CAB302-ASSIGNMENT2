@@ -28,7 +28,12 @@ public class VecWriter {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filePath,
                 true)); // allow for appending
         for(int i = 0; i < shapes.size(); i++) {
-            double[] coord = shapes.get(i).getCoordinates();
+            double[] coord = new double[0];
+            try {
+                coord = shapes.get(i).getCoordinates();
+            } catch (ShapeException e) {
+                e.printStackTrace();
+            }
             writeLine(writer, i, coord);
             writeRectangle(writer, i, coord);
             writeEllipse(writer, i, coord);

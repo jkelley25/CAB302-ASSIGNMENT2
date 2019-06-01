@@ -1,5 +1,7 @@
 package gui;
 
+import Application.BuildApp;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -17,7 +19,7 @@ public class StatusBar extends JPanel {
         clear.setFocusable(false);
 
         JLabel pen = new JLabel("PEN");
-        pen.setForeground(Color.green);
+        pen.setForeground(BuildApp.penColor);
         JLabel fill = new JLabel("FILL");
         this.add(clear, BorderLayout.LINE_START);
         this.add(pen, BorderLayout.CENTER);

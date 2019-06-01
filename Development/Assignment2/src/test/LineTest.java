@@ -102,6 +102,9 @@ class LineTest {
         assertEquals(expected,actual);
     }
 
+    /**
+     * Test exception thrown for invalid for invalid color
+     */
     @Test
     void TestException() {
         assertThrows(Exception.class, () -> {
@@ -109,12 +112,37 @@ class LineTest {
         });
     }
 
+    /**
+     * Test exception message for invalid color
+     */
     @Test
     void TestExceptionMessage() {
         try {
             line = new Line(Color.decode("23"), null, 1,1);
         } catch (ShapeException e) {
             assertEquals("Invalid pen color!", e.getMessage());
+        }
+    }
+
+    /**
+     * Test exception is thrown for negative
+     */
+    @Test
+    void TestNegException(){
+        assertThrows(Exception.class, () -> {
+            line = new Line(Color.black, null, -1,-1);
+        });
+    }
+
+    /**
+     * Test negative msg exception
+     */
+    @Test
+    void TestNegExcpMsg(){
+        try {
+            line = new Line(Color.green, null, -1,1);
+        } catch (ShapeException e) {
+            assertEquals("Coordinates cannot be negative", e.getMessage());
         }
     }
 

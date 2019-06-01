@@ -9,7 +9,6 @@ import shapes.AbstractShape;
 import shapes.ShapeException;
 import vec.VecReader;
 import shapes.Rectangle;
-
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -110,6 +109,9 @@ public class RectangleTest {
         assertEquals(expected,actual);
     }
 
+    /**
+     * Test exception is thrown for invalid color
+     */
     @Test
     void TestException() {
         assertThrows(Exception.class, () -> {
@@ -117,6 +119,9 @@ public class RectangleTest {
         });
     }
 
+    /**
+     * Test invalid color msg
+     */
     @Test
     void TestExceptionMessage() {
         try {
@@ -126,12 +131,37 @@ public class RectangleTest {
         }
     }
 
+    /**
+     * Test invalid fill color exception
+     */
     @Test
     void TestFillExceptionMsg(){
         try {
             rect = new Rectangle(Color.black, Color.decode("23"), 1,1);
         } catch (ShapeException e) {
             assertEquals("Invalid fill color!", e.getMessage());
+        }
+    }
+
+    /**
+     * Test neg exception is thrown
+     */
+    @Test
+    void TestNegException(){
+        assertThrows(Exception.class, () -> {
+            rect = new Rectangle(Color.black, null, -1,-1);
+        });
+    }
+
+    /**
+     * Test negative msg
+     */
+    @Test
+    void TestNegExcpMsg(){
+        try {
+            rect = new Rectangle(Color.green, null, -1,1);
+        } catch (ShapeException e) {
+            assertEquals("Coordinates cannot be negative", e.getMessage());
         }
     }
 

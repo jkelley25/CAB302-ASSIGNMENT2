@@ -38,12 +38,17 @@ public abstract class AbstractShape {
      * Gets the coordinates of shape
      * @return double array containing coordinates
      */
-    public abstract double [] getCoordinates ();
+    public abstract double [] getCoordinates () throws ShapeException;
 
     public abstract Color getPenColor ();
 
     public abstract Color getFillColor();
 
+    public abstract void setPenColor(Color penColor) throws ShapeException;
+
+    public abstract void setStartPoint(double x1, double y1) throws ShapeException;
+
+    public abstract void setEndPoint(double x2, double y2) throws ShapeException;
 
 
 }
