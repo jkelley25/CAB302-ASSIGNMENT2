@@ -1,6 +1,6 @@
 package gui;
 
-import GUI.CanvasPanel;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -10,23 +10,8 @@ import javax.swing.*;
 
 /* TopLevelDemo.java requires no other files. */
 public class MenuBars extends JMenuBar {
-//    private static Draw draw = new Draw();
-//    private static VecReader vec;
-
-    // STATES
-    private static String shape;
-    public static boolean load = false;
-    private static boolean save = true;
-    public static String filePath;
-
-    private CanvasPanel canvasPanel;
-
-    private JMenu fileMenu;
-    private JMenu editMenu;
-    private JMenu helpMenu;
-
     public static JMenuItem New, Save, SaveAs, Load, Quit; // File Menu
-    public static JMenuItem Undo, Redo, ClearCanvas;
+    public static JMenuItem Undo, Redo, ClearCanvas; // Edit menu
     /**
      * Generates the top level of the basic User Interface
      */
@@ -36,19 +21,40 @@ public class MenuBars extends JMenuBar {
         this.setBackground(Color.WHITE);
         this.setPreferredSize(new Dimension(200, 20));
 
-        fileMenu = fileMenu();
-        editMenu = editMenu();
-        helpMenu = helpMenu();
+        JMenu fileMenu = fileMenu();
+        JMenu editMenu = editMenu();
+        JMenu helpMenu = helpMenu();
 
         this.add(fileMenu);
         this.add(editMenu);
         this.add(helpMenu);
     }
 
+    /**
+     * Add an actionlistener to each menu item
+     * @param listener the action listener object
+     */
+    public void addFileMenuListner(ActionListener listener){
+        New.addActionListener(listener);
+        Save.addActionListener(listener);
+        SaveAs.addActionListener(listener);
+        Load.addActionListener(listener);
+        Quit.addActionListener(listener);
+    }
 
-    //
-    /* @param JMenuBar
-    Adds File as a Menu to Menu Bar
+    /**
+     * Add an actionlistener to each edit menu item
+     * @param listener the action listener
+     */
+    public void addEditMenuListener(ActionListener listener){
+        Undo.addActionListener(listener);
+        Redo.addActionListener(listener);
+        ClearCanvas.addActionListener(listener);
+    }
+
+    /**
+     * Adds File as a Menu to Menu Bar
+     * @return returns the Jmenu file
      */
     private static JMenu fileMenu() {
         JMenu File = new JMenu("File");
@@ -67,22 +73,10 @@ public class MenuBars extends JMenuBar {
         return File;
     }
 
-    public void addFileMenuListner(ActionListener listener){
-        New.addActionListener(listener);
-        Save.addActionListener(listener);
-        SaveAs.addActionListener(listener);
-        Load.addActionListener(listener);
-        Quit.addActionListener(listener);
-    }
 
-    public void addEditMenuListener(ActionListener listener){
-        Undo.addActionListener(listener);
-        Redo.addActionListener(listener);
-        ClearCanvas.addActionListener(listener);
-    }
-
-    /* @param JMenuBar
-    Adds Edit as a Menu to Menu Bar
+    /**
+     * Adds menu items to the edit menu
+     * @return the Jmenu object
      */
     private static JMenu editMenu() {
         JMenu Edit = new JMenu("Edit");
@@ -98,6 +92,10 @@ public class MenuBars extends JMenuBar {
         return Edit;
     }
 
+    /**
+     * Adds menu items to the help menu
+     * @return Jmenu object
+     */
     private static JMenu helpMenu() {
         /* Create Help Menu */
         JMenu Help = new JMenu("Help");
@@ -107,9 +105,10 @@ public class MenuBars extends JMenuBar {
         return Help;
     }
 
-    /*
-    @param JMenuItem and JMenu
-    Adds a Menu Item to Menu
+    /**
+     * Add Jmenu to file menu
+     * @param MenuItem menu item
+     * @param Menu the main menu
      */
     private static void addMenuItem(JMenuItem MenuItem, JMenu Menu) {
         Menu.add(MenuItem);

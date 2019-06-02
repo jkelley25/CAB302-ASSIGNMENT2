@@ -13,6 +13,7 @@ import static Application.BuildApp.*;
  * Class for listening for toolbar actions
  */
 public class ToolBarListener implements ActionListener {
+    // Set the current shape and/or color depending on the source of event
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == ToolBars.penButton) {
@@ -20,9 +21,6 @@ public class ToolBarListener implements ActionListener {
         }
         if (e.getSource() == ToolBars.fillButton) {
             fillColor = JColorChooser.showDialog(null, "Pick fill color", penColor);
-            if (fillColor == null) {
-                fillColor = null;
-            }
         }
         if (e.getSource() == ToolBars.lineButton) {
             currentShape = "Line";

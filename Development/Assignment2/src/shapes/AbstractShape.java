@@ -2,14 +2,12 @@ package shapes;
 
 import java.awt.*;
 
+/**
+ * Abstract shape class
+ */
 public abstract class AbstractShape {
     Color penColor;
     Color fillColor;
-    /**
-     * AbstractShape constructor given a color
-     * @param penColor color of the outline of shape
-     */
-
 
     /**
      * AbstractShape constructor given a pen and fill color
@@ -40,14 +38,39 @@ public abstract class AbstractShape {
      */
     public abstract double [] getCoordinates () throws ShapeException;
 
+    /**
+     * Get the pen color of the shape
+     * @return
+     */
     public abstract Color getPenColor ();
 
+    /**
+     * Get the fill color of the shape
+     * @return
+     */
     public abstract Color getFillColor();
 
+    /**
+     * Set the pen color of the shape
+     * @param penColor color of the pen to be set
+     * @throws ShapeException if the color is invalid
+     */
     public abstract void setPenColor(Color penColor) throws ShapeException;
 
+    /**
+     * Set the start point of the shape
+     * @param x1 x coordinate of the first point
+     * @param y1 y coordinate of the first point
+     * @throws ShapeException
+     */
     public abstract void setStartPoint(double x1, double y1) throws ShapeException;
 
+    /**
+     * Set the end point of the shape
+     * @param x2 x coordinate of the end point
+     * @param y2 y coordinate of the end point
+     * @throws ShapeException
+     */
     public abstract void setEndPoint(double x2, double y2) throws ShapeException;
 
 

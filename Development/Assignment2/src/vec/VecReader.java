@@ -37,13 +37,13 @@ public class VecReader extends FileIO{
      */
     @Override
     public void ReadFile() {
-        // This will reference one line at a time
+        // Read one line at a time
         String line;
         try {
             // FileReader reads text files in the default encoding.
             FileReader fileReader = new FileReader(fileName);
 
-            // Always wrap FileReader in BufferedReader.
+            // wrap FileReader in BufferedReader.
             BufferedReader bufferedReader =
                     new BufferedReader(fileReader);
             // read every line
@@ -54,10 +54,10 @@ public class VecReader extends FileIO{
             bufferedReader.close();
         }
         catch(FileNotFoundException ex) {
-            System.out.println("Unable to open file '" + fileName + "'");
+            System.out.println("Unable to vec open file '" + fileName + "'");
         }
         catch(IOException ex) {
-            System.out.println("Error reading file '" + fileName + "'");
+            System.out.println("Error reading vec file '" + fileName + "'");
         }
     }
 
@@ -204,25 +204,20 @@ public class VecReader extends FileIO{
         int size = cmd.length - 1;
         double [] x = new double[size/2];
         double [] y = new double [size/2];
-
         ArrayList<Double> xcoord = new ArrayList<>();
         ArrayList<Double> ycoord = new ArrayList<>();
-
         // add every second value to xcoord
         for (int i = 1; i < cmd.length; i+=2){
             xcoord.add(Double.parseDouble(cmd[i])*scale);
         }
-
         // add every second value to xcoord
         for (int i = 2; i < cmd.length; i+=2){
             ycoord.add(Double.parseDouble(cmd[i])*scale);
         }
-
         // add xcoord to x
         for (int i = 0; i < x.length; i++){
             x[i] = xcoord.get(i);
         }
-
         // add ycoord to y
         for (int i = 0; i < x.length; i++){
             y[i] = ycoord.get(i);

@@ -14,6 +14,7 @@ public class EditMenuListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        // check which menu item is clicked
         if(e.getSource() == Undo){
             try{
                 drawCanvas.removeCommand(); // remove last command

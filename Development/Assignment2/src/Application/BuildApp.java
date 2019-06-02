@@ -1,6 +1,6 @@
 package Application;
 
-import GUI.CanvasPanel;
+import gui.CanvasPanel;
 import Observers.*;
 import gui.MenuBars;
 import gui.StatusBar;

@@ -21,6 +21,5 @@ public class StatusBar extends JPanel {
 
     public void addStatusBarListener(StatusBarListener listener){
         clear.addActionListener(listener);
-        clear.addPropertyChangeListener(listener);
     }
 }

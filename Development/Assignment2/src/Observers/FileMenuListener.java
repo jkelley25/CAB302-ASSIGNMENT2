@@ -19,6 +19,11 @@ import static gui.MenuBars.*;
 public class FileMenuListener implements ActionListener, Runnable {
     Thread t;
     private String savePath;
+
+    /**
+     * Check which action is performed in the file menu
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == Quit) {
@@ -29,17 +34,19 @@ public class FileMenuListener implements ActionListener, Runnable {
                 System.exit(result);
             }
         }
+        // Create new canvas
         if(e.getSource() == New){
             int result = JOptionPane.showConfirmDialog( CanvasPanel ,
                     "Start new? This will clear current canvas", "New Confirmation : ",
                     JOptionPane.OK_CANCEL_OPTION);
             if(result == 0){
+                // clear canvas
                 drawCanvas.clearCommands();
                 drawCanvas.repaint();
                 savePath = null;
             }
         }
-
+        // load file
         if(e.getSource() == Load){
             FileFilter filter = new FileNameExtensionFilter("Vec File","vec");
             JFileChooser fc = new JFileChooser();
@@ -54,7 +61,7 @@ public class FileMenuListener implements ActionListener, Runnable {
                 fillColor = null;
             }
         }
-
+        // save current filepath if loaded
         if(e.getSource() == Save ){
             if(vecFilePath == null){
                 JFileChooser fc = new JFileChooser();
@@ -74,6 +81,7 @@ public class FileMenuListener implements ActionListener, Runnable {
                 }
             }
         }
+        // opens up a save dialog
         if(e.getSource() == SaveAs){
             JFileChooser fc = new JFileChooser();
             fc.setCurrentDirectory(new java.io.File("."));
