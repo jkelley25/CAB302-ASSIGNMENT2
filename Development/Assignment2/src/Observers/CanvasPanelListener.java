@@ -176,7 +176,6 @@ public class CanvasPanelListener implements
             }
 
             drawCanvas.repaint();
-            System.out.println(m.getX() + ": " + m.getY());
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {

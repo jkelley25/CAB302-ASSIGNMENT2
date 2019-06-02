@@ -76,7 +76,7 @@ public class Polygon extends AbstractShape {
         }
         g2.draw(path);
         //Check if fill is on
-        if(fillColor != null){
+        if(fillColor != null && close){
             g2.setColor(fillColor);
             g2.fill(path);
         }

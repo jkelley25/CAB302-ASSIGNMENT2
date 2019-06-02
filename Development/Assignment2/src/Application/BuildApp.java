@@ -21,9 +21,8 @@ public class BuildApp extends JFrame {
     public static String vecFilePath = null;
     public static int scale = 600;
 
-    //STATES
     public static String currentShape;
-    public static Color penColor;
+    public static Color penColor = Color.black;
     public static Color fillColor;
 
     /**

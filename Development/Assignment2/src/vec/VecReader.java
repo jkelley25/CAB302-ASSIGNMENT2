@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class VecReader extends FileIO{
     private ArrayList<String[]> data = new ArrayList<>();
     private ArrayList<AbstractShape> shapes = new ArrayList<>();
-    private Color penColor;
+    private Color penColor = Color.BLACK;
     private Color fillColor = null;
 
     /**
