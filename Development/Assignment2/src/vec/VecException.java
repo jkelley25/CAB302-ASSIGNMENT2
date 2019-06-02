@@ -1,5 +1,8 @@
 package vec;
 
+/**
+ * Exception class for VecIO
+ */
 public class VecException extends Exception {
     public VecException(){
         super();

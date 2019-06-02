@@ -13,14 +13,18 @@ import vec.VecWriter;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * The main JFame of the application, where components and listeners are added
+ */
 public class BuildApp extends JFrame {
 
+    /**
+     * Static variables of the Application
+     */
     public static CanvasPanel CanvasPanel;
     public static Draw drawCanvas;
     public static VecWriter vecWriter = new VecWriter();
     public static String vecFilePath = null;
-    public static int scale = 600;
-
     public static String currentShape;
     public static Color penColor = Color.black;
     public static Color fillColor;
@@ -39,7 +43,7 @@ public class BuildApp extends JFrame {
     }
 
     /**
-     * Method for importing to current canvas
+     * Method for loading to current canvas
      */
     public static void reloadCanvas(){
         VecReader vecRead = new VecReader(vecFilePath);
@@ -77,7 +81,9 @@ public class BuildApp extends JFrame {
         this.setVisible(true);
     }
 
-    // Inner class for listening for key commands
+    /**
+     * Inner class for listening for key commands
+     */
     private class MyDispatcher implements KeyEventDispatcher {
         @Override
         public boolean dispatchKeyEvent(KeyEvent e) {

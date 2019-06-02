@@ -1,5 +1,8 @@
 package shapes;
 
+/**
+ * Exception class for shapes
+ */
 public class ShapeException extends Exception{
 
     public ShapeException(){

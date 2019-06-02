@@ -6,7 +6,9 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
-
+/**
+ * Class that contains the main menu bar, extends JMenuBar
+ */
 
 /* TopLevelDemo.java requires no other files. */
 public class MenuBars extends JMenuBar {

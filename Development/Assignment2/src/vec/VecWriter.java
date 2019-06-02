@@ -10,6 +10,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Class for writing to Vec file format
+ */
 public class VecWriter {
     private ArrayList<AbstractShape> shapes = new ArrayList<>();
     private final int SCALE = 600;
@@ -43,7 +46,7 @@ public class VecWriter {
      * @throws IOException throws if there is an error in the saving process
      */
     public void saveToFile(String filePath) throws IOException {
-        // clear file before writing to it
+        // reset file before writing to it
         File f = new File(filePath);
         if(f.exists()){
             f.delete();

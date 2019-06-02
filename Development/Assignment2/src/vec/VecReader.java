@@ -1,6 +1,5 @@
 package vec;
 
-import Application.BuildApp;
 import shapes.*;
 import shapes.Polygon;
 import shapes.Rectangle;
@@ -10,13 +9,14 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * Class for handling input and output of VEC file format. Extends FileIO
+ * Class for reading VEC file format. Extends FileIO
  */
 public class VecReader extends FileIO{
     private ArrayList<String[]> data = new ArrayList<>();
     private ArrayList<AbstractShape> shapes = new ArrayList<>();
     private Color penColor = Color.BLACK;
     private Color fillColor = null;
+    private final int SCALE = 600;
 
     /**
      * Construct a VecReader object given the fileName
@@ -85,31 +85,31 @@ public class VecReader extends FileIO{
             }
             // check for LINE cmd
             if(com[0].equals("LINE")){
-                Line newLine = readLine(penColor, fillColor, com, BuildApp.scale);
+                Line newLine = readLine(penColor, fillColor, com, SCALE);
                 //draw.addCommand(newLine);
                 shapes.add(newLine);
             }
             // check for PLOT cmd
             if(com[0].equals("PLOT")){
-                Plot plot = readPlot(penColor, com, BuildApp.scale);
+                Plot plot = readPlot(penColor, com, SCALE);
                 //draw.addCommand(plot);
                 shapes.add(plot);
             }
             // check for RECTANGLE cmd
             if(com[0].equals("RECTANGLE")){
-                Rectangle rect =  readRetangle(penColor, fillColor, com, BuildApp.scale);
+                Rectangle rect =  readRetangle(penColor, fillColor, com, SCALE);
                 //draw.addCommand(rect);
                 shapes.add(rect);
             }
             // check for ELLIPSE cmd
             if(com[0].equals("ELLIPSE")){
-                Ellipse ellipse = readEllipse(penColor, fillColor, com, BuildApp.scale);
+                Ellipse ellipse = readEllipse(penColor, fillColor, com, SCALE);
                 //draw.addCommand(ellipse);
                 shapes.add(ellipse);
             }
             // check for POLYGON cmd
             if(com[0].equals("POLYGON")){
-                Polygon poly = readPolygon(penColor, fillColor, com, BuildApp.scale);
+                Polygon poly = readPolygon(penColor, fillColor, com, SCALE);
                 //draw.addCommand(poly);
                 shapes.add(poly);
             }

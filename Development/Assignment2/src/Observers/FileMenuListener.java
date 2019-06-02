@@ -37,10 +37,10 @@ public class FileMenuListener implements ActionListener, Runnable {
         // Create new canvas
         if(e.getSource() == New){
             int result = JOptionPane.showConfirmDialog( CanvasPanel ,
-                    "Start new? This will clear current canvas", "New Confirmation : ",
+                    "Start new? This will reset current canvas", "New Confirmation : ",
                     JOptionPane.OK_CANCEL_OPTION);
             if(result == 0){
-                // clear canvas
+                // reset canvas
                 drawCanvas.clearCommands();
                 drawCanvas.repaint();
                 savePath = null;

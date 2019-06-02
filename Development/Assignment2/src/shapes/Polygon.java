@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.geom.Path2D;
 import java.util.ArrayList;
 
+/**
+ * Class that creates a Line object
+ */
 public class Polygon extends AbstractShape {
     private double [] x;
     private double [] y;

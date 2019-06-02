@@ -3,6 +3,9 @@ package shapes;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
+/**
+ * Class that creates a Line object
+ */
 public class Ellipse extends AbstractShape {
     private double x1;
     private double y1;

@@ -3,6 +3,9 @@ package shapes;
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * Class that creates a Rectangle object
+ */
 public class Rectangle extends AbstractShape {
     private double x1;
     private double y1;

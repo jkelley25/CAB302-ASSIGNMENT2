@@ -3,7 +3,7 @@ package Application;
 import javax.swing.*;
 
 /**
- * Main of the application
+ * Main entry point of the application
  */
 public class Main {
 

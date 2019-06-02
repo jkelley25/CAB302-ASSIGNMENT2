@@ -14,7 +14,7 @@ public class StatusBarListener implements ActionListener {
     // Perform action if reset buttom is clicked
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == StatusBar.clear){
+        if(e.getSource() == StatusBar.reset){
             // reset pen and fill to default
             BuildApp.penColor = Color.black;
             BuildApp.fillColor = null;
