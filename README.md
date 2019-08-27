@@ -1,4 +1,4 @@
-# CAB302-ASSIGNMENT2
+# Vector Design Tool
 Final assignment for CAB302 (Software Development). A Microsoft paint clone using Swing. 
 
 # Team members 
